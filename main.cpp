@@ -14,7 +14,6 @@
 #include "stb_image.h"
 
 #define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
-
 // Current compile command
 //g++ main.cpp ./src/* -I./include/ -I./include/glm-master -std=c++11 -o a.out -lSDL2 -ldl
 
@@ -38,9 +37,9 @@ GLuint lightVAO = 0;
 GLuint lightVBO = 0;
 
 // Shaders
-const std::string vertexShaderFileName = "./shaders/vertex.glsl";
-const std::string fragmentShaderFileName = "./shaders/frag.glsl";
-const std::string lightFragmentShaderFileName = "./shaders/lightFrag.glsl";
+const std::string vertexShaderFileName = "../../shaders/vertex.glsl";
+const std::string fragmentShaderFileName = "../../shaders/frag.glsl";
+const std::string lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
 GLuint GraphicsPipeline = 0;
 GLuint LightGraphicsPipeline = 0;
 
@@ -398,7 +397,7 @@ void VertexSpecification(){
     int tHeight;
     int tNRChannels;
     stbi_set_flip_vertically_on_load(true);
-    unsigned char *tData = stbi_load("./textures/testTexture.jpeg", &tWidth, &tHeight, &tNRChannels, 0);
+    unsigned char *tData = stbi_load("../../textures/testTexture.jpeg", &tWidth, &tHeight, &tNRChannels, 0);
     if(tData){
 
         GLCheck(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, tWidth, tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, tData);)
@@ -419,7 +418,7 @@ void VertexSpecification(){
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // Loads an generates texture
 
-    tData = stbi_load("./textures/awesomeface.png", &tWidth, &tHeight, &tNRChannels, 0);
+    tData = stbi_load("../../textures/awesomeface.png", &tWidth, &tHeight, &tNRChannels, 0);
     if(tData){
         GLCheck(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tWidth, tHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, tData);)
         glGenerateMipmap(GL_TEXTURE_2D);
