@@ -12,6 +12,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "Camera.hpp"
 #include "stb_image.h"
+#include "Shader.hpp"
 
 #define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
 // Current compile command
@@ -37,11 +38,11 @@ GLuint lightVAO = 0;
 GLuint lightVBO = 0;
 
 // Shaders
-const std::string vertexShaderFileName = "../../shaders/vertex.glsl";
-const std::string fragmentShaderFileName = "../../shaders/frag.glsl";
-const std::string lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
-GLuint GraphicsPipeline = 0;
-GLuint LightGraphicsPipeline = 0;
+const char* vertexShaderFileName = "../../shaders/vertex.glsl";
+const char* fragmentShaderFileName = "../../shaders/frag.glsl";
+const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
+Shader* GraphicsPipeline;
+Shader* LightGraphicsPipeline;
 
 // Transform variables
 GLfloat u_offSet = -5;
@@ -174,7 +175,7 @@ void preDrawFunc(){
     glEnable(GL_DEPTH_TEST);
 
     // Main shader implementation
-    glUseProgram(GraphicsPipeline);
+    GraphicsPipeline->use();
     // Create transformation matrices
     glm::mat4 viewMatrix = viewCam.getViewMat();
     glm::mat4 perspectiveMatrix = glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 10.0f);
@@ -190,18 +191,18 @@ void preDrawFunc(){
     modelMatrix = glm::scale(modelMatrix, glm::vec3(u_scale,u_scale,u_scale));
     lightModelMatrix = glm::scale(lightModelMatrix, glm::vec3(u_scale/3,u_scale/3,u_scale/3));
     // Inserting into uniform variables
-    insertUniformMatrix4fv(perspectiveMatrix, "u_perspectiveMat", GraphicsPipeline);
-    insertUniformMatrix4fv(modelMatrix, "u_modelMat", GraphicsPipeline);
-    insertUniformMatrix4fv(viewMatrix, "u_viewMat", GraphicsPipeline);
-    insertUniform3f(glm::vec3(1.0f), "u_lightColor", GraphicsPipeline);
-    insertUniform1i(0, "u_givenTexture1", GraphicsPipeline);
-    insertUniform1i(1, "u_givenTexture2", GraphicsPipeline);
-    insertUniform1f(ambienceVal, "u_ambienceStrength", GraphicsPipeline);
+    GraphicsPipeline->setMatrix("u_perspectiveMat", perspectiveMatrix);
+    GraphicsPipeline->setMatrix("u_modelMat",modelMatrix);
+    GraphicsPipeline->setMatrix("u_viewMat", viewMatrix);
+    GraphicsPipeline->setVec3("u_lightColor", glm::vec3(1.0f));
+    GraphicsPipeline->setInt("u_givenTexture1", 0);
+    GraphicsPipeline->setInt("u_givenTexture2", 1);
+    GraphicsPipeline->setFloat("u_ambienceStrength", ambienceVal);
     // Light shader implementations
-    glUseProgram(LightGraphicsPipeline);
-    insertUniformMatrix4fv(perspectiveMatrix, "u_perspectiveMat", LightGraphicsPipeline);
-    insertUniformMatrix4fv(lightModelMatrix, "u_modelMat", LightGraphicsPipeline);
-    insertUniformMatrix4fv(viewMatrix, "u_viewMat", LightGraphicsPipeline);
+    LightGraphicsPipeline->use();
+    LightGraphicsPipeline->setMatrix("u_perspectiveMat", perspectiveMatrix);
+    LightGraphicsPipeline->setMatrix("u_modelMat", lightModelMatrix);
+    LightGraphicsPipeline->setMatrix("u_viewMat",viewMatrix);
 }
 
 void drawFunc(){
@@ -209,11 +210,11 @@ void drawFunc(){
     GLCheck(glBindTexture(GL_TEXTURE_2D, Texture1);)
     GLCheck(glActiveTexture(GL_TEXTURE1);)
     GLCheck(glBindTexture(GL_TEXTURE_2D, Texture2);)
-    glUseProgram(GraphicsPipeline);
+    GraphicsPipeline->use();
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
-    glUseProgram(LightGraphicsPipeline);
+    LightGraphicsPipeline->use();
     glBindVertexArray(lightVAO);
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
     
@@ -304,12 +305,8 @@ GLuint CreateShaderProgram(const std::string& vertexShaderSource, const std::str
     return programObject;
 }
 void CreateGraphicsPipeline(){
-    GraphicsPipeline = CreateShaderProgram(
-        getFileString(vertexShaderFileName), 
-        getFileString(fragmentShaderFileName));
-    LightGraphicsPipeline = CreateShaderProgram(
-        getFileString(vertexShaderFileName), 
-        getFileString(lightFragmentShaderFileName));
+    GraphicsPipeline = new Shader(vertexShaderFileName, fragmentShaderFileName);
+    LightGraphicsPipeline = new Shader(vertexShaderFileName, lightFragmentShaderFileName);
 }
 
 void VertexSpecification(){
