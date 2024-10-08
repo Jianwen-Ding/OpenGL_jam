@@ -1,10 +1,12 @@
 #ifndef MESH_HPP
 #define MESH_HPP
 
-#include "Vertex.hpp";
-#include "vector";
-#include "glm/glm.hpp"
-#include "glm/gtc/quaternion.hpp"
+#include "Vertex.hpp"
+#include "Shader.hpp"
+#include "Texture.hpp"
+#include <vector>
+#include <glm/glm.hpp>
+#include <glm/gtc/quaternion.hpp>
 
 class Mesh {
     public:

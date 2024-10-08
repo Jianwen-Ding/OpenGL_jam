@@ -125,10 +125,38 @@ CMakeFiles/GLJam.dir/src/stb_imag.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GLJam.dir/src/stb_imag.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/stb_imag.cpp" -o CMakeFiles/GLJam.dir/src/stb_imag.cpp.s
 
+CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o: CMakeFiles/GLJam.dir/flags.make
+CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/structs/Texture.cpp
+CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o: CMakeFiles/GLJam.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o -MF CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o.d -o CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o -c "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Texture.cpp"
+
+CMakeFiles/GLJam.dir/src/structs/Texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GLJam.dir/src/structs/Texture.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Texture.cpp" > CMakeFiles/GLJam.dir/src/structs/Texture.cpp.i
+
+CMakeFiles/GLJam.dir/src/structs/Texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GLJam.dir/src/structs/Texture.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Texture.cpp" -o CMakeFiles/GLJam.dir/src/structs/Texture.cpp.s
+
+CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: CMakeFiles/GLJam.dir/flags.make
+CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/structs/Vector.cpp
+CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: CMakeFiles/GLJam.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o -MF CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o.d -o CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o -c "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Vector.cpp"
+
+CMakeFiles/GLJam.dir/src/structs/Vector.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GLJam.dir/src/structs/Vector.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Vector.cpp" > CMakeFiles/GLJam.dir/src/structs/Vector.cpp.i
+
+CMakeFiles/GLJam.dir/src/structs/Vector.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GLJam.dir/src/structs/Vector.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Vector.cpp" -o CMakeFiles/GLJam.dir/src/structs/Vector.cpp.s
+
 CMakeFiles/GLJam.dir/src/glad.c.o: CMakeFiles/GLJam.dir/flags.make
 CMakeFiles/GLJam.dir/src/glad.c.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/glad.c
 CMakeFiles/GLJam.dir/src/glad.c.o: CMakeFiles/GLJam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/GLJam.dir/src/glad.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/GLJam.dir/src/glad.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/GLJam.dir/src/glad.c.o -MF CMakeFiles/GLJam.dir/src/glad.c.o.d -o CMakeFiles/GLJam.dir/src/glad.c.o -c "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/glad.c"
 
 CMakeFiles/GLJam.dir/src/glad.c.i: cmake_force
@@ -145,6 +173,8 @@ GLJam_OBJECTS = \
 "CMakeFiles/GLJam.dir/src/Camera.cpp.o" \
 "CMakeFiles/GLJam.dir/src/Render_Management.cpp.o" \
 "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o" \
+"CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o" \
+"CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o" \
 "CMakeFiles/GLJam.dir/src/glad.c.o"
 
 # External object files for target GLJam
@@ -154,11 +184,13 @@ GLJam: CMakeFiles/GLJam.dir/main.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/Camera.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/Render_Management.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/stb_imag.cpp.o
+GLJam: CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o
+GLJam: CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/glad.c.o
 GLJam: CMakeFiles/GLJam.dir/build.make
 GLJam: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 GLJam: CMakeFiles/GLJam.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable GLJam"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable GLJam"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GLJam.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

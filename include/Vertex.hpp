@@ -1,8 +1,8 @@
 #ifndef VERTEX_HPP
 #define VERTEX_HPP
 
-#include "glm/glm.hpp"
-#include "glm/gtc/quaternion.hpp"
+#include <glm/glm.hpp>
+#include <glm/gtc/quaternion.hpp>
 
 struct Vertex{
     public:

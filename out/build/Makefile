@@ -249,6 +249,54 @@ src/stb_imag.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/stb_imag.cpp.s
 .PHONY : src/stb_imag.cpp.s
 
+src/structs/Texture.o: src/structs/Texture.cpp.o
+.PHONY : src/structs/Texture.o
+
+# target to build an object file
+src/structs/Texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o
+.PHONY : src/structs/Texture.cpp.o
+
+src/structs/Texture.i: src/structs/Texture.cpp.i
+.PHONY : src/structs/Texture.i
+
+# target to preprocess a source file
+src/structs/Texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Texture.cpp.i
+.PHONY : src/structs/Texture.cpp.i
+
+src/structs/Texture.s: src/structs/Texture.cpp.s
+.PHONY : src/structs/Texture.s
+
+# target to generate assembly for a file
+src/structs/Texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Texture.cpp.s
+.PHONY : src/structs/Texture.cpp.s
+
+src/structs/Vector.o: src/structs/Vector.cpp.o
+.PHONY : src/structs/Vector.o
+
+# target to build an object file
+src/structs/Vector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o
+.PHONY : src/structs/Vector.cpp.o
+
+src/structs/Vector.i: src/structs/Vector.cpp.i
+.PHONY : src/structs/Vector.i
+
+# target to preprocess a source file
+src/structs/Vector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vector.cpp.i
+.PHONY : src/structs/Vector.cpp.i
+
+src/structs/Vector.s: src/structs/Vector.cpp.s
+.PHONY : src/structs/Vector.s
+
+# target to generate assembly for a file
+src/structs/Vector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vector.cpp.s
+.PHONY : src/structs/Vector.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +321,12 @@ help:
 	@echo "... src/stb_imag.o"
 	@echo "... src/stb_imag.i"
 	@echo "... src/stb_imag.s"
+	@echo "... src/structs/Texture.o"
+	@echo "... src/structs/Texture.i"
+	@echo "... src/structs/Texture.s"
+	@echo "... src/structs/Vector.o"
+	@echo "... src/structs/Vector.i"
+	@echo "... src/structs/Vector.s"
 .PHONY : help
 
 

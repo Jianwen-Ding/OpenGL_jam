@@ -9,6 +9,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/GLJam.dir/src/glad.c.o.d"
   "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o"
   "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o.d"
+  "CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o"
+  "CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o.d"
+  "CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o"
+  "CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o.d"
   "GLJam"
   "GLJam.pdb"
 )

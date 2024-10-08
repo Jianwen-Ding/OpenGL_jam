@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Camera.cpp" "CMakeFiles/GLJam.dir/src/Camera.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Camera.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Render_Management.cpp" "CMakeFiles/GLJam.dir/src/Render_Management.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Render_Management.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/stb_imag.cpp" "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o.d"
+  "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Texture.cpp" "CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o.d"
+  "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Vector.cpp" "CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
