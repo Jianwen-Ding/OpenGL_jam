@@ -14,8 +14,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Mesh.cpp" "CMakeFiles/GLJam.dir/src/Mesh.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Mesh.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Render_Management.cpp" "CMakeFiles/GLJam.dir/src/Render_Management.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Render_Management.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Shader.cpp" "CMakeFiles/GLJam.dir/src/Shader.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Shader.cpp.o.d"
+  "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Texture.cpp" "CMakeFiles/GLJam.dir/src/Texture.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Texture.cpp.o.d"
+  "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/TextureArray.cpp" "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/stb_imag.cpp" "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o.d"
-  "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Texture.cpp" "CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Vector.cpp" "CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o.d"
   )
 

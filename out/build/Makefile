@@ -249,6 +249,54 @@ src/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Shader.cpp.s
 .PHONY : src/Shader.cpp.s
 
+src/Texture.o: src/Texture.cpp.o
+.PHONY : src/Texture.o
+
+# target to build an object file
+src/Texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Texture.cpp.o
+.PHONY : src/Texture.cpp.o
+
+src/Texture.i: src/Texture.cpp.i
+.PHONY : src/Texture.i
+
+# target to preprocess a source file
+src/Texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Texture.cpp.i
+.PHONY : src/Texture.cpp.i
+
+src/Texture.s: src/Texture.cpp.s
+.PHONY : src/Texture.s
+
+# target to generate assembly for a file
+src/Texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Texture.cpp.s
+.PHONY : src/Texture.cpp.s
+
+src/TextureArray.o: src/TextureArray.cpp.o
+.PHONY : src/TextureArray.o
+
+# target to build an object file
+src/TextureArray.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/TextureArray.cpp.o
+.PHONY : src/TextureArray.cpp.o
+
+src/TextureArray.i: src/TextureArray.cpp.i
+.PHONY : src/TextureArray.i
+
+# target to preprocess a source file
+src/TextureArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/TextureArray.cpp.i
+.PHONY : src/TextureArray.cpp.i
+
+src/TextureArray.s: src/TextureArray.cpp.s
+.PHONY : src/TextureArray.s
+
+# target to generate assembly for a file
+src/TextureArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/TextureArray.cpp.s
+.PHONY : src/TextureArray.cpp.s
+
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
 
@@ -296,30 +344,6 @@ src/stb_imag.s: src/stb_imag.cpp.s
 src/stb_imag.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/stb_imag.cpp.s
 .PHONY : src/stb_imag.cpp.s
-
-src/structs/Texture.o: src/structs/Texture.cpp.o
-.PHONY : src/structs/Texture.o
-
-# target to build an object file
-src/structs/Texture.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Texture.cpp.o
-.PHONY : src/structs/Texture.cpp.o
-
-src/structs/Texture.i: src/structs/Texture.cpp.i
-.PHONY : src/structs/Texture.i
-
-# target to preprocess a source file
-src/structs/Texture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Texture.cpp.i
-.PHONY : src/structs/Texture.cpp.i
-
-src/structs/Texture.s: src/structs/Texture.cpp.s
-.PHONY : src/structs/Texture.s
-
-# target to generate assembly for a file
-src/structs/Texture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Texture.cpp.s
-.PHONY : src/structs/Texture.cpp.s
 
 src/structs/Vector.o: src/structs/Vector.cpp.o
 .PHONY : src/structs/Vector.o
@@ -369,15 +393,18 @@ help:
 	@echo "... src/Shader.o"
 	@echo "... src/Shader.i"
 	@echo "... src/Shader.s"
+	@echo "... src/Texture.o"
+	@echo "... src/Texture.i"
+	@echo "... src/Texture.s"
+	@echo "... src/TextureArray.o"
+	@echo "... src/TextureArray.i"
+	@echo "... src/TextureArray.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"
 	@echo "... src/stb_imag.o"
 	@echo "... src/stb_imag.i"
 	@echo "... src/stb_imag.s"
-	@echo "... src/structs/Texture.o"
-	@echo "... src/structs/Texture.i"
-	@echo "... src/structs/Texture.s"
 	@echo "... src/structs/Vector.o"
 	@echo "... src/structs/Vector.i"
 	@echo "... src/structs/Vector.s"

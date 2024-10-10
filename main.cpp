@@ -13,6 +13,7 @@
 #include "Camera.hpp"
 #include "stb_image.h"
 #include "Shader.hpp"
+#include "Texture.hpp"
 
 #define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
 // Current compile command
@@ -381,14 +382,10 @@ void VertexSpecification(){
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBufferData.size()*sizeof(GLuint), indexBufferData.data(), GL_STATIC_DRAW);
 
     // Generates Texture
-    // Texture 1
-    glGenTextures(1, &Texture1);
-    glBindTexture(GL_TEXTURE_2D, Texture1);
-    // Configures options
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    Texture* tex1Data;
+    tex1Data = new Texture("../../textures/testTexture.jpeg");
+    tex1Data->bindTexture(&Texture1);
+    tex1Data->free();
     // Loads an generates texture
     int tWidth;
     int tHeight;
@@ -468,12 +465,14 @@ void MainLoop(){
         SDL_GL_SwapWindow(graphicsWindow);
     }
 }
+
 void CleanUp(){
     //Destroy window
     SDL_DestroyWindow(graphicsWindow);
     //Quit SDL subsystems
     SDL_Quit();
 }
+
 // Test
 int main(){
     // Initializes SDL and OpenGL while opening window
