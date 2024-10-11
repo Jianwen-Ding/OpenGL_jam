@@ -14,6 +14,7 @@
 #include "stb_image.h"
 #include "Shader.hpp"
 #include "Texture.hpp"
+#include "TextureArray.hpp"
 
 #define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
 // Current compile command
@@ -28,8 +29,7 @@ SDL_GLContext openGLContext = nullptr;
 bool gQuit = false;
 
 // Textures
-GLuint Texture1 = 0;
-GLuint Texture2 = 0;
+TextureArray* Textures;
 
 /// Vertice specifiers (VAOs, VBOs, IBOs)
 GLuint VBO = 0;
@@ -196,8 +196,7 @@ void preDrawFunc(){
     GraphicsPipeline->setMatrix("u_modelMat",modelMatrix);
     GraphicsPipeline->setMatrix("u_viewMat", viewMatrix);
     GraphicsPipeline->setVec3("u_lightColor", glm::vec3(1.0f));
-    GraphicsPipeline->setInt("u_givenTexture1", 0);
-    GraphicsPipeline->setInt("u_givenTexture2", 1);
+    GraphicsPipeline->setInt("u_givenTextures", 0);
     GraphicsPipeline->setFloat("u_ambienceStrength", ambienceVal);
     // Light shader implementations
     LightGraphicsPipeline->use();
@@ -208,9 +207,7 @@ void preDrawFunc(){
 
 void drawFunc(){
     GLCheck(glActiveTexture(GL_TEXTURE0);)
-    GLCheck(glBindTexture(GL_TEXTURE_2D, Texture1);)
-    GLCheck(glActiveTexture(GL_TEXTURE1);)
-    GLCheck(glBindTexture(GL_TEXTURE_2D, Texture2);)
+    GLCheck(glBindTexture(GL_TEXTURE_2D_ARRAY, Textures->ID);)
     GraphicsPipeline->use();
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
@@ -382,15 +379,14 @@ void VertexSpecification(){
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBufferData.size()*sizeof(GLuint), indexBufferData.data(), GL_STATIC_DRAW);
 
     // Generates Texture
+    std::vector<Texture> textureList;
     Texture* tex1Data;
     tex1Data = new Texture("../../textures/testTexture.jpeg");
-    tex1Data->bindTexture(&Texture1);
-    tex1Data->free();
+    textureList.push_back(*tex1Data);
     Texture* tex2Data;
     tex2Data = new Texture("../../textures/awesomeface.png");
-    tex2Data->bindTexture(&Texture2);
-    tex2Data->free();
-    
+    textureList.push_back(*tex2Data);
+    GLCheck(Textures = new TextureArray(textureList, GL_RGBA8);)
     // Connects data
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)*8, (void*)0);

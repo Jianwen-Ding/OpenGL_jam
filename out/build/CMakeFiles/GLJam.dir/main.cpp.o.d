@@ -1107,4 +1107,5 @@ CMakeFiles/GLJam.dir/main.cpp.o: \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/stb_image.h \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Shader.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/sstream \
-  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/TextureArray.hpp
