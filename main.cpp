@@ -386,42 +386,10 @@ void VertexSpecification(){
     tex1Data = new Texture("../../textures/testTexture.jpeg");
     tex1Data->bindTexture(&Texture1);
     tex1Data->free();
-    // Loads an generates texture
-    int tWidth;
-    int tHeight;
-    int tNRChannels;
-    stbi_set_flip_vertically_on_load(true);
-    unsigned char *tData = stbi_load("../../textures/testTexture.jpeg", &tWidth, &tHeight, &tNRChannels, 0);
-    if(tData){
-
-        GLCheck(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, tWidth, tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, tData);)
-        glGenerateMipmap(GL_TEXTURE_2D);
-        stbi_image_free(tData);
-    }
-    else{
-        std::cout << "Error in texture1 loading" << std::endl;
-        exit(1);
-    }
-    // Texture 2
-    glGenTextures(1, &Texture2);
-    glBindTexture(GL_TEXTURE_2D, Texture2); 
-    // Configures options
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // Loads an generates texture
-
-    tData = stbi_load("../../textures/awesomeface.png", &tWidth, &tHeight, &tNRChannels, 0);
-    if(tData){
-        GLCheck(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tWidth, tHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, tData);)
-        glGenerateMipmap(GL_TEXTURE_2D);
-        stbi_image_free(tData);
-    }
-    else{
-        std::cout << "Error in texture2 loading" << std::endl;
-        exit(1);
-    }
+    Texture* tex2Data;
+    tex2Data = new Texture("../../textures/awesomeface.png");
+    tex2Data->bindTexture(&Texture2);
+    tex2Data->free();
     
     // Connects data
     glEnableVertexAttribArray(0);

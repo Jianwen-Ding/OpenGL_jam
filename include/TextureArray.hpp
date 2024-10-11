@@ -11,7 +11,11 @@
 class TextureArray{
     public:
         GLuint ID;
+        TextureArray(std::vector<Texture> textures, GLenum givenFormat);
         TextureArray(std::vector<Texture> textures, GLenum givenFormat, GLsizei width, GLsizei height);
+        TextureArray(std::vector<unsigned char*> data, GLenum givenFormat, GLsizei width, GLsizei height);
+    private:
+        void constructWithData(std::vector<unsigned char*> data, GLenum givenFormat, GLsizei width, GLsizei height);
 };
 
 #endif
