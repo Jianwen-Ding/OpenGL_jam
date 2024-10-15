@@ -10,6 +10,10 @@
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
 #include "Camera.hpp"
 #include "stb_image.h"
 #include "Shader.hpp"
@@ -30,6 +34,7 @@ bool gQuit = false;
 
 // Textures
 TextureArray* Textures;
+std::vector<glm::vec2> uv_array;
 
 /// Vertice specifiers (VAOs, VBOs, IBOs)
 GLuint VBO = 0;
@@ -61,8 +66,26 @@ static void GLClearErrors(){
 }
 
 static bool GLCheckErrorStatus(const char* function, int line){
-    while(GLenum error = glGetError()){
-        std::cout << "ERROR:" << error << "\nLINE:" << line << "\nFUNCTION:" << function <<std::endl;
+    GLenum error;
+    while ((error = glGetError()) != GL_NO_ERROR) {
+        std::cout << "OpenGL error in " << function << " at line " << line << ": ";
+        switch (error) {
+            case GL_INVALID_ENUM:
+                std::cout << "GL_INVALID_ENUM\n";
+                break;
+            case GL_INVALID_VALUE:
+                std::cout << "GL_INVALID_VALUE\n";
+                break;
+            case GL_INVALID_OPERATION:
+                std::cout << "GL_INVALID_OPERATION\n";
+                break;
+            case GL_OUT_OF_MEMORY:
+                std::cout << "GL_OUT_OF_MEMORY\n";
+                break;
+            default:
+                std::cout << "Unknown error\n";
+                break;
+        }
         return true;
     }
     return false;
@@ -196,8 +219,10 @@ void preDrawFunc(){
     GraphicsPipeline->setMatrix("u_modelMat",modelMatrix);
     GraphicsPipeline->setMatrix("u_viewMat", viewMatrix);
     GraphicsPipeline->setVec3("u_lightColor", glm::vec3(1.0f));
+    GraphicsPipeline->setVec2List("u_uvCoords", uv_array.size(), uv_array);
     GraphicsPipeline->setInt("u_givenTextures", 0);
     GraphicsPipeline->setFloat("u_ambienceStrength", ambienceVal);
+    GraphicsPipeline->setInt("u_textureLength", uv_array.size());
     // Light shader implementations
     LightGraphicsPipeline->use();
     LightGraphicsPipeline->setMatrix("u_perspectiveMat", perspectiveMatrix);
@@ -386,14 +411,18 @@ void VertexSpecification(){
     Texture* tex2Data;
     tex2Data = new Texture("../../textures/awesomeface.png");
     textureList.push_back(*tex2Data);
-    GLCheck(Textures = new TextureArray(textureList, GL_RGBA8);)
+    GLCheck(Textures = new TextureArray(textureList, &uv_array);)
+    tex1Data->free();
+    tex2Data->free();
+    
+    // Compiles into
     // Connects data
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)*8, (void*)0);
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1,3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)*8, (void*)(sizeof(GL_FLOAT)*3));
     glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2,3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)*8, (void*)(sizeof(GL_FLOAT)*6));
+    glVertexAttribPointer(2,2, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)*8, (void*)(sizeof(GL_FLOAT)*6));
     glBindVertexArray(0);
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);

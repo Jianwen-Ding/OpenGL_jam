@@ -34,7 +34,14 @@ Texture::Texture(const char* findPath){
         exit(1);
     }
 }
-        
+
+// Plugs in texture data directly
+Texture::Texture(unsigned char* givenData, int givenWidth, int givenHeight){
+    tData = givenData;
+    tWidth = givenWidth;
+    tHeight = givenHeight;
+}
+
 // Binds a new texture object with the 
 void Texture::bindTexture(GLuint* givenID){
     glGenTextures(1, givenID);

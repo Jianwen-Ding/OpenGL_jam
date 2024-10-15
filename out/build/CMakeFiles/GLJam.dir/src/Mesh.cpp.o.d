@@ -1047,4 +1047,5 @@ CMakeFiles/GLJam.dir/src/Mesh.cpp.o: \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glad/glad.h \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/KHR/khrplatform.h \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/TextureArray.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/iostream

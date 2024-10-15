@@ -1,5 +1,6 @@
 #include "Mesh.hpp"
 #include "Shader.hpp"
+#include "TextureArray.hpp"
 #include "Vertex.hpp"
 
 #include <string>
@@ -9,7 +10,7 @@
 #include <iostream>
 #include <glad/glad.h>
 
-Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<Texture> textures){
+Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, TextureArray* textures){
     this -> vertices = vertices;
     this -> indices = indices;
     this -> textures = textures;
@@ -18,7 +19,14 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vecto
 }
 
 void Mesh::Draw(Shader &shader){
+    // Assign texture
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D_ARRAY, textures->ID);
 
+    // Draw mesh
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
 }
 
 void  Mesh::setupMesh(){

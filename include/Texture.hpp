@@ -20,6 +20,9 @@ class Texture{
         // Creates texture with the given path
         Texture(const char* findPath);
 
+        // Creates texture with given information
+        Texture(unsigned char* givenData, int givenWidth, int givenHeight);
+        
         // Binds a new texture object with the 
         void bindTexture(GLuint* givenID);
 

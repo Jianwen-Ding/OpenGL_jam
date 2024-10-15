@@ -683,6 +683,7 @@ CMakeFiles/GLJam.dir/main.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Cur
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/type_traits \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/typeinfo \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/unordered_map \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/unordered_set \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/utility \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/variant \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/vector \
@@ -883,6 +884,36 @@ CMakeFiles/GLJam.dir/main.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Cur
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Shader.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/TextureArray.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/poppack1.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/pushpack1.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Importer.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/MathFunctions.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/aabb.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/anim.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/camera.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/color4.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/color4.inl \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/config.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/defs.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/light.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/material.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/material.inl \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/matrix3x3.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/matrix3x3.inl \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/matrix4x4.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/matrix4x4.inl \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/mesh.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/metadata.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/postprocess.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/quaternion.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/quaternion.inl \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/scene.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/texture.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/types.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/vector2.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/vector2.inl \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/vector3.h \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/vector3.inl \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glad/glad.h \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/common.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/detail/qualifier.hpp \
@@ -2902,6 +2933,7 @@ CMakeFiles/GLJam.dir/src/Mesh.cpp.o: /Users/jianwending/Documents/ProjectsFolder
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Mesh.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Shader.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/TextureArray.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Vertex.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glad/glad.h \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/common.hpp \
@@ -6176,7 +6208,8 @@ CMakeFiles/GLJam.dir/src/TextureArray.cpp.o: /Users/jianwending/Documents/Projec
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec2.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec3.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec4.hpp \
-  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vector_relational.hpp
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vector_relational.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/stb_image.h
 
 CMakeFiles/GLJam.dir/src/glad.c.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/glad.c \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/Availability.h \
@@ -7510,8 +7543,6 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/gtc/constants.inl:
 
-/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec4.hpp:
-
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec3.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec2.hpp:
@@ -7668,6 +7699,40 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/common.hpp:
 
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/vector2.inl:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/scene.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/quaternion.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec4.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/postprocess.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/metadata.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/matrix4x4.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/matrix3x3.inl:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/matrix3x3.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/material.inl:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/light.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/config.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/color4.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/aabb.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/MathFunctions.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Importer.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/poppack1.h:
+
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp:
 
 /Library/Frameworks/SDL2.framework/Headers/SDL_version.h:
@@ -7771,6 +7836,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/types.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/syslimits.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/errno.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_wint_t.h:
 
@@ -7966,6 +8033,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/math.h:
 
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/camera.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/max_element.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/stdio.h:
@@ -8143,6 +8212,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/ext/matrix_double3x2.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_trivially_copy_constructible.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/color4.inl:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_trivially_copy_assignable.h:
 
@@ -8392,6 +8463,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/cwchar:
 
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/vector2.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__undef_macros:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__memory/voidify.h:
@@ -8540,6 +8613,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/incrementable_traits.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/unordered_set:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_assignable.h:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vector_relational.hpp:
@@ -8547,6 +8622,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__compare/synth_three_way.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/erase_if_container.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/vector3.inl:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__ranges/data.h:
 
@@ -8656,6 +8733,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__functional/invoke.h:
 
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/anim.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_pointer.h:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/ext/matrix_transform.hpp:
@@ -8663,6 +8742,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_implicitly_default_constructible.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__ranges/access.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/texture.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__memory/ranges_uninitialized_algorithms.h:
 
@@ -8714,8 +8795,6 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/new:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/errno.h:
-
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/detail/type_half.inl:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__filesystem/path.h:
@@ -8751,6 +8830,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 /Library/Frameworks/SDL2.framework/Headers/SDL_rwops.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__errc:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/matrix4x4.inl:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__debug:
 
@@ -8994,6 +9075,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__functional/mem_fun_ref.h:
 
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/types.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_set_intersection.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/unique.h:
@@ -9015,6 +9098,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_remove_if.h:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/ext/matrix_double2x3.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/quaternion.inl:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_copy_backward.h:
 
@@ -9410,6 +9495,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__bit/bit_log2.h:
 
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/pushpack1.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/next_permutation.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_rotate.h:
@@ -9472,6 +9559,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__assert:
 
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/defs.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/_types/_nl_item.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/is_heap_until.h:
@@ -9497,6 +9586,8 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/decay.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/lexicographical_compare.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/mesh.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/mismatch.h:
 
@@ -9594,11 +9685,15 @@ CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_search.h:
 
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/material.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/lower_bound.h:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glad/glad.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_replace.h:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/vector3.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/inttypes.h:
 

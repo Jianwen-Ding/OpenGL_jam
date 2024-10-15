@@ -4,6 +4,7 @@
 #include "Vertex.hpp"
 #include "Shader.hpp"
 #include "Texture.hpp"
+#include "TextureArray.hpp"
 #include <vector>
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
@@ -13,9 +14,9 @@ class Mesh {
         // mesh data
         std::vector<Vertex> vertices;
         std::vector<unsigned int> indices;
-        std::vector<Texture> textures;
+        TextureArray* textures;
 
-        Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
+        Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, TextureArray* textures);
         void Draw(Shader &shader);
     private:
         //  render data
