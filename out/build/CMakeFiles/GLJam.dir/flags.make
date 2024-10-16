@@ -15,7 +15,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I"/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/include" -I"/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/include/glm-master" -I"/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/include/glad" -I"/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/include/assimp" -isystem /Library/Frameworks/SDL2.framework/Headers -iframework /Library/Frameworks -isystem /opt/homebrew/include
 
-CXX_FLAGSarm64 = -std=gnu++11 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
+CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
 
-CXX_FLAGS = -std=gnu++11 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
+CXX_FLAGS = -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
 

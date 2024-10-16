@@ -92,6 +92,9 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
     }
 
     TextureArray* givenArray = new TextureArray(textures);
+    for(unsigned int i = 0; i < textures.size(); i++){
+        textures[i].free();
+    }
     return Mesh(vertices, indices, givenArray);
 }
 

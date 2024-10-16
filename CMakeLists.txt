@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13.4)
 
 project(GLJam)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Define sources (main.cpp and all .c and .cpp files in the src/ folder)
@@ -22,10 +22,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 # Link libraries
 find_package(SDL2 REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL2::SDL2 dl)
-message(STATUS "Assimp include dir: ${ASSIMP_INCLUDE_DIRS}")
-message(STATUS "Assimp library dir: ${ASSIMP_LIBRARIES}")
 
 find_package(assimp REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE assimp::assimp)
-message(STATUS "Assimp include dir: ${ASSIMP_INCLUDE_DIRS}")
-message(STATUS "Assimp library dir: ${ASSIMP_LIBRARIES}")

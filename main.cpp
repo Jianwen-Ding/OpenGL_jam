@@ -13,7 +13,9 @@
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
+#include <filesystem>
 
+#include "Model.hpp"
 #include "Vertex.hpp"
 #include "Mesh.hpp"
 #include "Camera.hpp"
@@ -36,6 +38,7 @@ bool gQuit = false;
 
 // Textures
 TextureArray* Textures;
+Model* guitarModel;
 
 /// Vertice specifiers (VAOs, VBOs, IBOs)
 GLuint IBO = 0;
@@ -46,6 +49,11 @@ GLuint lightVBO = 0;
 const char* vertexShaderFileName = "../../shaders/vertex.glsl";
 const char* fragmentShaderFileName = "../../shaders/frag.glsl";
 const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
+
+// Model
+char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/Survival_BackPack/Survival_BackPack_2.fbx";
+char* backpackPath = "../../models/survival-guitar-backpack";
+
 Shader* GraphicsPipeline;
 Shader* LightGraphicsPipeline;
 Mesh* boxMesh;
@@ -230,7 +238,7 @@ void preDrawFunc(){
 }
 
 void drawFunc(){
-    GLCheck(boxMesh->Draw(*GraphicsPipeline);)
+    GLCheck(guitarModel->Draw(*GraphicsPipeline);)
 
     LightGraphicsPipeline->use();
     glBindVertexArray(lightVAO);
@@ -416,7 +424,7 @@ void VertexSpecification(){
     tex2Data->free();
     
     // Compiles into mesh
-    GLCheck(boxMesh = new Mesh(vertexData, indexBufferData, Textures);)
+    GLCheck(guitarModel = new Model((base));)
 
     // Generates light VAO
     // Generates VAO

@@ -831,6 +831,7 @@ CMakeFiles/GLJam.dir/main.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Cur
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Camera.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/KHR/khrplatform.h \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Mesh.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Model.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Shader.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/TextureArray.hpp \
@@ -4244,7 +4245,8 @@ CMakeFiles/GLJam.dir/src/Model.cpp.o: /Users/jianwending/Documents/ProjectsFolde
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec2.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec3.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vec4.hpp \
-  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vector_relational.hpp
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glm-master/glm/vector_relational.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/stb_image.h
 
 CMakeFiles/GLJam.dir/src/Render_Management.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/Render_Management.cpp
 
@@ -8601,8 +8603,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/Shader.cpp:
 
-/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Model.hpp:
-
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/Mesh.cpp:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/Camera.cpp:
@@ -8870,6 +8870,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Vertex.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Model.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h:
 
