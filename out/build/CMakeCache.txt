@@ -243,6 +243,15 @@ Project_SOURCE_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/Current Pr
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/Library/Frameworks/SDL2.framework/Resources/CMake
 
+//Path to a file.
+ZLIB_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include
+
+//Path to a library.
+ZLIB_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/lib/libz.tbd
+
+//The directory containing a CMake configuration file for assimp.
+assimp_DIR:PATH=/opt/homebrew/lib/cmake/assimp-5.4
+
 
 ########################
 # INTERNAL cache entries
@@ -387,4 +396,8 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding ZLIB
+FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/lib/libz.tbd][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include][c ][v1.2.12()]
+//ADVANCED property for variable: ZLIB_INCLUDE_DIR
+ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 

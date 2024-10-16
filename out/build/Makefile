@@ -201,6 +201,30 @@ src/Mesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Mesh.cpp.s
 .PHONY : src/Mesh.cpp.s
 
+src/Model.o: src/Model.cpp.o
+.PHONY : src/Model.o
+
+# target to build an object file
+src/Model.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Model.cpp.o
+.PHONY : src/Model.cpp.o
+
+src/Model.i: src/Model.cpp.i
+.PHONY : src/Model.i
+
+# target to preprocess a source file
+src/Model.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Model.cpp.i
+.PHONY : src/Model.cpp.i
+
+src/Model.s: src/Model.cpp.s
+.PHONY : src/Model.s
+
+# target to generate assembly for a file
+src/Model.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Model.cpp.s
+.PHONY : src/Model.cpp.s
+
 src/Render_Management.o: src/Render_Management.cpp.o
 .PHONY : src/Render_Management.o
 
@@ -345,29 +369,29 @@ src/stb_imag.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/stb_imag.cpp.s
 .PHONY : src/stb_imag.cpp.s
 
-src/structs/Vector.o: src/structs/Vector.cpp.o
-.PHONY : src/structs/Vector.o
+src/structs/Vertex.o: src/structs/Vertex.cpp.o
+.PHONY : src/structs/Vertex.o
 
 # target to build an object file
-src/structs/Vector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vector.cpp.o
-.PHONY : src/structs/Vector.cpp.o
+src/structs/Vertex.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o
+.PHONY : src/structs/Vertex.cpp.o
 
-src/structs/Vector.i: src/structs/Vector.cpp.i
-.PHONY : src/structs/Vector.i
+src/structs/Vertex.i: src/structs/Vertex.cpp.i
+.PHONY : src/structs/Vertex.i
 
 # target to preprocess a source file
-src/structs/Vector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vector.cpp.i
-.PHONY : src/structs/Vector.cpp.i
+src/structs/Vertex.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.i
+.PHONY : src/structs/Vertex.cpp.i
 
-src/structs/Vector.s: src/structs/Vector.cpp.s
-.PHONY : src/structs/Vector.s
+src/structs/Vertex.s: src/structs/Vertex.cpp.s
+.PHONY : src/structs/Vertex.s
 
 # target to generate assembly for a file
-src/structs/Vector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vector.cpp.s
-.PHONY : src/structs/Vector.cpp.s
+src/structs/Vertex.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.s
+.PHONY : src/structs/Vertex.cpp.s
 
 # Help Target
 help:
@@ -387,6 +411,9 @@ help:
 	@echo "... src/Mesh.o"
 	@echo "... src/Mesh.i"
 	@echo "... src/Mesh.s"
+	@echo "... src/Model.o"
+	@echo "... src/Model.i"
+	@echo "... src/Model.s"
 	@echo "... src/Render_Management.o"
 	@echo "... src/Render_Management.i"
 	@echo "... src/Render_Management.s"
@@ -405,9 +432,9 @@ help:
 	@echo "... src/stb_imag.o"
 	@echo "... src/stb_imag.i"
 	@echo "... src/stb_imag.s"
-	@echo "... src/structs/Vector.o"
-	@echo "... src/structs/Vector.i"
-	@echo "... src/structs/Vector.s"
+	@echo "... src/structs/Vertex.o"
+	@echo "... src/structs/Vertex.i"
+	@echo "... src/structs/Vertex.s"
 .PHONY : help
 
 

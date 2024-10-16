@@ -41,7 +41,7 @@ static bool GLCheckErrorStatus(const char* function, int line){
 }
 
 // Creates texture with direct data assumes that all textures have the same size
-void TextureArray::constructWithData(std::vector<Texture> textures, GLsizei width, GLsizei height, std::vector<glm::vec2>* textureUV){
+void TextureArray::constructWithData(std::vector<Texture> textures, GLsizei width, GLsizei height){
     // Creates a texture array
     glGenTextures(1, &ID);
     glBindTexture(GL_TEXTURE_2D_ARRAY, ID);
@@ -64,7 +64,7 @@ void TextureArray::constructWithData(std::vector<Texture> textures, GLsizei widt
         if(height != textureHeight){
             givenUV.y = (float)textureHeight/(float)height;
         }
-        textureUV->push_back(givenUV);
+        uvVectors.push_back(givenUV);
         std::cout << "UV given " << givenUV.x << "," << givenUV.y << std::endl;
         // Actually pads texture data
         unsigned char* paddedData = padTexture(textures[i].tData, textures[i].tWidth, textures[i].tHeight, width, height);
@@ -106,7 +106,7 @@ unsigned char* TextureArray::padTexture(unsigned char* data, GLsizei ogWidth, GL
     return retData;
 }
 // Creates a texture array with a set size
-TextureArray::TextureArray(std::vector<Texture> textures, GLsizei width, GLsizei height, std::vector<glm::vec2>* textureUV){
+TextureArray::TextureArray(std::vector<Texture> textures, GLsizei width, GLsizei height){
     // Plugs texture data into array while checking to make sure texture works
     std::vector<unsigned char*> dataGiven;
     for(int i = 0; i < textures.size(); i++){
@@ -115,10 +115,10 @@ TextureArray::TextureArray(std::vector<Texture> textures, GLsizei width, GLsizei
             exit(1);
         }
     }
-    TextureArray::constructWithData(textures, width, height, textureUV);
+    TextureArray::constructWithData(textures, width, height);
 }
 
-TextureArray::TextureArray(std::vector<Texture> textures, std::vector<glm::vec2>* textureUV){
+TextureArray::TextureArray(std::vector<Texture> textures){
     std::vector<unsigned char*> dataGiven;
     int maxWidth = 1;
     int maxHeight = 1;
@@ -131,5 +131,5 @@ TextureArray::TextureArray(std::vector<Texture> textures, std::vector<glm::vec2>
         }
         dataGiven.push_back(textures[i].tData);
     }
-    TextureArray::constructWithData(textures, maxWidth, maxHeight, textureUV);
+    TextureArray::constructWithData(textures, maxWidth, maxHeight);
 }

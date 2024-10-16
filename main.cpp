@@ -14,6 +14,8 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+#include "Vertex.hpp"
+#include "Mesh.hpp"
 #include "Camera.hpp"
 #include "stb_image.h"
 #include "Shader.hpp"
@@ -34,12 +36,9 @@ bool gQuit = false;
 
 // Textures
 TextureArray* Textures;
-std::vector<glm::vec2> uv_array;
 
 /// Vertice specifiers (VAOs, VBOs, IBOs)
-GLuint VBO = 0;
 GLuint IBO = 0;
-GLuint VAO = 0;
 GLuint lightVAO = 0;
 GLuint lightVBO = 0;
 
@@ -49,6 +48,7 @@ const char* fragmentShaderFileName = "../../shaders/frag.glsl";
 const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
 Shader* GraphicsPipeline;
 Shader* LightGraphicsPipeline;
+Mesh* boxMesh;
 
 // Transform variables
 GLfloat u_offSet = -5;
@@ -60,6 +60,7 @@ GLfloat ambienceVal = 1.0f;
 glm::vec3 lightPos = glm::vec3(1.0f,1.0f,1.0f);
 
 Camera viewCam;
+
 static void GLClearErrors(){
     while(glGetError() != GL_NO_ERROR){
     }
@@ -219,10 +220,8 @@ void preDrawFunc(){
     GraphicsPipeline->setMatrix("u_modelMat",modelMatrix);
     GraphicsPipeline->setMatrix("u_viewMat", viewMatrix);
     GraphicsPipeline->setVec3("u_lightColor", glm::vec3(1.0f));
-    GraphicsPipeline->setVec2List("u_uvCoords", uv_array.size(), uv_array);
     GraphicsPipeline->setInt("u_givenTextures", 0);
     GraphicsPipeline->setFloat("u_ambienceStrength", ambienceVal);
-    GraphicsPipeline->setInt("u_textureLength", uv_array.size());
     // Light shader implementations
     LightGraphicsPipeline->use();
     LightGraphicsPipeline->setMatrix("u_perspectiveMat", perspectiveMatrix);
@@ -231,11 +230,7 @@ void preDrawFunc(){
 }
 
 void drawFunc(){
-    GLCheck(glActiveTexture(GL_TEXTURE0);)
-    GLCheck(glBindTexture(GL_TEXTURE_2D_ARRAY, Textures->ID);)
-    GraphicsPipeline->use();
-    glBindVertexArray(VAO);
-    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+    GLCheck(boxMesh->Draw(*GraphicsPipeline);)
 
     LightGraphicsPipeline->use();
     glBindVertexArray(lightVAO);
@@ -334,7 +329,7 @@ void CreateGraphicsPipeline(){
 
 void VertexSpecification(){
 
-    const std::vector<GLfloat> verticeData{
+    std::vector<float> verticeData{
         // Vertex 0
         -0.5f, -0.5f, -0.5f, // Vector
         1.0f, 0.0f, 0.0f,   // Color
@@ -369,7 +364,26 @@ void VertexSpecification(){
         2.0f,1.0f,      // Texture map
     };
 
-    const std::vector<GLfloat> lightVerticeData{
+    std::vector<Vertex> vertexData{
+        // Vertex 0
+        *(new Vertex(*(new glm::vec3(-0.5f, -0.5f, -0.5f)) , *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(0.0f,0.0f)))), 
+        // Vertex 1
+        *(new Vertex(*(new glm::vec3(0.5f, -0.5f, -0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(1.0f,0.0f)))),
+        // Vertex 2
+        *(new Vertex(*(new glm::vec3(-0.5f, 0.5f, -0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(0.0f,1.0f)))),
+        // Vertex 3
+        *(new Vertex(*(new glm::vec3(0.5f, 0.5f, -0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(1.0f,1.0f)))),
+        // Vertex 4
+        *(new Vertex(*(new glm::vec3(-0.5f, -0.5f, 0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(1.0f,0.0f)))),
+        // Vertex 5
+        *(new Vertex(*(new glm::vec3(0.5f, -0.5f, 0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(2.0f,0.0f)))),
+        // Vertex 6
+        *(new Vertex(*(new glm::vec3(-0.5f, 0.5f, 0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(1.0f,1.0f)))),
+        // Vertex 7
+        *(new Vertex(*(new glm::vec3(0.5f, 0.5f, 0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(2.0f,1.0f))))
+    };
+
+    std::vector<GLfloat> lightVerticeData{
         // Vertex 0
         -0.5f, -0.5f, -0.5f, // Vector
         // Vertex 1
@@ -387,21 +401,7 @@ void VertexSpecification(){
         // Vertex 7
         0.5f, 0.5f, 0.5f, // Vector
     };
-    const std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
-    // Generates VAO
-    // Sets up on the GPU
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
-
-    // Generates VBO
-    glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, verticeData.size() * sizeof(GLfloat), verticeData.data(), GL_STATIC_DRAW);
-
-    // Generates IBO
-    glGenBuffers(1, &IBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBufferData.size()*sizeof(GLuint), indexBufferData.data(), GL_STATIC_DRAW);
+    std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
 
     // Generates Texture
     std::vector<Texture> textureList;
@@ -411,22 +411,12 @@ void VertexSpecification(){
     Texture* tex2Data;
     tex2Data = new Texture("../../textures/awesomeface.png");
     textureList.push_back(*tex2Data);
-    GLCheck(Textures = new TextureArray(textureList, &uv_array);)
+    GLCheck(Textures = new TextureArray(textureList);)
     tex1Data->free();
     tex2Data->free();
     
-    // Compiles into
-    // Connects data
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)*8, (void*)0);
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1,3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)*8, (void*)(sizeof(GL_FLOAT)*3));
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2,2, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)*8, (void*)(sizeof(GL_FLOAT)*6));
-    glBindVertexArray(0);
-    glDisableVertexAttribArray(0);
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(2);
+    // Compiles into mesh
+    GLCheck(boxMesh = new Mesh(vertexData, indexBufferData, Textures);)
 
     // Generates light VAO
     // Generates VAO
@@ -439,7 +429,9 @@ void VertexSpecification(){
     glBufferData(GL_ARRAY_BUFFER, lightVerticeData.size() * sizeof(GLfloat), lightVerticeData.data(), GL_STATIC_DRAW);
 
     //Binds IBO
+    glGenBuffers(1, &IBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBufferData.size()*sizeof(GLuint), indexBufferData.data(), GL_STATIC_DRAW);
 
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 0, (void*)0);

@@ -17,6 +17,7 @@ class Mesh {
         TextureArray* textures;
 
         Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, TextureArray* textures);
+        Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, TextureArray* textures, std::vector<glm::vec2> uvTextures);
         void Draw(Shader &shader);
     private:
         //  render data

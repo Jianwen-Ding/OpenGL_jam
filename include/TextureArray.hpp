@@ -11,10 +11,11 @@
 class TextureArray{
     public:
         GLuint ID;
-        TextureArray(std::vector<Texture> textures, std::vector<glm::vec2>* textureUV);
-        TextureArray(std::vector<Texture> textures, GLsizei width, GLsizei height, std::vector<glm::vec2>* textureUV);
+        std::vector<glm::vec2> uvVectors;
+        TextureArray(std::vector<Texture> textures);
+        TextureArray(std::vector<Texture> textures, GLsizei width, GLsizei height);
     private:
-        void constructWithData(std::vector<Texture> data, GLsizei width, GLsizei height, std::vector<glm::vec2>* textureUV);
+        void constructWithData(std::vector<Texture> data, GLsizei width, GLsizei height);
         unsigned char* padTexture(unsigned char* data, GLsizei ogWidth, GLsizei ogHeight, GLsizei newWidth, GLsizei newHeight);
 };
 
