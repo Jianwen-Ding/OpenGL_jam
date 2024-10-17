@@ -47,7 +47,7 @@ void TextureArray::constructWithData(std::vector<Texture> textures, GLsizei widt
     glBindTexture(GL_TEXTURE_2D_ARRAY, ID);
 
     // Set Array Storage
-    glTexStorage3D(GL_TEXTURE_2D_ARRAY, 1, GL_RGB8, width, height, textures.size());
+    GLCheck(glTexStorage3D(GL_TEXTURE_2D_ARRAY, 1, GL_RGB8, width, height, textures.size());)
 
     // Loops throug the given textures
     for(int i = 0; i < textures.size(); i++){

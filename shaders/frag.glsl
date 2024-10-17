@@ -24,6 +24,6 @@ void main()
         adjustTexCoords[i] = final;
     }
     
-   FragColor = mix(texture(u_givenTextures, vec3(adjustTexCoords[0],0)),texture(u_givenTextures, vec3(adjustTexCoords[1],1)),0.5f) * vec4(lightResult, 1.0f);
+   FragColor = texture(u_givenTextures, vec3(adjustTexCoords[0],0));
    //FragColor = texture(u_givenTextures, vec3(texCoord * u_uvCoords[0],0));
 }

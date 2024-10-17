@@ -20,6 +20,7 @@ static bool GLCheckErrorStatus(const char* function, int line){
         std::cout << "ERROR:" << error << "\nLINE:" << line << "\nFUNCTION:" << function <<std::endl;
         return true;
     }
+    
     return false;
 }
 

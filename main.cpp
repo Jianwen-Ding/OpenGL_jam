@@ -51,8 +51,8 @@ const char* fragmentShaderFileName = "../../shaders/frag.glsl";
 const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
 
 // Model
-char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/Survival_BackPack/Survival_BackPack_2.fbx";
-char* backpackPath = "../../models/survival-guitar-backpack";
+char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/backpack/backpack.obj";
+char* backpackPath = "../../models/backpack/";
 
 Shader* GraphicsPipeline;
 Shader* LightGraphicsPipeline;
@@ -424,7 +424,7 @@ void VertexSpecification(){
     tex2Data->free();
     
     // Compiles into mesh
-    GLCheck(guitarModel = new Model((base));)
+    GLCheck(guitarModel = new Model(base,backpackPath);)
 
     // Generates light VAO
     // Generates VAO

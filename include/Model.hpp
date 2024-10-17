@@ -12,11 +12,12 @@
 
 class Model{
     public:
-        Model(char *path);
+        Model(char *path, char *setBase);
         void Draw(Shader &shader);
     private:
         std::vector<Mesh> meshes;
         std::string dir;
+        std::string base;
 
         void loadModel(std::string path);
         void processNode(aiNode *node, const aiScene *scene);
