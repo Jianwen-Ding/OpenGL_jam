@@ -1,0 +1,115 @@
+#include "RenderManager.hpp"
+#include "Transform.hpp"
+#include "Shader.hpp"
+#include "Model.hpp"
+#include "Mesh.hpp"
+
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+
+class RenderManager::ModelObject{
+    public:
+        Transform* transform;
+        // Constructs an instance of a model object attached to the render manager
+        ModelObject(Transform* transformObject, int modelIndex, RenderManager* setManager){
+            transform = transformObject;
+            manager = setManager;
+            model = modelIndex;
+            setManager->insertModelOb(this, modelIndex);
+        }
+        // Detaches from render manager
+        void Destroy(){
+            manager->detactchModelObject(this);
+        }
+    private:
+        RenderManager* manager;
+        int model;
+};
+
+void RenderManager::insertModel(char* path, char* base){
+    Model* gotModel = new Model(path, base);
+    std::vector<RenderManager::ModelObject*> initObList;
+    modelList.push_back(gotModel);
+    models.insert({gotModel, initObList});
+}
+
+void RenderManager::draw(){
+    givenShader->use();
+    for(unsigned int i = 0; i < modelList.size(); i++){
+        std::vector<ModelObject*>* modelObList = &models[modelList[i]];
+        for(unsigned int t = 0; t < modelObList->size(); t++){
+            modelList[i]->Draw(*givenShader, *((*modelObList)[t]->transform));
+        }
+    }
+    glUseProgram(0);
+}
+
+void RenderManager::predraw(){
+    // Some options
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_CULL_FACE);
+    glViewport(0,0,WIDTH, HEIGHT);
+    glClearColor(1.f, 1.f, 0.f, 1.f);
+    glClear(GL_DEPTH_BUFFER_BIT| GL_COLOR_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
+
+    // Main shader implementation
+    givenShader->use();
+    // Create transformation matrices
+    glm::mat4 viewMatrix = givenCamera->getViewMat();
+    // Inserting into uniform variables
+    givenShader->setMatrix("u_perspectiveMat", perspectiveMat);
+    givenShader->setMatrix("u_viewMat", viewMatrix);
+    givenShader->setVec3("u_lightColor", glm::vec3(1.0f));
+    givenShader->setInt("u_givenTextures", 0);
+    givenShader->setFloat("u_ambienceStrength", 1.0f);
+}
+
+void RenderManager::Quit(){
+    for(unsigned int i = 0; i < modelList.size(); i++){
+        std::vector<ModelObject*>* modelObList = &models[modelList[i]];
+        for(unsigned int t = 0; t < modelObList->size(); t++){
+            delete (*modelObList)[t];
+        }
+        modelObList->clear();
+        delete modelList[i];
+    }
+    modelList.clear();
+    models.clear();
+    removeMap.clear();
+    delete this;
+}
+
+RenderManager::RenderManager(Camera* setCamera, glm::mat4 setMat, Shader* setShader, int setHeight, int setWidth){
+    HEIGHT = setHeight;
+    WIDTH = setWidth;
+    givenCamera = setCamera;
+    perspectiveMat = setMat;
+    givenShader = setShader;
+}
+
+void RenderManager::insertModelOb(ModelObject* modelOb, int modelIndex){
+    Model* gotModel = modelList[modelIndex];
+    models[gotModel].push_back(modelOb);
+    removeMap.insert({modelOb, gotModel});
+}
+
+void RenderManager::detactchModelObject(ModelObject* attachedObject){
+    if (removeMap.find(attachedObject) == removeMap.end()) {
+        std::cout << "ERROR::MODEL OBJECT NOT FOUND IN REMOVE MAP" << std::endl;
+        return;
+    }
+    
+    Model* gotModel = removeMap[attachedObject];
+    removeMap.erase(attachedObject);
+    auto find = std::find(models[gotModel].begin(), models[gotModel].end(), (attachedObject));
+    if(find != models[gotModel].end()){
+        models[gotModel].erase(find);
+    }
+    else{
+        std::cout << "ERROR::MODEL OBJECT NOT FOUND WITHIN RENDER MANAGEMENT" << std::endl;
+    }
+    delete this;
+}

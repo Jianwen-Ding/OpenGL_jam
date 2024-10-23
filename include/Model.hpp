@@ -1,6 +1,7 @@
 #ifndef MODEL_HPP
 #define MODEL_HPP
 
+#include "Transform.hpp"
 #include "Shader.hpp"
 #include "Mesh.hpp"
 #include "string"
@@ -13,9 +14,10 @@
 class Model{
     public:
         Model(char *path, char *setBase);
-        void Draw(Shader &shader);
+        void Draw(Shader &shader, Transform &transform);
     private:
         std::vector<Mesh> meshes;
+        std::vector<Texture> textures_loaded;
         std::string dir;
         std::string base;
 

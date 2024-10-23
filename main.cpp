@@ -18,6 +18,7 @@
 #include "Model.hpp"
 #include "Vertex.hpp"
 #include "Mesh.hpp"
+#include "Transform.hpp"
 #include "Camera.hpp"
 #include "stb_image.h"
 #include "Shader.hpp"
@@ -36,8 +37,9 @@ SDL_Window* graphicsWindow = nullptr;
 SDL_GLContext openGLContext = nullptr;
 bool gQuit = false;
 
-// Textures
+// Storage
 TextureArray* Textures;
+Transform* transformStore;
 Model* guitarModel;
 
 /// Vertice specifiers (VAOs, VBOs, IBOs)
@@ -151,6 +153,9 @@ void getInput(){
     if(state[SDL_SCANCODE_RIGHT]||state[SDL_SCANCODE_D]){
         viewCam.moveRight(0.001f);
     }
+    if(state[SDL_SCANCODE_RIGHT]||state[SDL_SCANCODE_Z]){
+        u_offSet += 0.01;
+    }
     if(state[SDL_SCANCODE_LSHIFT]){
         viewCam.moveDown(0.001f);
     }
@@ -218,14 +223,11 @@ void preDrawFunc(){
     glm::quat test3Quat = testQuat * test2Quat;
     glm::mat4 rotationMatrix = glm::mat4_cast(test3Quat);
     glm::mat4 lightModelMatrix = glm::translate(modelMatrix, glm::vec3(u_offSet/5,-u_offSet/5,u_offSet));
-    modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f,0.0f,u_offSet));
-    modelMatrix = modelMatrix * rotationMatrix;
+    transformStore = new Transform(glm::vec3(u_scale,u_scale,u_scale), glm::vec3(0.0f,0.0f,u_offSet), test3Quat);
     lightModelMatrix = lightModelMatrix * rotationMatrix;
-    modelMatrix = glm::scale(modelMatrix, glm::vec3(u_scale,u_scale,u_scale));
     lightModelMatrix = glm::scale(lightModelMatrix, glm::vec3(u_scale/3,u_scale/3,u_scale/3));
     // Inserting into uniform variables
     GraphicsPipeline->setMatrix("u_perspectiveMat", perspectiveMatrix);
-    GraphicsPipeline->setMatrix("u_modelMat",modelMatrix);
     GraphicsPipeline->setMatrix("u_viewMat", viewMatrix);
     GraphicsPipeline->setVec3("u_lightColor", glm::vec3(1.0f));
     GraphicsPipeline->setInt("u_givenTextures", 0);
@@ -238,7 +240,8 @@ void preDrawFunc(){
 }
 
 void drawFunc(){
-    GLCheck(guitarModel->Draw(*GraphicsPipeline);)
+    GraphicsPipeline->use();
+    GLCheck(guitarModel->Draw(*GraphicsPipeline, *transformStore);)
 
     LightGraphicsPipeline->use();
     glBindVertexArray(lightVAO);
@@ -419,7 +422,7 @@ void VertexSpecification(){
     Texture* tex2Data;
     tex2Data = new Texture("../../textures/awesomeface.png");
     textureList.push_back(*tex2Data);
-    GLCheck(Textures = new TextureArray(textureList);)
+    GLCheck(Textures = new TextureArray(textureList, GL_RGB);)
     tex1Data->free();
     tex2Data->free();
     

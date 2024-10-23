@@ -835,6 +835,7 @@ CMakeFiles/GLJam.dir/main.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Cur
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Shader.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/TextureArray.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Transform.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Vertex.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/poppack1.h \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/pushpack1.h \
@@ -3989,6 +3990,7 @@ CMakeFiles/GLJam.dir/src/Model.cpp.o: /Users/jianwending/Documents/ProjectsFolde
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Shader.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/TextureArray.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Transform.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Vertex.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/poppack1.h \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/pushpack1.h \
@@ -8868,6 +8870,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/assimp/Compiler/poppack1.h:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Vertex.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Transform.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/Texture.hpp:
 

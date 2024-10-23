@@ -1,5 +1,6 @@
 #include "Model.hpp"
 #include "Shader.hpp"
+#include "Transform.hpp"
 #include "Mesh.hpp"
 #include "string"
 #include "Texture.hpp"
@@ -45,7 +46,8 @@ static bool GLCheckErrorStatus(const char* function, int line){
     return false;
 }
 
-void Model::Draw(Shader &shader){
+void Model::Draw(Shader &shader, Transform &transform){
+    shader.setMatrix("u_modelMat", transform.getTransformMat());
     for(unsigned int i = 0; i < meshes.size(); i++){
         meshes[i].Draw(shader);
     }
@@ -70,6 +72,9 @@ void Model::loadModel(std::string path){
     dir = path.substr(0, path.find_last_of('/'));
 
     processNode(scene->mRootNode, scene);
+    for(unsigned int i = 0; i < textures_loaded.size(); i++){
+        textures_loaded[i].free();
+    }
 }
 
 void Model::processNode(aiNode *node, const aiScene *scene){
@@ -128,10 +133,7 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
     }
 
-    TextureArray* givenArray = new TextureArray(textures);
-    for(unsigned int i = 0; i < textures.size(); i++){
-        textures[i].free();
-    }
+    TextureArray* givenArray = new TextureArray(textures, GL_RGBA);
     return Mesh(vertices, indices, givenArray);
 }
 
@@ -143,9 +145,20 @@ std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type, st
         aiString baseStr(base);
         mat->GetTexture(type,i,&str);
         baseStr.Append(str.C_Str());
-        std::cout << baseStr.C_Str() << std::endl;
-        GLCheck(Texture texture = Texture(baseStr.C_Str());)
-        textures.push_back(texture);
+        bool skip = false;
+        for(unsigned int i = 0; i < textures_loaded.size(); i++){
+            if(std::strcmp(textures_loaded[i].tPath.data(), baseStr.C_Str()) == 0){
+                skip = true;
+                textures.push_back(textures_loaded[i]);
+                break;
+            }
+        }
+        if(!skip){
+            std::cout << baseStr.C_Str() << std::endl;
+            GLCheck(Texture texture = Texture(baseStr.C_Str());)
+            textures.push_back(texture);
+            textures_loaded.push_back(texture);
+        }
     }
     return textures;
 }

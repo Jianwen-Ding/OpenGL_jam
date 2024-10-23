@@ -181,10 +181,24 @@ CMakeFiles/GLJam.dir/src/TextureArray.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GLJam.dir/src/TextureArray.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/TextureArray.cpp" -o CMakeFiles/GLJam.dir/src/TextureArray.cpp.s
 
+CMakeFiles/GLJam.dir/src/Transform.cpp.o: CMakeFiles/GLJam.dir/flags.make
+CMakeFiles/GLJam.dir/src/Transform.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/Transform.cpp
+CMakeFiles/GLJam.dir/src/Transform.cpp.o: CMakeFiles/GLJam.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/GLJam.dir/src/Transform.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLJam.dir/src/Transform.cpp.o -MF CMakeFiles/GLJam.dir/src/Transform.cpp.o.d -o CMakeFiles/GLJam.dir/src/Transform.cpp.o -c "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Transform.cpp"
+
+CMakeFiles/GLJam.dir/src/Transform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GLJam.dir/src/Transform.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Transform.cpp" > CMakeFiles/GLJam.dir/src/Transform.cpp.i
+
+CMakeFiles/GLJam.dir/src/Transform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GLJam.dir/src/Transform.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Transform.cpp" -o CMakeFiles/GLJam.dir/src/Transform.cpp.s
+
 CMakeFiles/GLJam.dir/src/stb_imag.cpp.o: CMakeFiles/GLJam.dir/flags.make
 CMakeFiles/GLJam.dir/src/stb_imag.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/stb_imag.cpp
 CMakeFiles/GLJam.dir/src/stb_imag.cpp.o: CMakeFiles/GLJam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/GLJam.dir/src/stb_imag.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/GLJam.dir/src/stb_imag.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLJam.dir/src/stb_imag.cpp.o -MF CMakeFiles/GLJam.dir/src/stb_imag.cpp.o.d -o CMakeFiles/GLJam.dir/src/stb_imag.cpp.o -c "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/stb_imag.cpp"
 
 CMakeFiles/GLJam.dir/src/stb_imag.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/GLJam.dir/src/stb_imag.cpp.s: cmake_force
 CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: CMakeFiles/GLJam.dir/flags.make
 CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/structs/Vertex.cpp
 CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: CMakeFiles/GLJam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o -MF CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o.d -o CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o -c "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Vertex.cpp"
 
 CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.s: cmake_force
 CMakeFiles/GLJam.dir/src/glad.c.o: CMakeFiles/GLJam.dir/flags.make
 CMakeFiles/GLJam.dir/src/glad.c.o: /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/glad.c
 CMakeFiles/GLJam.dir/src/glad.c.o: CMakeFiles/GLJam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/GLJam.dir/src/glad.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/GLJam.dir/src/glad.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/GLJam.dir/src/glad.c.o -MF CMakeFiles/GLJam.dir/src/glad.c.o.d -o CMakeFiles/GLJam.dir/src/glad.c.o -c "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/glad.c"
 
 CMakeFiles/GLJam.dir/src/glad.c.i: cmake_force
@@ -233,6 +247,7 @@ GLJam_OBJECTS = \
 "CMakeFiles/GLJam.dir/src/Shader.cpp.o" \
 "CMakeFiles/GLJam.dir/src/Texture.cpp.o" \
 "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o" \
+"CMakeFiles/GLJam.dir/src/Transform.cpp.o" \
 "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o" \
 "CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o" \
 "CMakeFiles/GLJam.dir/src/glad.c.o"
@@ -248,6 +263,7 @@ GLJam: CMakeFiles/GLJam.dir/src/Render_Management.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/Shader.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/Texture.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/TextureArray.cpp.o
+GLJam: CMakeFiles/GLJam.dir/src/Transform.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/stb_imag.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/glad.c.o
@@ -256,7 +272,7 @@ GLJam: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 GLJam: /opt/homebrew/lib/libassimp.5.4.3.dylib
 GLJam: /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/lib/libz.tbd
 GLJam: CMakeFiles/GLJam.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable GLJam"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable GLJam"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GLJam.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

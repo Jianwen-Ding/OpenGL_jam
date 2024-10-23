@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Shader.cpp" "CMakeFiles/GLJam.dir/src/Shader.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Shader.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Texture.cpp" "CMakeFiles/GLJam.dir/src/Texture.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Texture.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/TextureArray.cpp" "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o.d"
+  "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Transform.cpp" "CMakeFiles/GLJam.dir/src/Transform.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Transform.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/stb_imag.cpp" "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/structs/Vertex.cpp" "CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o.d"
   )

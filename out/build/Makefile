@@ -321,6 +321,30 @@ src/TextureArray.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/TextureArray.cpp.s
 .PHONY : src/TextureArray.cpp.s
 
+src/Transform.o: src/Transform.cpp.o
+.PHONY : src/Transform.o
+
+# target to build an object file
+src/Transform.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Transform.cpp.o
+.PHONY : src/Transform.cpp.o
+
+src/Transform.i: src/Transform.cpp.i
+.PHONY : src/Transform.i
+
+# target to preprocess a source file
+src/Transform.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Transform.cpp.i
+.PHONY : src/Transform.cpp.i
+
+src/Transform.s: src/Transform.cpp.s
+.PHONY : src/Transform.s
+
+# target to generate assembly for a file
+src/Transform.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Transform.cpp.s
+.PHONY : src/Transform.cpp.s
+
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
 
@@ -426,6 +450,9 @@ help:
 	@echo "... src/TextureArray.o"
 	@echo "... src/TextureArray.i"
 	@echo "... src/TextureArray.s"
+	@echo "... src/Transform.o"
+	@echo "... src/Transform.i"
+	@echo "... src/Transform.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"

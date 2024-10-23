@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/GLJam.dir/src/Texture.cpp.o.d"
   "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o"
   "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o.d"
+  "CMakeFiles/GLJam.dir/src/Transform.cpp.o"
+  "CMakeFiles/GLJam.dir/src/Transform.cpp.o.d"
   "CMakeFiles/GLJam.dir/src/glad.c.o"
   "CMakeFiles/GLJam.dir/src/glad.c.o.d"
   "CMakeFiles/GLJam.dir/src/stb_imag.cpp.o"
