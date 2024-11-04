@@ -8,7 +8,8 @@
 
 #include <vector>
 
-// Meant to eventually store material information to help render a object, for now it is out of scope and won't really be used
+// Meant to eventually store material information to help render a object,
+// allows different lighting information for each material
 class Material{
     public:
         Material();

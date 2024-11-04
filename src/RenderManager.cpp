@@ -1,36 +1,21 @@
 #include "RenderManager.hpp"
+#include "DirLightObject.hpp"
+#include "PointLightObject.hpp"
 #include "Transform.hpp"
 #include "Shader.hpp"
 #include "Model.hpp"
 #include "Mesh.hpp"
+#include "ModelObject.hpp"
 
 #include <iostream>
 #include <string>
 #include <map>
 #include <vector>
 
-class RenderManager::ModelObject{
-    public:
-        Transform* transform;
-        // Constructs an instance of a model object attached to the render manager
-        ModelObject(Transform* transformObject, int modelIndex, RenderManager* setManager){
-            transform = transformObject;
-            manager = setManager;
-            model = modelIndex;
-            setManager->insertModelOb(this, modelIndex);
-        }
-        // Detaches from render manager
-        void Destroy(){
-            manager->detactchModelObject(this);
-        }
-    private:
-        RenderManager* manager;
-        int model;
-};
 
 void RenderManager::insertModel(char* path, char* base){
     Model* gotModel = new Model(path, base);
-    std::vector<RenderManager::ModelObject*> initObList;
+    std::vector<ModelObject*> initObList;
     modelList.push_back(gotModel);
     models.insert({gotModel, initObList});
 }
@@ -59,12 +44,23 @@ void RenderManager::predraw(){
     givenShader->use();
     // Create transformation matrices
     glm::mat4 viewMatrix = givenCamera->getViewMat();
+
+    // Inserting lights
+    for(int i = 0; i < dirLightList.size(); i++){
+        dirLightList[i]->render(i, givenShader);
+    }
+    givenShader->setInt("u_dirLightLength", dirLightList.size());
+
+    for(int i = 0; i < pointLightList.size(); i++){
+        pointLightList[i]->render(i, givenShader);
+    }
+    givenShader->setInt("u_pointLightLength", pointLightList.size());
+
     // Inserting into uniform variables
     givenShader->setMatrix("u_perspectiveMat", perspectiveMat);
     givenShader->setMatrix("u_viewMat", viewMatrix);
-    givenShader->setVec3("u_lightColor", glm::vec3(1.0f));
+    givenShader->setVec3("u_viewPos", givenCamera->getEyeLoc());
     givenShader->setInt("u_givenTextures", 0);
-    givenShader->setFloat("u_ambienceStrength", 1.0f);
 }
 
 void RenderManager::Quit(){
@@ -76,6 +72,14 @@ void RenderManager::Quit(){
         modelObList->clear();
         delete modelList[i];
     }
+    for(unsigned int i = 0; i < dirLightList.size(); i++){
+        delete dirLightList[i];
+    }
+    for(unsigned int i = 0; i < pointLightList.size(); i++){
+        delete pointLightList[i];
+    }
+    pointLightList.clear();
+    dirLightList.clear();
     modelList.clear();
     models.clear();
     removeMap.clear();
@@ -112,4 +116,26 @@ void RenderManager::detactchModelObject(ModelObject* attachedObject){
         std::cout << "ERROR::MODEL OBJECT NOT FOUND WITHIN RENDER MANAGEMENT" << std::endl;
     }
     delete this;
+}
+
+void RenderManager::insertDirLightOb(DirLightObject* lightOb){
+    dirLightList.push_back(lightOb);
+}
+
+void RenderManager::detatchDirLightOb(DirLightObject* lightOb){
+    auto find = std::find(dirLightList.begin(), dirLightList.end(), (lightOb));
+    if(find != dirLightList.end()){
+        dirLightList.erase(find);
+    }
+}
+
+void RenderManager::insertPointLightOb(PointLightObject* lightOb){
+    pointLightList.push_back(lightOb);
+}
+
+void RenderManager::detatchPointLightOb(PointLightObject* lightOb){
+    auto find = std::find(pointLightList.begin(), pointLightList.end(), (lightOb));
+    if(find != pointLightList.end()){
+        pointLightList.erase(find);
+    }
 }

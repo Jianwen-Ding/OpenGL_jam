@@ -59,6 +59,9 @@
         "unordered_set": "cpp",
         "variant": "cpp",
         "vector": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "memory_resource": "cpp"
     }
 }

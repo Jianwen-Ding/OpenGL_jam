@@ -11,6 +11,8 @@
 class TextureArray{
     public:
         GLuint ID;
+        // What part of the texture array actually starts the game
+        int specBarrier;
         std::vector<glm::vec2> uvVectors;
         TextureArray(std::vector<Texture> textures, GLenum format);
         TextureArray(std::vector<Texture> textures, GLsizei width, GLsizei height, GLenum format);

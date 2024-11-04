@@ -13,6 +13,7 @@ class Camera{
     public:
         Camera();
 
+        glm::vec3 getEyeLoc();
         glm::mat4 getViewMat() const;
         glm::vec3 getViewLocation() const;
         glm::vec3 getFowardVec();

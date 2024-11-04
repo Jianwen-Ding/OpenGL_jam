@@ -126,14 +126,20 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
         }
     }
 
+    int specBarr = 0;
     // Gets Textures
     if(mesh->mMaterialIndex >= 0){
         aiMaterial *material = scene->mMaterials[mesh->mMaterialIndex];
         std::vector<Texture> diffuseMaps = loadMaterial(material, aiTextureType_DIFFUSE, "texture_diffuse");
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
+        specBarr = diffuseMaps.size();
+        std::vector<Texture> specularMaps = loadMaterial(material, aiTextureType_SPECULAR, "texture_specular");
+        textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
     }
+    
 
     TextureArray* givenArray = new TextureArray(textures, GL_RGBA);
+    givenArray->specBarrier = specBarr;
     return Mesh(vertices, indices, givenArray);
 }
 

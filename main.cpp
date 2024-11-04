@@ -15,6 +15,11 @@
 #include <assimp/postprocess.h>
 #include <filesystem>
 
+#include "RenderManager.hpp"
+#include "ModelObject.hpp"
+#include "DirLightObject.hpp"
+#include "PointLightObject.hpp"
+#include "LightObject.hpp"
 #include "Model.hpp"
 #include "Vertex.hpp"
 #include "Mesh.hpp"
@@ -38,9 +43,16 @@ SDL_GLContext openGLContext = nullptr;
 bool gQuit = false;
 
 // Storage
-TextureArray* Textures;
-Transform* transformStore;
-Model* guitarModel;
+Transform transformStore;
+Transform transformStore2;
+Transform transformStore3;
+Transform transformStore4;
+Transform transformStore5;
+RenderManager* renderManage;
+ModelObject* modelOb;
+ModelObject* modelOb2;
+DirLightObject* singleLight;
+PointLightObject* littleLight;
 
 /// Vertice specifiers (VAOs, VBOs, IBOs)
 GLuint IBO = 0;
@@ -54,19 +66,25 @@ const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
 
 // Model
 char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/backpack/backpack.obj";
+char* base2 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/mb/mb.obj";
 char* backpackPath = "../../models/backpack/";
+char* buildingPath = "../../models/mb/";
 
 Shader* GraphicsPipeline;
 Shader* LightGraphicsPipeline;
-Mesh* boxMesh;
 
 // Transform variables
 GLfloat u_offSet = -5;
 GLfloat u_rotate = 0;
 GLfloat u_scale = 0.5;
+GLfloat u_offSet2 = -5;
+GLfloat u_scale2 = 0.5;
+GLfloat u_lightRot = 0;
+GLfloat u_lightFoward = 0;
+GLfloat u_lightOrbit = 0;
 
 // Lighting variables
-GLfloat ambienceVal = 1.0f;
+GLfloat ambienceVal = 0.05f;
 glm::vec3 lightPos = glm::vec3(1.0f,1.0f,1.0f);
 
 Camera viewCam;
@@ -153,8 +171,19 @@ void getInput(){
     if(state[SDL_SCANCODE_RIGHT]||state[SDL_SCANCODE_D]){
         viewCam.moveRight(0.001f);
     }
-    if(state[SDL_SCANCODE_RIGHT]||state[SDL_SCANCODE_Z]){
+    if(state[SDL_SCANCODE_Z]){
         u_offSet += 0.01;
+    }
+    if(state[SDL_SCANCODE_Y]){
+        u_lightRot += 0.0005;
+    }
+    if(state[SDL_SCANCODE_T]){
+        u_lightOrbit += 0.01;
+        u_lightFoward += 0.01;
+    }
+    if(state[SDL_SCANCODE_U]){
+        u_lightOrbit -= 0.01;
+        u_lightFoward -= 0.01;
     }
     if(state[SDL_SCANCODE_LSHIFT]){
         viewCam.moveDown(0.001f);
@@ -205,6 +234,25 @@ void insertUniformMatrix4fv(glm::mat4x4 insert, const char* name, GLuint shaderP
     }
 }
 void preDrawFunc(){
+
+    // Main shader implementation
+    renderManage->predraw();
+
+    glm::mat4 modelMatrix = glm::mat4x4(1.0f);
+    glm::quat testQuat = glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f));
+    glm::quat test2Quat = glm::normalize(glm::quat(cos(u_rotate),0.0f,sin(u_rotate),0.0f));
+    glm::quat test3Quat = testQuat * test2Quat;
+    glm::mat4 rotationMatrix = glm::mat4_cast(test3Quat);
+    glm::mat4 lightModelMatrix = glm::translate(modelMatrix, glm::vec3(u_offSet/5,-u_offSet/5,u_offSet));
+    transformStore = Transform(glm::vec3(u_scale,u_scale,u_scale), glm::vec3(0.0f,0.0f,u_offSet), test3Quat);
+    transformStore2 = Transform(glm::vec3(u_scale2,u_scale2,u_scale2), glm::vec3(0.0f,0.0f,u_offSet2), test3Quat * glm::normalize(glm::quat(cos(u_rotate),0.0f,sin(u_rotate),0.0f)));
+    transformStore3 = Transform(glm::vec3(0.0f), glm::vec3(0.0f),  glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)) * glm::normalize(glm::quat(cos(u_lightRot),0.0f,sin(u_lightRot),0.0f)));
+    transformStore4 = Transform(glm::vec3(0.25f),  viewCam.getEyeLoc() + viewCam.getViewLocation() * u_lightFoward, glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
+    transformStore5 = Transform(glm::vec3(0.25f),  glm::vec3(0.0f,0.0f,u_offSet) + glm::vec3(0.0f,0.0f,-1.0f) * glm::normalize(glm::quat(cos(u_lightOrbit),0.0f,sin(u_lightOrbit),0.0f)), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
+    // Create transformation matrices
+    glm::mat4 viewMatrix = viewCam.getViewMat();
+    glm::mat4 perspectiveMatrix = glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 10.0f);
+
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
     glViewport(0,0,WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -212,26 +260,6 @@ void preDrawFunc(){
     glClear(GL_DEPTH_BUFFER_BIT| GL_COLOR_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
 
-    // Main shader implementation
-    GraphicsPipeline->use();
-    // Create transformation matrices
-    glm::mat4 viewMatrix = viewCam.getViewMat();
-    glm::mat4 perspectiveMatrix = glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 10.0f);
-    glm::mat4 modelMatrix = glm::mat4x4(1.0f);
-    glm::quat testQuat = glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f));
-    glm::quat test2Quat = glm::normalize(glm::quat(cos(u_rotate),0.0f,sin(u_rotate),0.0f));
-    glm::quat test3Quat = testQuat * test2Quat;
-    glm::mat4 rotationMatrix = glm::mat4_cast(test3Quat);
-    glm::mat4 lightModelMatrix = glm::translate(modelMatrix, glm::vec3(u_offSet/5,-u_offSet/5,u_offSet));
-    transformStore = new Transform(glm::vec3(u_scale,u_scale,u_scale), glm::vec3(0.0f,0.0f,u_offSet), test3Quat);
-    lightModelMatrix = lightModelMatrix * rotationMatrix;
-    lightModelMatrix = glm::scale(lightModelMatrix, glm::vec3(u_scale/3,u_scale/3,u_scale/3));
-    // Inserting into uniform variables
-    GraphicsPipeline->setMatrix("u_perspectiveMat", perspectiveMatrix);
-    GraphicsPipeline->setMatrix("u_viewMat", viewMatrix);
-    GraphicsPipeline->setVec3("u_lightColor", glm::vec3(1.0f));
-    GraphicsPipeline->setInt("u_givenTextures", 0);
-    GraphicsPipeline->setFloat("u_ambienceStrength", ambienceVal);
     // Light shader implementations
     LightGraphicsPipeline->use();
     LightGraphicsPipeline->setMatrix("u_perspectiveMat", perspectiveMatrix);
@@ -241,11 +269,11 @@ void preDrawFunc(){
 
 void drawFunc(){
     GraphicsPipeline->use();
-    GLCheck(guitarModel->Draw(*GraphicsPipeline, *transformStore);)
+    GLCheck(renderManage->draw())
 
-    LightGraphicsPipeline->use();
-    glBindVertexArray(lightVAO);
-    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+    //LightGraphicsPipeline->use();
+    //glBindVertexArray(lightVAO);
+    //glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
     
     glUseProgram(0);
 }
@@ -339,61 +367,6 @@ void CreateGraphicsPipeline(){
 }
 
 void VertexSpecification(){
-
-    std::vector<float> verticeData{
-        // Vertex 0
-        -0.5f, -0.5f, -0.5f, // Vector
-        1.0f, 0.0f, 0.0f,   // Color
-        0.0f,0.0f,         // Texture map
-        // Vertex 1
-        0.5f, -0.5f, -0.5f, // Vector
-        0.0f, 1.0f, 0.0f,  // Color
-        1.0f,0.0f,        // Texture map
-        // Vertex 2
-        -0.5f, 0.5f, -0.5f, // Vector
-        0.0f, 0.0f, 1.0f,  //Color
-        0.0f,1.0f,        // Texture map
-        // Vertex 3
-        0.5f, 0.5f, -0.5f, // Vector
-        0.0f, 0.0f, 1.0f, // Color
-        1.0f,1.0f,        // Texture map
-        // Vertex 4
-        -0.5f, -0.5f, 0.5f, // Vector
-        1.0f, 0.0f, 0.0f,  // Color
-        1.0f,0.0f,        // Texture map
-        // Vertex 5
-        0.5f, -0.5f, 0.5f, // Vector
-        0.0f, 1.0f, 0.0f, // Color
-        2.0f,0.0f,       // Texture map
-        // Vertex 6
-        -0.5f, 0.5f, 0.5f, // Vector
-        0.0f, 0.0f, 1.0f, //Color
-        1.0f,1.0f,       // Texture map
-        // Vertex 7
-        0.5f, 0.5f, 0.5f, // Vector
-        0.0f, 0.0f, 1.0f,// Color
-        2.0f,1.0f,      // Texture map
-    };
-
-    std::vector<Vertex> vertexData{
-        // Vertex 0
-        *(new Vertex(*(new glm::vec3(-0.5f, -0.5f, -0.5f)) , *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(0.0f,0.0f)))), 
-        // Vertex 1
-        *(new Vertex(*(new glm::vec3(0.5f, -0.5f, -0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(1.0f,0.0f)))),
-        // Vertex 2
-        *(new Vertex(*(new glm::vec3(-0.5f, 0.5f, -0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(0.0f,1.0f)))),
-        // Vertex 3
-        *(new Vertex(*(new glm::vec3(0.5f, 0.5f, -0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(1.0f,1.0f)))),
-        // Vertex 4
-        *(new Vertex(*(new glm::vec3(-0.5f, -0.5f, 0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(1.0f,0.0f)))),
-        // Vertex 5
-        *(new Vertex(*(new glm::vec3(0.5f, -0.5f, 0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(2.0f,0.0f)))),
-        // Vertex 6
-        *(new Vertex(*(new glm::vec3(-0.5f, 0.5f, 0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(1.0f,1.0f)))),
-        // Vertex 7
-        *(new Vertex(*(new glm::vec3(0.5f, 0.5f, 0.5f)), *(new glm::vec3(0.0f,0.0f,0.0f)), *(new glm::vec2(2.0f,1.0f))))
-    };
-
     std::vector<GLfloat> lightVerticeData{
         // Vertex 0
         -0.5f, -0.5f, -0.5f, // Vector
@@ -412,22 +385,20 @@ void VertexSpecification(){
         // Vertex 7
         0.5f, 0.5f, 0.5f, // Vector
     };
-    std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
 
-    // Generates Texture
-    std::vector<Texture> textureList;
-    Texture* tex1Data;
-    tex1Data = new Texture("../../textures/testTexture.jpeg");
-    textureList.push_back(*tex1Data);
-    Texture* tex2Data;
-    tex2Data = new Texture("../../textures/awesomeface.png");
-    textureList.push_back(*tex2Data);
-    GLCheck(Textures = new TextureArray(textureList, GL_RGB);)
-    tex1Data->free();
-    tex2Data->free();
+    std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
     
     // Compiles into mesh
-    GLCheck(guitarModel = new Model(base,backpackPath);)
+    GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 10.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
+    GLCheck(renderManage->insertModel(base,backpackPath);)
+    GLCheck(renderManage->insertModel(base2,buildingPath);)
+    GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore5, 1, renderManage);)
+    // GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.1f),glm::vec3(0.6f),glm::vec3(0.3f));)
+    GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.25f),glm::vec3(2.0f),glm::vec3(1.0f), 1.0f, 0.09, 0.032);)
+    GLCheck(littleLight = new PointLightObject(&transformStore5, renderManage, glm::vec3(0.25f),glm::vec3(2.0f),glm::vec3(1.0f), 1.0f, 0.09, 0.032);)
 
     // Generates light VAO
     // Generates VAO
@@ -463,6 +434,10 @@ void MainLoop(){
 }
 
 void CleanUp(){
+    renderManage->Quit();
+    delete GraphicsPipeline;
+    delete LightGraphicsPipeline;
+
     //Destroy window
     SDL_DestroyWindow(graphicsWindow);
     //Quit SDL subsystems
@@ -474,11 +449,11 @@ int main(){
     // Initializes SDL and OpenGL while opening window
     InitializeProgram();
 
-    // Specifies VAO and VBO
-    VertexSpecification();
-
     // Creates shaders, both fragment and vector
     CreateGraphicsPipeline();
+
+    // Specifies VAO and VBO
+    VertexSpecification();
 
     // Continually draws over file
     MainLoop();

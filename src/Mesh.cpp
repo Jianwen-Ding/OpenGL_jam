@@ -22,6 +22,7 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, TextureArr
 void Mesh::Draw(Shader &shader){
     shader.setInt("u_textureLength", textures->uvVectors.size());
     shader.setVec2List("u_uvCoords", textures->uvVectors.size(), textures->uvVectors);
+    shader.setInt("u_specBarrier", textures->specBarrier);
 
     // Assign texture
     glActiveTexture(GL_TEXTURE0);

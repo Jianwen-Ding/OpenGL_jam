@@ -25,3 +25,7 @@ Transform::Transform(glm::vec3 setScale, glm::vec3 setPositon, glm::quat setRota
     position = setPositon;
     rotation = setRotation;
 }
+
+glm::vec3 Transform::getFoward(){
+    return rotation * glm::vec3(0.0f,0.0f, -1.0f);
+}

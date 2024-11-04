@@ -70,6 +70,7 @@ void TextureArray::constructWithData(std::vector<Texture> textures, GLsizei widt
     glBindTexture(GL_TEXTURE_2D_ARRAY, ID);
 
     // Set Array Storage
+    std::cout << textures.size() << std::endl;
     GLCheck(glTexStorage3D(GL_TEXTURE_2D_ARRAY, 1, mainFormat, width, height, textures.size());)
 
     // Loops throug the given textures
@@ -88,7 +89,6 @@ void TextureArray::constructWithData(std::vector<Texture> textures, GLsizei widt
             givenUV.y = (float)textureHeight/(float)height;
         }
         uvVectors.push_back(givenUV);
-        std::cout << "UV given " << givenUV.x << "," << givenUV.y << std::endl;
         // Actually pads texture data
         unsigned char* paddedData = padTexture(textures[i].tData, textures[i].tWidth, textures[i].tHeight, width, height, stride, textures[i].tNRChannels);
         GLCheck(glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, width, height, 1, subFormat, GL_UNSIGNED_BYTE, paddedData);)
@@ -129,6 +129,8 @@ unsigned char* TextureArray::padTexture(unsigned char* data, GLsizei ogWidth, GL
 }
 // Creates a texture array with a set size
 TextureArray::TextureArray(std::vector<Texture> textures, GLsizei width, GLsizei height, GLenum format){
+    // Assumes that all textures are diffusion at first
+    specBarrier = textures.size();
     // Plugs texture data into array while checking to make sure texture works
     std::vector<unsigned char*> dataGiven;
     for(int i = 0; i < textures.size(); i++){
@@ -141,6 +143,8 @@ TextureArray::TextureArray(std::vector<Texture> textures, GLsizei width, GLsizei
 }
 
 TextureArray::TextureArray(std::vector<Texture> textures, GLenum format){
+    // Assumes that all textures are diffusion at first
+    specBarrier = textures.size();
     std::vector<unsigned char*> dataGiven;
     int maxWidth = 1;
     int maxHeight = 1;

@@ -177,6 +177,54 @@ src/Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Camera.cpp.s
 .PHONY : src/Camera.cpp.s
 
+src/DirLightObject.o: src/DirLightObject.cpp.o
+.PHONY : src/DirLightObject.o
+
+# target to build an object file
+src/DirLightObject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/DirLightObject.cpp.o
+.PHONY : src/DirLightObject.cpp.o
+
+src/DirLightObject.i: src/DirLightObject.cpp.i
+.PHONY : src/DirLightObject.i
+
+# target to preprocess a source file
+src/DirLightObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/DirLightObject.cpp.i
+.PHONY : src/DirLightObject.cpp.i
+
+src/DirLightObject.s: src/DirLightObject.cpp.s
+.PHONY : src/DirLightObject.s
+
+# target to generate assembly for a file
+src/DirLightObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/DirLightObject.cpp.s
+.PHONY : src/DirLightObject.cpp.s
+
+src/LightObject.o: src/LightObject.cpp.o
+.PHONY : src/LightObject.o
+
+# target to build an object file
+src/LightObject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/LightObject.cpp.o
+.PHONY : src/LightObject.cpp.o
+
+src/LightObject.i: src/LightObject.cpp.i
+.PHONY : src/LightObject.i
+
+# target to preprocess a source file
+src/LightObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/LightObject.cpp.i
+.PHONY : src/LightObject.cpp.i
+
+src/LightObject.s: src/LightObject.cpp.s
+.PHONY : src/LightObject.s
+
+# target to generate assembly for a file
+src/LightObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/LightObject.cpp.s
+.PHONY : src/LightObject.cpp.s
+
 src/Mesh.o: src/Mesh.cpp.o
 .PHONY : src/Mesh.o
 
@@ -225,29 +273,77 @@ src/Model.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Model.cpp.s
 .PHONY : src/Model.cpp.s
 
-src/Render_Management.o: src/Render_Management.cpp.o
-.PHONY : src/Render_Management.o
+src/ModelObject.o: src/ModelObject.cpp.o
+.PHONY : src/ModelObject.o
 
 # target to build an object file
-src/Render_Management.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Render_Management.cpp.o
-.PHONY : src/Render_Management.cpp.o
+src/ModelObject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/ModelObject.cpp.o
+.PHONY : src/ModelObject.cpp.o
 
-src/Render_Management.i: src/Render_Management.cpp.i
-.PHONY : src/Render_Management.i
+src/ModelObject.i: src/ModelObject.cpp.i
+.PHONY : src/ModelObject.i
 
 # target to preprocess a source file
-src/Render_Management.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Render_Management.cpp.i
-.PHONY : src/Render_Management.cpp.i
+src/ModelObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/ModelObject.cpp.i
+.PHONY : src/ModelObject.cpp.i
 
-src/Render_Management.s: src/Render_Management.cpp.s
-.PHONY : src/Render_Management.s
+src/ModelObject.s: src/ModelObject.cpp.s
+.PHONY : src/ModelObject.s
 
 # target to generate assembly for a file
-src/Render_Management.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Render_Management.cpp.s
-.PHONY : src/Render_Management.cpp.s
+src/ModelObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/ModelObject.cpp.s
+.PHONY : src/ModelObject.cpp.s
+
+src/PointLightObject.o: src/PointLightObject.cpp.o
+.PHONY : src/PointLightObject.o
+
+# target to build an object file
+src/PointLightObject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/PointLightObject.cpp.o
+.PHONY : src/PointLightObject.cpp.o
+
+src/PointLightObject.i: src/PointLightObject.cpp.i
+.PHONY : src/PointLightObject.i
+
+# target to preprocess a source file
+src/PointLightObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/PointLightObject.cpp.i
+.PHONY : src/PointLightObject.cpp.i
+
+src/PointLightObject.s: src/PointLightObject.cpp.s
+.PHONY : src/PointLightObject.s
+
+# target to generate assembly for a file
+src/PointLightObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/PointLightObject.cpp.s
+.PHONY : src/PointLightObject.cpp.s
+
+src/RenderManager.o: src/RenderManager.cpp.o
+.PHONY : src/RenderManager.o
+
+# target to build an object file
+src/RenderManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/RenderManager.cpp.o
+.PHONY : src/RenderManager.cpp.o
+
+src/RenderManager.i: src/RenderManager.cpp.i
+.PHONY : src/RenderManager.i
+
+# target to preprocess a source file
+src/RenderManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/RenderManager.cpp.i
+.PHONY : src/RenderManager.cpp.i
+
+src/RenderManager.s: src/RenderManager.cpp.s
+.PHONY : src/RenderManager.s
+
+# target to generate assembly for a file
+src/RenderManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/RenderManager.cpp.s
+.PHONY : src/RenderManager.cpp.s
 
 src/Shader.o: src/Shader.cpp.o
 .PHONY : src/Shader.o
@@ -432,15 +528,27 @@ help:
 	@echo "... src/Camera.o"
 	@echo "... src/Camera.i"
 	@echo "... src/Camera.s"
+	@echo "... src/DirLightObject.o"
+	@echo "... src/DirLightObject.i"
+	@echo "... src/DirLightObject.s"
+	@echo "... src/LightObject.o"
+	@echo "... src/LightObject.i"
+	@echo "... src/LightObject.s"
 	@echo "... src/Mesh.o"
 	@echo "... src/Mesh.i"
 	@echo "... src/Mesh.s"
 	@echo "... src/Model.o"
 	@echo "... src/Model.i"
 	@echo "... src/Model.s"
-	@echo "... src/Render_Management.o"
-	@echo "... src/Render_Management.i"
-	@echo "... src/Render_Management.s"
+	@echo "... src/ModelObject.o"
+	@echo "... src/ModelObject.i"
+	@echo "... src/ModelObject.s"
+	@echo "... src/PointLightObject.o"
+	@echo "... src/PointLightObject.i"
+	@echo "... src/PointLightObject.s"
+	@echo "... src/RenderManager.o"
+	@echo "... src/RenderManager.i"
+	@echo "... src/RenderManager.s"
 	@echo "... src/Shader.o"
 	@echo "... src/Shader.i"
 	@echo "... src/Shader.s"
