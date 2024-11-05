@@ -10,6 +10,7 @@ class Transform{
         glm::vec3 scale;
         glm::vec3 position;
         glm::quat rotation;
+        std::vector<Transform*> parents;
         glm::mat4 getTransformMat();
         Transform();
         Transform(glm::vec3 setScale, glm::vec3 setPosition, glm::quat getRotation);

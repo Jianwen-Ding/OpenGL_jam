@@ -58,6 +58,7 @@ Transform transformStore4;
 Transform transformStore5;
 Transform transformStore6;
 Transform transformStore7;
+Transform transformStore8;
 RenderManager* renderManage;
 ModelObject* modelOb;
 ModelObject* modelOb2;
@@ -81,6 +82,8 @@ char* backpackPath = "../../models/backpack/";
 char* buildingPath = "../../models/mb/";
 char* base3 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/2Fort/2fort.obj";
 char* basePath = "../../models/2Fort/";
+char* base4 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/NewPLaneObj/plane.obj";
+char* planePath = "../../models/NewPLaneObj/";
 
 Shader* GraphicsPipeline;
 Shader* LightGraphicsPipeline;
@@ -406,21 +409,24 @@ void VertexSpecification(){
     std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
     
     // Compiles into mesh
-    GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 40.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
+    GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 80.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
     //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(renderManage->insertModel(base,backpackPath);)
     GLCheck(renderManage->insertModel(base2,buildingPath);)
+    GLCheck(renderManage->insertModel(base3,basePath);)
+    GLCheck(renderManage->insertModel(base4,planePath);)
     //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
-    GLCheck(modelOb2 = new ModelObject(&transformStore5, 1, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
     //GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
-    // GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.1f),glm::vec3(0.6f),glm::vec3(0.3f));)
-    // GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.25f),glm::vec3(2.0f),glm::vec3(1.0f), 1.0f, 0.09, 0.032);)
-    //GLCheck(littleLight = new PointLightObject(&transformStore5, renderManage, glm::vec3(0.25f),glm::vec3(2.0f),glm::vec3(1.0f), 1.0f, 0.09, 0.032);)
-    GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.5f),glm::vec3(2.0f),glm::vec3(1.0f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
+    // GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.25f),glm::vec3(0.8f),glm::vec3(0.5f));)
+    // GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
+    GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
+    // GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
     transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
+    transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(-1.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
     // Generates light VAO
     // Generates VAO
     glGenVertexArrays(1, &lightVAO);

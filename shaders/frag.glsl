@@ -43,7 +43,7 @@ struct SpotLight{
     vec3 specular;
 };
 
-# define DEFAULT_SPEC vec3(0.5)
+# define DEFAULT_SPEC vec3(0.25)
 # define MAX_LIGHTS 25
 
 uniform int u_specBarrier;
@@ -80,13 +80,13 @@ void main()
 
     vec3 specularTex;
     if(u_textureLength != u_specBarrier){
-        specularTex = texture(u_givenTextures, vec3(adjustTexCoords[u_specBarrier],u_specBarrier)).rgb;
+        specularTex = vec3(texture(u_givenTextures, vec3(adjustTexCoords[u_specBarrier],u_specBarrier)));
     }
     else{
         specularTex = DEFAULT_SPEC;
     }
 
-    vec3 diffuseTex = texture(u_givenTextures, vec3(adjustTexCoords[0],0)).rgb;
+    vec3 diffuseTex = vec3(texture(u_givenTextures, vec3(adjustTexCoords[0],0)));
 
     vec3 norm = normalize(v_normalVertex);
     // Normal adjusted to transform
@@ -121,7 +121,7 @@ vec3 generateDirResult(DirLight light, vec3 normal, vec3 viewDir, vec3 diffuseTe
     
     // Specular
     vec3 reflectDir = reflect(-lightDir, normal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 8);
     vec3 specular = light.specular * spec * specTex;
 
     return  (ambient + diffuse + specular);
@@ -139,7 +139,7 @@ vec3 generatePointResult(PointLight light, vec3 normal, vec3 fragPos, vec3 viewD
 
     // Specular
     vec3 reflectDir = reflect(-lightDir, normal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 8);
     vec3 specular = light.specular * spec * specTex;
 
     // Attenuation
@@ -165,7 +165,7 @@ vec3 generateSpotResult(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir
 
     // Specular
     vec3 reflectDir = reflect(-lightDir, normal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 8);
     vec3 specular = light.specular * spec * specTex;
 
     // Attenuation
