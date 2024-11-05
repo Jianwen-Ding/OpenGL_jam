@@ -30,11 +30,10 @@ Texture::Texture(const char* findPath){
 
     tData = stbi_load(findPath, &tWidth, &tHeight, &tNRChannels, 0);
     if(stbi_failure_reason()){
-        std::cout << stbi_failure_reason();
+        std::cout << stbi_failure_reason() << std::endl;
     }
     if(!(*tData)){
         std::cout << "Error in texture loading" << std::endl;
-        exit(1);
     }
     tPath = findPath;
 }

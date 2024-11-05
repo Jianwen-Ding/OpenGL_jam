@@ -1,18 +1,23 @@
-#ifndef POINTLIGHTOBJECT_HPP
-#define POINTLIGHTOBJECT_HPP
+#ifndef SPOTLIGHTOBJECT_HPP
+#define SPOTLIGHTOBJECT_HPP
 
 #include "LightObject.hpp"
+#include "Shader.hpp"
+#include "Transform.hpp"
+
 
 // Represents a point light, a light that 
-// at a certain points that becomes less bright the further away it is
-class PointLightObject : public LightObject{
+// points to a certain direction from a position that falls off the farther away they are from the center of the beam
+class SpotLightObject : public LightObject{
     public:
-        PointLightObject(
+        SpotLightObject(
             Transform* setTransformObject, 
             RenderManager* setManager, 
             glm::vec3 setAmbient, 
             glm::vec3 setDiffuse, 
-            glm::vec3 setSpectral, 
+            glm::vec3 setSpectral,
+            float setCutOff,
+            float setOutCutOff,
             float setLinear, 
             float setQuadratic, 
             float setConstant);
@@ -20,10 +25,15 @@ class PointLightObject : public LightObject{
         void render(int index, Shader* givenShader) override;
         void Destroy() override;
 
+        // Intensity (light difference from center) var
+        float cutOff;
+        float outCutOff;
+
         // Attenuation (light falloff) vars
         float linear;
         float quadratic;
         float constant;
 };
+
 
 #endif

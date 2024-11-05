@@ -369,6 +369,30 @@ src/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Shader.cpp.s
 .PHONY : src/Shader.cpp.s
 
+src/SpotLightObject.o: src/SpotLightObject.cpp.o
+.PHONY : src/SpotLightObject.o
+
+# target to build an object file
+src/SpotLightObject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/SpotLightObject.cpp.o
+.PHONY : src/SpotLightObject.cpp.o
+
+src/SpotLightObject.i: src/SpotLightObject.cpp.i
+.PHONY : src/SpotLightObject.i
+
+# target to preprocess a source file
+src/SpotLightObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/SpotLightObject.cpp.i
+.PHONY : src/SpotLightObject.cpp.i
+
+src/SpotLightObject.s: src/SpotLightObject.cpp.s
+.PHONY : src/SpotLightObject.s
+
+# target to generate assembly for a file
+src/SpotLightObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/SpotLightObject.cpp.s
+.PHONY : src/SpotLightObject.cpp.s
+
 src/Texture.o: src/Texture.cpp.o
 .PHONY : src/Texture.o
 
@@ -552,6 +576,9 @@ help:
 	@echo "... src/Shader.o"
 	@echo "... src/Shader.i"
 	@echo "... src/Shader.s"
+	@echo "... src/SpotLightObject.o"
+	@echo "... src/SpotLightObject.i"
+	@echo "... src/SpotLightObject.s"
 	@echo "... src/Texture.o"
 	@echo "... src/Texture.i"
 	@echo "... src/Texture.s"

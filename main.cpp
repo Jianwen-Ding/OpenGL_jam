@@ -19,6 +19,7 @@
 #include "ModelObject.hpp"
 #include "DirLightObject.hpp"
 #include "PointLightObject.hpp"
+#include "SpotLightObject.hpp"
 #include "LightObject.hpp"
 #include "Model.hpp"
 #include "Vertex.hpp"
@@ -34,6 +35,13 @@
 // Current compile command
 //g++ main.cpp ./src/* -I./include/ -I./include/glm-master -std=c++11 -o a.out -lSDL2 -ldl
 
+// finds time
+unsigned long lastTime;
+float deltaTime;
+
+// finds speed
+const float speed = 5;
+
 // Globals
 const int WINDOW_WIDTH = 640;
 const int WINDOW_HEIGHT = 480;
@@ -48,6 +56,8 @@ Transform transformStore2;
 Transform transformStore3;
 Transform transformStore4;
 Transform transformStore5;
+Transform transformStore6;
+Transform transformStore7;
 RenderManager* renderManage;
 ModelObject* modelOb;
 ModelObject* modelOb2;
@@ -69,6 +79,8 @@ char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenG
 char* base2 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/mb/mb.obj";
 char* backpackPath = "../../models/backpack/";
 char* buildingPath = "../../models/mb/";
+char* base3 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/2Fort/2fort.obj";
+char* basePath = "../../models/2Fort/";
 
 Shader* GraphicsPipeline;
 Shader* LightGraphicsPipeline;
@@ -147,6 +159,8 @@ void getOpenGLVersionInfo(){
 
 }
 void getInput(){
+    deltaTime = (float)(SDL_GetTicks() - lastTime) / (float)1000;
+    lastTime = SDL_GetTicks();
     SDL_Event e;
     while(SDL_PollEvent(&e) != 0){
         if(e.type == SDL_QUIT){
@@ -160,16 +174,16 @@ void getInput(){
     u_rotate -= 0.0001f;
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     if(state[SDL_SCANCODE_UP]||state[SDL_SCANCODE_W]){
-        viewCam.moveFoward(0.001f);
+        viewCam.moveFoward(speed * deltaTime);
     }
     if(state[SDL_SCANCODE_DOWN]||state[SDL_SCANCODE_S]){
-        viewCam.moveBackwards(0.001f);
+        viewCam.moveBackwards(speed * deltaTime);
     }
     if(state[SDL_SCANCODE_LEFT]||state[SDL_SCANCODE_A]){
-        viewCam.moveLeft(0.001f);
+        viewCam.moveLeft(speed * deltaTime);
     }
     if(state[SDL_SCANCODE_RIGHT]||state[SDL_SCANCODE_D]){
-        viewCam.moveRight(0.001f);
+        viewCam.moveRight(speed * deltaTime);
     }
     if(state[SDL_SCANCODE_Z]){
         u_offSet += 0.01;
@@ -186,10 +200,10 @@ void getInput(){
         u_lightFoward -= 0.01;
     }
     if(state[SDL_SCANCODE_LSHIFT]){
-        viewCam.moveDown(0.001f);
+        viewCam.moveDown(speed * deltaTime);
     }
     if(state[SDL_SCANCODE_SPACE]){
-        viewCam.moveUp(0.001f);
+        viewCam.moveUp(speed * deltaTime);
     }
 }
 
@@ -249,6 +263,7 @@ void preDrawFunc(){
     transformStore3 = Transform(glm::vec3(0.0f), glm::vec3(0.0f),  glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)) * glm::normalize(glm::quat(cos(u_lightRot),0.0f,sin(u_lightRot),0.0f)));
     transformStore4 = Transform(glm::vec3(0.25f),  viewCam.getEyeLoc() + viewCam.getViewLocation() * u_lightFoward, glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
     transformStore5 = Transform(glm::vec3(0.25f),  glm::vec3(0.0f,0.0f,u_offSet) + glm::vec3(0.0f,0.0f,-1.0f) * glm::normalize(glm::quat(cos(u_lightOrbit),0.0f,sin(u_lightOrbit),0.0f)), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
+    transformStore7 = Transform(glm::vec3(0.25f),  viewCam.getEyeLoc(), glm::normalize(glm::quat(cos(u_lightOrbit),0.0f,sin(u_lightOrbit),0.0f)));
     // Create transformation matrices
     glm::mat4 viewMatrix = viewCam.getViewMat();
     glm::mat4 perspectiveMatrix = glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 10.0f);
@@ -310,6 +325,8 @@ void InitializeProgram(){
         exit(1);
     }
     getOpenGLVersionInfo();
+    lastTime = SDL_GetTicks();
+    deltaTime = 0;
 }
 
 GLuint CompileShader(GLuint type, const std::string& source){
@@ -389,17 +406,21 @@ void VertexSpecification(){
     std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
     
     // Compiles into mesh
-    GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 10.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
+    GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 40.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
+    //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(renderManage->insertModel(base,backpackPath);)
     GLCheck(renderManage->insertModel(base2,buildingPath);)
+    //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore5, 1, renderManage);)
+    //GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
     // GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.1f),glm::vec3(0.6f),glm::vec3(0.3f));)
-    GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.25f),glm::vec3(2.0f),glm::vec3(1.0f), 1.0f, 0.09, 0.032);)
-    GLCheck(littleLight = new PointLightObject(&transformStore5, renderManage, glm::vec3(0.25f),glm::vec3(2.0f),glm::vec3(1.0f), 1.0f, 0.09, 0.032);)
-
+    // GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.25f),glm::vec3(2.0f),glm::vec3(1.0f), 1.0f, 0.09, 0.032);)
+    //GLCheck(littleLight = new PointLightObject(&transformStore5, renderManage, glm::vec3(0.25f),glm::vec3(2.0f),glm::vec3(1.0f), 1.0f, 0.09, 0.032);)
+    GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.5f),glm::vec3(2.0f),glm::vec3(1.0f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
+    transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
     // Generates light VAO
     // Generates VAO
     glGenVertexArrays(1, &lightVAO);

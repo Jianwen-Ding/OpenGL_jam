@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/GLJam.dir/src/RenderManager.cpp.o.d"
   "CMakeFiles/GLJam.dir/src/Shader.cpp.o"
   "CMakeFiles/GLJam.dir/src/Shader.cpp.o.d"
+  "CMakeFiles/GLJam.dir/src/SpotLightObject.cpp.o"
+  "CMakeFiles/GLJam.dir/src/SpotLightObject.cpp.o.d"
   "CMakeFiles/GLJam.dir/src/Texture.cpp.o"
   "CMakeFiles/GLJam.dir/src/Texture.cpp.o.d"
   "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o"

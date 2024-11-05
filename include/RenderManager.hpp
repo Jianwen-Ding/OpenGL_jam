@@ -18,6 +18,7 @@
 
 class DirLightObject;
 class PointLightObject;
+class SpotLightObject;
 
 class RenderManager{
     public:
@@ -36,10 +37,12 @@ class RenderManager{
         // Inserts the lights
         void insertDirLightOb(DirLightObject* lightOb);
         void insertPointLightOb(PointLightObject* lightOb);
+        void insertSpotLightOb(SpotLightObject* lightOb);
 
         // Removes and deletes the light objects from the render data
         void detatchDirLightOb(DirLightObject* lightOb);
         void detatchPointLightOb(PointLightObject* lightOb);
+        void detatchSpotLightOb(SpotLightObject* lightOb);
 
         // Inserts the model object for the rendered data
         void insertModelOb(ModelObject* modelOb, int modelIndex);
@@ -58,6 +61,7 @@ class RenderManager{
         // Light Object navigation
         std::vector<DirLightObject*> dirLightList;
         std::vector<PointLightObject*> pointLightList;
+        std::vector<SpotLightObject*> spotLightList;
 
         // Rendering pipeline object/fields
         Camera* givenCamera;

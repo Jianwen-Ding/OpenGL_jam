@@ -1088,5 +1088,6 @@ CMakeFiles/GLJam.dir/src/RenderManager.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/map \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__tree \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/DirLightObject.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/SpotLightObject.hpp \
   /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/PointLightObject.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/iostream

@@ -1,5 +1,6 @@
 #include "RenderManager.hpp"
 #include "DirLightObject.hpp"
+#include "SpotLightObject.hpp"
 #include "PointLightObject.hpp"
 #include "Transform.hpp"
 #include "Shader.hpp"
@@ -56,6 +57,11 @@ void RenderManager::predraw(){
     }
     givenShader->setInt("u_pointLightLength", pointLightList.size());
 
+    for(int i = 0; i < spotLightList.size(); i++){
+        spotLightList[i]->render(i,givenShader);
+    }
+    givenShader->setInt("u_spotLightLength", spotLightList.size());
+
     // Inserting into uniform variables
     givenShader->setMatrix("u_perspectiveMat", perspectiveMat);
     givenShader->setMatrix("u_viewMat", viewMatrix);
@@ -78,6 +84,10 @@ void RenderManager::Quit(){
     for(unsigned int i = 0; i < pointLightList.size(); i++){
         delete pointLightList[i];
     }
+    for(unsigned int i = 0; i < spotLightList.size(); i++){
+        delete spotLightList[i];
+    }
+    spotLightList.clear();
     pointLightList.clear();
     dirLightList.clear();
     modelList.clear();
@@ -137,5 +147,16 @@ void RenderManager::detatchPointLightOb(PointLightObject* lightOb){
     auto find = std::find(pointLightList.begin(), pointLightList.end(), (lightOb));
     if(find != pointLightList.end()){
         pointLightList.erase(find);
+    }
+}
+
+void RenderManager::insertSpotLightOb(SpotLightObject* lightOb){
+    spotLightList.push_back(lightOb);
+}
+
+void RenderManager::detatchSpotLightOb(SpotLightObject* lightOb){
+    auto find = std::find(spotLightList.begin(), spotLightList.end(), (lightOb));
+    if(find != spotLightList.end()){
+        spotLightList.erase(find);
     }
 }

@@ -19,6 +19,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/PointLightObject.cpp" "CMakeFiles/GLJam.dir/src/PointLightObject.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/PointLightObject.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/RenderManager.cpp" "CMakeFiles/GLJam.dir/src/RenderManager.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/RenderManager.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Shader.cpp" "CMakeFiles/GLJam.dir/src/Shader.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Shader.cpp.o.d"
+  "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/SpotLightObject.cpp" "CMakeFiles/GLJam.dir/src/SpotLightObject.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/SpotLightObject.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Texture.cpp" "CMakeFiles/GLJam.dir/src/Texture.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Texture.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/TextureArray.cpp" "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/TextureArray.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/src/Transform.cpp" "CMakeFiles/GLJam.dir/src/Transform.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Transform.cpp.o.d"
