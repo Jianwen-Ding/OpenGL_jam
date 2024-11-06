@@ -1,4 +1,4 @@
-# Install script for directory: /Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam
+# Install script for directory: /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -52,6 +52,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/out/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

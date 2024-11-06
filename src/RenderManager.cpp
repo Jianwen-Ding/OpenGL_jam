@@ -14,7 +14,7 @@
 #include <vector>
 
 
-void RenderManager::insertModel(char* path, char* base){
+void RenderManager::insertModel(const char* path, const char* base){
     Model* gotModel = new Model(path, base);
     std::vector<ModelObject*> initObList;
     modelList.push_back(gotModel);
@@ -194,7 +194,7 @@ void RenderManager::detatchSpotLightOb(SpotLightObject* lightOb){
     }
 }
 
-void RenderManager::setLightMap(char* frontPath, char* rightPath, char* leftPath, char* backPath, char* bottomPath, char* topPath, Shader* givenLightShader){
+void RenderManager::setLightMap(const char* frontPath, const char* rightPath, const char* leftPath, const char* backPath, const char* bottomPath, const char* topPath, Shader* givenLightShader){
     // Initializes changes needed in rendermanager 
     hasSkybox = true;
     glGenTextures(1, &SkyboxTextureID);
@@ -285,4 +285,5 @@ void RenderManager::setLightMap(char* frontPath, char* rightPath, char* leftPath
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
+    glBindVertexArray(0);
 }

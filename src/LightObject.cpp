@@ -7,7 +7,3 @@ LightObject::LightObject(Transform* setTransform, RenderManager* setManager, glm
     diffuse(setDiffuse),
     spectral(setSpectral) {
 }
-
-LightObject::~LightObject(){
-    this->Destroy();
-}

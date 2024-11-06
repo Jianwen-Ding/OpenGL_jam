@@ -24,8 +24,8 @@ class RenderManager{
     public:
 
         // Initializes model and adds to manager
-        void insertModel(char* path, char* base);
-        void setLightMap(char* frontPath, char* rightPath, char* leftPath, char* backPath, char* bottomPath, char* topPath, Shader* givenLightShader);
+        void insertModel(const char* path, const char* base);
+        void setLightMap(const char* frontPath, const char* rightPath, const char* leftPath, const char* backPath, const char* bottomPath, const char* topPath, Shader* givenLightShader);
 
         // Draws the models and objects inserted inside
         void draw();

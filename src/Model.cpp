@@ -53,8 +53,8 @@ void Model::Draw(Shader &shader, Transform &transform){
     }
 }
 
-Model::Model(char *path, char *setBase){
-    std::cout << *setBase << std::endl;
+Model::Model(const char *path, const char *setBase){
+    // std::cout << *setBase << std::endl;
     std::string baseCopy = setBase;
     base = baseCopy;
 
@@ -75,6 +75,8 @@ void Model::loadModel(std::string path){
     for(unsigned int i = 0; i < textures_loaded.size(); i++){
         textures_loaded[i].free();
     }
+    std::cout << "Loaded " << meshes.size() << " meshes" << std::endl;
+    std::cout << "Loaded " << textures_loaded.size() << " textures" << std::endl;
 }
 
 void Model::processNode(aiNode *node, const aiScene *scene){
@@ -146,7 +148,6 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
 std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type, std::string typeName){
     std::vector<Texture> textures;
     for(unsigned int i = 0; i < mat->GetTextureCount(type); i++){
-        std::cout << base << std::endl;
         aiString str;
         aiString baseStr(base);
         mat->GetTexture(type,i,&str);
@@ -160,7 +161,6 @@ std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type, st
             }
         }
         if(!skip){
-            std::cout << baseStr.C_Str() << std::endl;
             GLCheck(Texture texture = Texture(baseStr.C_Str());)
             textures.push_back(texture);
             textures_loaded.push_back(texture);

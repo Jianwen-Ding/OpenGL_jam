@@ -78,23 +78,23 @@ const char* skyboxVertexShaderFileName = "../../shaders/skyboxVertex.glsl";
 const char* skyboxFragmentShaderFileName = "../../shaders/skyboxFrag.glsl";
 
 // Model
-char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/backpack/backpack.obj";
-char* base2 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/mb/mb.obj";
-char* backpackPath = "../../models/backpack/";
-char* buildingPath = "../../models/mb/";
-char* base3 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/2Fort/2fort.obj";
-char* basePath = "../../models/2Fort/";
-char* base4 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/NewPLaneObj/plane.obj";
-char* planePath = "../../models/NewPLaneObj/";
+const char* base = "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/models/backpack/backpack.obj";
+const char* base2 = "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/models/mb/mb.obj";
+const char* backpackPath = "../../models/backpack/";
+const char* buildingPath = "../../models/mb/";
+const char* base3 = "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/models/2Fort/2fort.obj";
+const char* basePath = "../../models/2Fort/";
+const char* base4 = "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/models/NewPLaneObj/plane.obj";
+const char* planePath = "../../models/NewPLaneObj/";
 
 
 // Paths
-char* skyBackPath = "../../textures/Box_Back.bmp";
-char* skyBottomPath = "../../textures/Box_Bottom.bmp";
-char* skyFrontPath = "../../textures/Box_Front.bmp";
-char* skyLeftPath = "../../textures/Box_Left.bmp";
-char* skyRightPath = "../../textures/Box_Right.bmp";
-char* skyTopPath = "../../textures/Box_Top.bmp";
+const char* skyBackPath = "../../textures/Box_Back.bmp";
+const char* skyBottomPath = "../../textures/Box_Bottom.bmp";
+const char* skyFrontPath = "../../textures/Box_Front.bmp";
+const char* skyLeftPath = "../../textures/Box_Left.bmp";
+const char* skyRightPath = "../../textures/Box_Right.bmp";
+const char* skyTopPath = "../../textures/Box_Top.bmp";
 
 Shader* SkyboxPipeline;
 Shader* GraphicsPipeline;
@@ -426,15 +426,15 @@ void VertexSpecification(){
     renderManage->setLightMap(skyFrontPath,skyRightPath,skyLeftPath,skyBackPath,skyBottomPath,skyTopPath, SkyboxPipeline);
     //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(renderManage->insertModel(base,backpackPath);)
-    GLCheck(renderManage->insertModel(base2,buildingPath);)
-    GLCheck(renderManage->insertModel(base3,basePath);)
-    GLCheck(renderManage->insertModel(base4,planePath);)
+    //GLCheck(renderManage->insertModel(base2,buildingPath);)
+    //GLCheck(renderManage->insertModel(base3,basePath);)
+    //GLCheck(renderManage->insertModel(base4,planePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
-    GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
-    GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
-    GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
-    GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
-    GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f));)
+    //GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
+    //GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
+    //GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
+    //GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
+    //GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f));)
     // GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
     GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
     GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)

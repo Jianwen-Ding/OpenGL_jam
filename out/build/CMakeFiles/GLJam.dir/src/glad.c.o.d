@@ -1,5 +1,5 @@
 CMakeFiles/GLJam.dir/src/glad.c.o: \
-  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/glad.c \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/glad.c \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/stdio.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/_stdio.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/cdefs.h \
@@ -83,7 +83,7 @@ CMakeFiles/GLJam.dir/src/glad.c.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/strings.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/secure/_strings.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h \
-  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/glad/glad.h \
-  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/KHR/khrplatform.h \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glad/glad.h \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/KHR/khrplatform.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/dlfcn.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdbool.h

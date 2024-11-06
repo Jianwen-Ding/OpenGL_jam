@@ -13,7 +13,7 @@
 
 class Model{
     public:
-        Model(char *path, char *setBase);
+        Model(const char *path, const char *setBase);
         void Draw(Shader &shader, Transform &transform);
     private:
         std::vector<Mesh> meshes;

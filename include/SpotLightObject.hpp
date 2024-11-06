@@ -23,7 +23,7 @@ class SpotLightObject : public LightObject{
             float setConstant);
 
         void render(int index, Shader* givenShader) override;
-        void Destroy() override;
+        ~SpotLightObject();
 
         // Intensity (light difference from center) var
         float cutOff;

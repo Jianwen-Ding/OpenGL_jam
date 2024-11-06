@@ -13,8 +13,9 @@ class DirLightObject : public LightObject{
 
         // Plugs light parameters into uniforms
         void render(int index, Shader* givenShader) override;
+
         // Releases light object from the render manager
-        void Destroy() override;
+        ~DirLightObject();
 }; 
 
 #endif

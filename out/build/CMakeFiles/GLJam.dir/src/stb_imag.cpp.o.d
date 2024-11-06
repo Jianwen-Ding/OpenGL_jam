@@ -1,6 +1,6 @@
 CMakeFiles/GLJam.dir/src/stb_imag.cpp.o: \
-  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/src/stb_imag.cpp \
-  /Users/jianwending/Documents/ProjectsFolder/Current\ Projects/OpenGL_jam/include/stb_image.h \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/stb_imag.cpp \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/stb_image.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/stdio.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__config_site \

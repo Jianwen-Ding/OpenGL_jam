@@ -34,6 +34,6 @@ void SpotLightObject::render(int index, Shader* givenShader) {
     givenShader->setFloat(base + ".outerCutOff", outCutOff);
 }
 
-void SpotLightObject::Destroy() {
+SpotLightObject::~SpotLightObject() {
     givenManager->detatchSpotLightOb(this);
 }

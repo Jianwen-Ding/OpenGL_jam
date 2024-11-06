@@ -27,6 +27,6 @@ void PointLightObject::render(int index, Shader* givenShader) {
     givenShader->setFloat(base + ".quadratic", quadratic);
 }
 
-void PointLightObject::Destroy() {
+PointLightObject::~PointLightObject() {
     givenManager->detatchPointLightOb(this);
 }
