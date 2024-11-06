@@ -201,10 +201,10 @@ void getInput(){
         viewCam.moveRight(speed * deltaTime);
     }
     if(state[SDL_SCANCODE_Z]){
-        u_offSet += 0.01;
+        u_offSet += deltaTime;
     }
     if(state[SDL_SCANCODE_Y]){
-        u_lightRot += 0.0005;
+        u_lightRot += 0.1 * deltaTime;
     }
     if(state[SDL_SCANCODE_T]){
         u_lightOrbit += 0.01;
@@ -429,16 +429,15 @@ void VertexSpecification(){
     GLCheck(renderManage->insertModel(base2,buildingPath);)
     GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(renderManage->insertModel(base4,planePath);)
-    //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
-    //GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
-    // GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.25f),glm::vec3(0.8f),glm::vec3(0.5f));)
+    GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
+    GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f));)
     // GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
     GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
-    // GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
+    GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
     transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
     transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(-1.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
     // Generates light VAO
