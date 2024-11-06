@@ -74,6 +74,8 @@ GLuint lightVBO = 0;
 const char* vertexShaderFileName = "../../shaders/vertex.glsl";
 const char* fragmentShaderFileName = "../../shaders/frag.glsl";
 const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
+const char* skyboxVertexShaderFileName = "../../shaders/skyboxVertex.glsl";
+const char* skyboxFragmentShaderFileName = "../../shaders/skyboxFrag.glsl";
 
 // Model
 char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/backpack/backpack.obj";
@@ -85,6 +87,7 @@ char* basePath = "../../models/2Fort/";
 char* base4 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/NewPLaneObj/plane.obj";
 char* planePath = "../../models/NewPLaneObj/";
 
+Shader* SkyboxPipeline;
 Shader* GraphicsPipeline;
 Shader* LightGraphicsPipeline;
 
@@ -382,6 +385,7 @@ GLuint CreateShaderProgram(const std::string& vertexShaderSource, const std::str
     return programObject;
 }
 void CreateGraphicsPipeline(){
+    SkyboxPipeline = new Shader(skyboxVertexShaderFileName, skyboxFragmentShaderFileName);
     GraphicsPipeline = new Shader(vertexShaderFileName, fragmentShaderFileName);
     LightGraphicsPipeline = new Shader(vertexShaderFileName, lightFragmentShaderFileName);
 }
