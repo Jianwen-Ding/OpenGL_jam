@@ -203,7 +203,7 @@ void getInput(){
         u_offSet += 0.01;
     }
     if(state[SDL_SCANCODE_Y]){
-        u_lightRot += 0.05 * deltaTime;
+        u_lightRot += 0.0005;
     }
     if(state[SDL_SCANCODE_T]){
         u_lightOrbit += 0.01;
@@ -433,8 +433,8 @@ void VertexSpecification(){
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
-    GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
-    GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.25f));)
+    //GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
+    // GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.25f),glm::vec3(0.8f),glm::vec3(0.5f));)
     // GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
     GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
     // GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)

@@ -212,8 +212,8 @@ void RenderManager::setLightMap(char* frontPath, char* rightPath, char* leftPath
     // Inserts texture data into cubemap
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 0, 0, GL_RGB, rightTex.tWidth, rightTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, rightTex.tData);
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 1, 0, GL_RGB, leftTex.tWidth, leftTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, leftTex.tData);
-    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 3, 0, GL_RGB, topTex.tWidth, topTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, topTex.tData);
-    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 2, 0, GL_RGB, bottomTex.tWidth, bottomTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bottomTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 2, 0, GL_RGB, topTex.tWidth, topTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, topTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 3, 0, GL_RGB, bottomTex.tWidth, bottomTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bottomTex.tData);
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 4, 0, GL_RGB, frontTex.tWidth, frontTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, frontTex.tData);
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 5, 0, GL_RGB, backTex.tWidth, backTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, backTex.tData);
 
