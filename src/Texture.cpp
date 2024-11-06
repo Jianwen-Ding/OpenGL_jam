@@ -25,8 +25,8 @@ static bool GLCheckErrorStatus(const char* function, int line){
 }
 
 // Gets texture data with the given path
-Texture::Texture(const char* findPath){
-    stbi_set_flip_vertically_on_load(true);
+Texture::Texture(const char* findPath, bool flipOnLoad){
+    stbi_set_flip_vertically_on_load(flipOnLoad);
 
     tData = stbi_load(findPath, &tWidth, &tHeight, &tNRChannels, 0);
     if(stbi_failure_reason()){

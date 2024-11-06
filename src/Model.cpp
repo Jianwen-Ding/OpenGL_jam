@@ -161,7 +161,7 @@ std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type, st
         }
         if(!skip){
             std::cout << baseStr.C_Str() << std::endl;
-            GLCheck(Texture texture = Texture(baseStr.C_Str());)
+            GLCheck(Texture texture = Texture(baseStr.C_Str(), true);)
             textures.push_back(texture);
             textures_loaded.push_back(texture);
         }
