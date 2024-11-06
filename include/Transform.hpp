@@ -16,6 +16,7 @@ class Transform{
         Transform(glm::vec3 setScale, glm::vec3 setPosition, glm::quat getRotation);
 
         glm::vec3 getFoward();
+        // void setParent(Transform* parent);
 };
 
 #endif
