@@ -22,7 +22,7 @@ class Texture{
         std::string tPath;
 
         // Creates texture with the given path
-        Texture(const char* findPath, bool flipOnLoad);
+        Texture(const char* findPath);
 
         // Creates texture with given information
         Texture(unsigned char* givenData, int givenWidth, int givenHeight, int setNRChannels);
