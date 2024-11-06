@@ -82,7 +82,7 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Enable/Disable output of compile commands during generation.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
 
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build/CMakeFiles/pkgRedirects
@@ -176,10 +176,10 @@ CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //If set, runtime paths are not added when installing shared libraries,
 // but are added when building.
-CMAKE_SKIP_INSTALL_RPATH:BOOL=NO
+CMAKE_SKIP_INSTALL_RPATH:BOOL=OFF
 
 //If set, runtime paths are not added when using shared libraries.
-CMAKE_SKIP_RPATH:BOOL=NO
+CMAKE_SKIP_RPATH:BOOL=OFF
 
 //Flags used by the linker during the creation of static libraries
 // during all build types.
@@ -211,7 +211,7 @@ CMAKE_TAPI:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeD
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
-CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+CMAKE_VERBOSE_MAKEFILE:BOOL=OFF
 
 //Value Computed by CMake
 GLJam_BINARY_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build
@@ -222,8 +222,32 @@ GLJam_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 GLJam_SOURCE_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam
 
+//Value Computed by CMake
+GL_BINARY_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build
+
+//Value Computed by CMake
+GL_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+GL_SOURCE_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam
+
+//Value Computed by CMake
+Project_BINARY_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/out/build
+
+//Value Computed by CMake
+Project_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Project_SOURCE_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam
+
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/Library/Frameworks/SDL2.framework/Resources/CMake
+
+//Path to a file.
+ZLIB_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include
+
+//Path to a library.
+ZLIB_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/lib/libz.tbd
 
 //The directory containing a CMake configuration file for assimp.
 assimp_DIR:PATH=/opt/homebrew/lib/cmake/assimp-5.4
@@ -280,7 +304,7 @@ CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_DLLTOOL
 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
 //Path to cache edit program executable.
-CMAKE_EDIT_COMMAND:INTERNAL=/opt/homebrew/Cellar/cmake/3.30.4/bin/ccmake
+CMAKE_EDIT_COMMAND:INTERNAL=/Applications/CMake.app/Contents/bin/cmake-gui
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=MACHO
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
@@ -372,4 +396,8 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding ZLIB
+FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/lib/libz.tbd][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include][c ][v1.2.12()]
+//ADVANCED property for variable: ZLIB_INCLUDE_DIR
+ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 
