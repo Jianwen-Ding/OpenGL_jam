@@ -10,6 +10,6 @@ uniform mat4 u_viewMat;
 
 void main()
 {
-    TexCoords = vec3(aPos.x, -aPos.y, aPos.z);
+    TexCoords = aPos;
     gl_Position = u_perspectiveMat * u_viewMat * vec4(aPos, 1.0);
 }  
