@@ -22,6 +22,19 @@ void RenderManager::insertModel(char* path, char* base){
 }
 
 void RenderManager::draw(){
+    // Draws skybox
+    if(hasSkybox){
+        glDepthMask(GL_FALSE);
+
+        skyboxShader->use();
+        glBindVertexArray(SkyboxVAO);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, SkyboxTextureID);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        glDepthMask(GL_TRUE);
+    }
+
+    // Draws rest of scene
     givenShader->use();
     for(unsigned int i = 0; i < modelList.size(); i++){
         std::vector<ModelObject*>* modelObList = &models[modelList[i]];
@@ -33,6 +46,7 @@ void RenderManager::draw(){
 }
 
 void RenderManager::predraw(){
+
     // Some options
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
@@ -41,10 +55,21 @@ void RenderManager::predraw(){
     glClear(GL_DEPTH_BUFFER_BIT| GL_COLOR_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
 
-    // Main shader implementation
-    givenShader->use();
     // Create transformation matrices
     glm::mat4 viewMatrix = givenCamera->getViewMat();
+
+    // // Loads shader for draw
+    // if(hasSkybox){
+    //     skyboxShader->use();
+
+    //     // Inserting into uniform variables
+    //     skyboxShader->setMatrix("u_perspectiveMat", perspectiveMat);
+    //     skyboxShader->setMatrix("u_viewMat",glm::mat4(glm::mat3(viewMatrix)));
+    //     skyboxShader->setInt("u_cubemap", 0);
+    // }
+
+    // Main shader implementation
+    givenShader->use();
 
     // Inserting lights
     for(int i = 0; i < dirLightList.size(); i++){
@@ -93,10 +118,18 @@ void RenderManager::Quit(){
     modelList.clear();
     models.clear();
     removeMap.clear();
+
+    glDeleteVertexArrays(1, &SkyboxVAO);
+    glDeleteBuffers(1, &SkyboxVBO);
+
     delete this;
 }
 
 RenderManager::RenderManager(Camera* setCamera, glm::mat4 setMat, Shader* setShader, int setHeight, int setWidth){
+    skyboxShader = nullptr;
+    hasSkybox = false;
+    SkyboxVAO = 0;
+    SkyboxVBO = 0;
     HEIGHT = setHeight;
     WIDTH = setWidth;
     givenCamera = setCamera;
@@ -159,4 +192,97 @@ void RenderManager::detatchSpotLightOb(SpotLightObject* lightOb){
     if(find != spotLightList.end()){
         spotLightList.erase(find);
     }
+}
+
+void RenderManager::setLightMap(char* frontPath, char* rightPath, char* leftPath, char* backPath, char* bottomPath, char* topPath, Shader* givenLightShader){
+    // Initializes changes needed in rendermanager 
+    hasSkybox = true;
+    glGenTextures(1, &SkyboxTextureID);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, SkyboxTextureID);
+    skyboxShader = givenLightShader;
+
+    // Loads textures
+    Texture frontTex = Texture(frontPath);
+    Texture rightTex = Texture(rightPath);
+    Texture leftTex = Texture(leftPath);
+    Texture backTex = Texture(backPath);
+    Texture bottomTex = Texture(bottomPath);
+    Texture topTex = Texture(topPath);
+
+    // Inserts texture data into cubemap
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 0, 0, GL_RGB, rightTex.tWidth, rightTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, rightTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 1, 0, GL_RGB, leftTex.tWidth, leftTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, leftTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 2, 0, GL_RGB, topTex.tWidth, topTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, topTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 3, 0, GL_RGB, bottomTex.tWidth, bottomTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bottomTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 4, 0, GL_RGB, frontTex.tWidth, frontTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, frontTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 5, 0, GL_RGB, backTex.tWidth, backTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, backTex.tData);
+
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+    // Releases textures
+    frontTex.free();
+    rightTex.free();
+    leftTex.free();
+    backTex.free();
+    bottomTex.free();
+    topTex.free();
+
+    // Sets up the skybox shape
+    float skyboxVertices[] = {
+    // positions          
+        -1.0f,  1.0f, -1.0f,
+        -1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f,  1.0f, -1.0f,
+        -1.0f,  1.0f, -1.0f,
+
+        -1.0f, -1.0f,  1.0f,
+        -1.0f, -1.0f, -1.0f,
+        -1.0f,  1.0f, -1.0f,
+        -1.0f,  1.0f, -1.0f,
+        -1.0f,  1.0f,  1.0f,
+        -1.0f, -1.0f,  1.0f,
+
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+
+        -1.0f, -1.0f,  1.0f,
+        -1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f, -1.0f,  1.0f,
+        -1.0f, -1.0f,  1.0f,
+
+        -1.0f,  1.0f, -1.0f,
+        1.0f,  1.0f, -1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        -1.0f,  1.0f,  1.0f,
+        -1.0f,  1.0f, -1.0f,
+
+        -1.0f, -1.0f, -1.0f,
+        -1.0f, -1.0f,  1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        -1.0f, -1.0f,  1.0f,
+        1.0f, -1.0f,  1.0f
+    };
+    
+    glGenVertexArrays(1, &SkyboxVAO);
+    glGenBuffers(1, &SkyboxVBO);
+    glBindVertexArray(SkyboxVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, SkyboxVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
 }

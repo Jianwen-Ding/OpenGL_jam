@@ -74,8 +74,10 @@ GLuint lightVBO = 0;
 const char* vertexShaderFileName = "../../shaders/vertex.glsl";
 const char* fragmentShaderFileName = "../../shaders/frag.glsl";
 const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
+const char* skyboxVertexShaderFileName = "../../shaders/skyboxVertex.glsl";
+const char* skyboxFragmentShaderFileName = "../../shaders/skyboxFrag.glsl";
 
-// Model
+// Models
 char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/backpack/backpack.obj";
 char* base2 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/mb/mb.obj";
 char* backpackPath = "../../models/backpack/";
@@ -85,8 +87,16 @@ char* basePath = "../../models/2Fort/";
 char* base4 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/NewPLaneObj/plane.obj";
 char* planePath = "../../models/NewPLaneObj/";
 
+// SkyboxGraphicsPipeline
+char* frontTex = "../../textures/Box_Front.bmp";
+char* rightTex = "../../textures/Box_Right.bmp";
+char* leftTex = "../../textures/Box_Left.bmp";
+char* backTex = "../../textures/Box_Back.bmp";
+char* topTex = "../../textures/Box_Top.bmp";
+char* bottomTex = "../../textures/Box_Bottom.bmp";
 Shader* GraphicsPipeline;
 Shader* LightGraphicsPipeline;
+Shader* SkyboxGraphicsPipeline;
 
 // Transform variables
 GLfloat u_offSet = -5;
@@ -384,6 +394,7 @@ GLuint CreateShaderProgram(const std::string& vertexShaderSource, const std::str
 void CreateGraphicsPipeline(){
     GraphicsPipeline = new Shader(vertexShaderFileName, fragmentShaderFileName);
     LightGraphicsPipeline = new Shader(vertexShaderFileName, lightFragmentShaderFileName);
+    SkyboxGraphicsPipeline = new Shader(skyboxVertexShaderFileName, skyboxFragmentShaderFileName);
 }
 
 void VertexSpecification(){
@@ -410,6 +421,8 @@ void VertexSpecification(){
     
     // Compiles into mesh
     GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 80.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
+    // renderManage->setLightMap(frontTex, rightTex, leftTex, backTex, bottomTex, topTex, SkyboxGraphicsPipeline);
+
     //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(renderManage->insertModel(base,backpackPath);)
     GLCheck(renderManage->insertModel(base2,buildingPath);)
@@ -420,7 +433,7 @@ void VertexSpecification(){
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
-    //GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
     // GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.25f),glm::vec3(0.8f),glm::vec3(0.5f));)
     // GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
     GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
