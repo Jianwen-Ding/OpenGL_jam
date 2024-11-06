@@ -202,12 +202,12 @@ void RenderManager::setLightMap(char* frontPath, char* rightPath, char* leftPath
     skyboxShader = givenLightShader;
 
     // Loads textures
-    Texture frontTex = Texture(frontPath, false);
-    Texture rightTex = Texture(rightPath, false);
-    Texture leftTex = Texture(leftPath, false);
-    Texture backTex = Texture(backPath, false);
-    Texture bottomTex = Texture(bottomPath, false);
-    Texture topTex = Texture(topPath, false);
+    Texture frontTex = Texture(frontPath);
+    Texture rightTex = Texture(rightPath);
+    Texture leftTex = Texture(leftPath);
+    Texture backTex = Texture(backPath);
+    Texture bottomTex = Texture(bottomPath);
+    Texture topTex = Texture(topPath);
 
     // Inserts texture data into cubemap
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 0, 0, GL_RGB, rightTex.tWidth, rightTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, rightTex.tData);
