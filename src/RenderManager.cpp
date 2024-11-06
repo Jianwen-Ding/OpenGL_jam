@@ -58,15 +58,15 @@ void RenderManager::predraw(){
     // Create transformation matrices
     glm::mat4 viewMatrix = givenCamera->getViewMat();
 
-    // // Loads shader for draw
-    // if(hasSkybox){
-    //     skyboxShader->use();
+    // Loads shader for draw
+    if(hasSkybox){
+        skyboxShader->use();
 
-    //     // Inserting into uniform variables
-    //     skyboxShader->setMatrix("u_perspectiveMat", perspectiveMat);
-    //     skyboxShader->setMatrix("u_viewMat",glm::mat4(glm::mat3(viewMatrix)));
-    //     skyboxShader->setInt("u_cubemap", 0);
-    // }
+        // Inserting into uniform variables
+        skyboxShader->setMatrix("u_perspectiveMat", perspectiveMat);
+        skyboxShader->setMatrix("u_viewMat",glm::mat4(glm::mat3(viewMatrix)));
+        skyboxShader->setInt("u_cubemap", 0);
+    }
 
     // Main shader implementation
     givenShader->use();
