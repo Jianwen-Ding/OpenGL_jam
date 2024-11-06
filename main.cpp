@@ -91,6 +91,7 @@ char* planePath = "../../models/NewPLaneObj/";
 // Paths
 char* skyBackPath = "../../textures/Box_Back.bmp";
 char* skyBottomPath = "../../textures/Box_Bottom.bmp";
+char* skyFrontPath = "../../textures/Box_Front.bmp";
 char* skyLeftPath = "../../textures/Box_Left.bmp";
 char* skyRightPath = "../../textures/Box_Right.bmp";
 char* skyTopPath = "../../textures/Box_Top.bmp";
@@ -422,7 +423,7 @@ void VertexSpecification(){
     
     // Compiles into mesh
     GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 80.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
-    //renderManage->setLightMap(skyFront)
+    renderManage->setLightMap(skyFrontPath,skyRightPath,skyLeftPath,skyBackPath,skyBottomPath,skyTopPath, SkyboxPipeline);
     //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(renderManage->insertModel(base,backpackPath);)
     GLCheck(renderManage->insertModel(base2,buildingPath);)
