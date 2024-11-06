@@ -1,5 +1,6 @@
 #include "Transform.hpp"
 
+#include <iostream>
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include <glm/mat4x4.hpp>
@@ -11,21 +12,50 @@ glm::mat4 Transform::getTransformMat(){
     modelMatrix = glm::translate(modelMatrix, position);
     modelMatrix = modelMatrix * glm::mat4_cast(rotation);
     modelMatrix = glm::scale(modelMatrix, scale);
-    return modelMatrix;
+    if(hasParent){
+        return parent->getTransformMat() * modelMatrix;
+    }
+    else{
+        return modelMatrix;
+    }
 }
 
 Transform::Transform(){
+    hasParent = false;
+    parent = nullptr;
     scale = glm::vec3(1.0f);
     position = glm::vec3(0.0f);
     rotation = glm::quat(1.0f, 0, 0, 0);
 }
 
 Transform::Transform(glm::vec3 setScale, glm::vec3 setPositon, glm::quat setRotation){
+    hasParent = false;
+    parent = nullptr;
     scale = setScale;
     position = setPositon;
     rotation = setRotation;
 }
 
 glm::vec3 Transform::getFoward(){
-    return rotation * glm::vec3(0.0f,0.0f, -1.0f);
+    if(hasParent){
+        return (parent->rotation * rotation) * glm::vec3(0.0f,0.0f, -1.0f);  
+    }
+    else{
+        return rotation * glm::vec3(0.0f,0.0f, -1.0f);   
+    }
+}
+
+void Transform::setParent(Transform* set){
+    Transform* iter = set;
+    bool constainsSelf = false;
+    while(iter != nullptr){
+        if(iter == this){
+            std::cout << "Transform attempted to become parent of itself" << std::endl;
+            constainsSelf = true;
+        }
+        iter = iter->parent;
+    }
+    if(!constainsSelf){
+        parent = set;
+    }
 }
