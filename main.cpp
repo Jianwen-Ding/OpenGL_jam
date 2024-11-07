@@ -15,6 +15,7 @@
 #include <assimp/postprocess.h>
 #include <filesystem>
 
+#include "Plane.hpp"
 #include "RenderManager.hpp"
 #include "ModelObject.hpp"
 #include "DirLightObject.hpp"
@@ -83,6 +84,8 @@ SDL_GLContext openGLContext = nullptr;
 bool gQuit = false;
 
 // Storage
+std::unique_ptr<Plane> givenPlane;
+
 Transform transformStore;
 Transform transformStore2;
 Transform transformStore3;
@@ -185,16 +188,16 @@ void getInput(){
     u_rotate -= 0.0001f;
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     if(state[SDL_SCANCODE_UP]||state[SDL_SCANCODE_W]){
-        viewCam.moveFoward(speed * deltaTime);
+        givenPlane->veerDown(deltaTime);
     }
     if(state[SDL_SCANCODE_DOWN]||state[SDL_SCANCODE_S]){
-        viewCam.moveBackwards(speed * deltaTime);
+        givenPlane->veerUp(deltaTime);
     }
     if(state[SDL_SCANCODE_LEFT]||state[SDL_SCANCODE_A]){
-        viewCam.moveLeft(speed * deltaTime);
+        givenPlane->veerLeft(deltaTime);
     }
     if(state[SDL_SCANCODE_RIGHT]||state[SDL_SCANCODE_D]){
-        viewCam.moveRight(speed * deltaTime);
+        givenPlane->veerRight(deltaTime);
     }
     if(state[SDL_SCANCODE_Z]){
         u_offSet += deltaTime;
@@ -211,11 +214,18 @@ void getInput(){
         u_lightFoward -= 0.01;
     }
     if(state[SDL_SCANCODE_LSHIFT]){
-        viewCam.moveDown(speed * deltaTime);
+        givenPlane->fireLights();
+    }
+    if(state[SDL_SCANCODE_RSHIFT]){
+        givenPlane->deactivateLights();
     }
     if(state[SDL_SCANCODE_SPACE]){
-        viewCam.moveUp(speed * deltaTime);
+        givenPlane->accel(deltaTime);
     }
+
+    givenPlane->update(deltaTime);
+
+    std::cout << "(" << transformStore6.position.x << "," << transformStore6.position.y << "," << transformStore6.position.z << ")" << std::endl;
 }
 
 void insertUniform1f(GLfloat insert, const char* name, GLuint shaderProgram){
@@ -404,11 +414,14 @@ void VertexSpecification(){
     GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
     GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f));)
-     GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
+    GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
     GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
     GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
     transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
     transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(-1.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
+
+    givenPlane.reset(new Plane(&viewCam, renderManage, 3, 0.5, 0.5, 0.5, 50, 1, 0.5, glm::vec3(-1.0f)));
+
 }
 
 void MainLoop(){

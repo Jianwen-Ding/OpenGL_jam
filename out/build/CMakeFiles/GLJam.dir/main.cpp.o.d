@@ -1134,21 +1134,22 @@ CMakeFiles/GLJam.dir/main.cpp.o: \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/anim.h \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/metadata.h \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/postprocess.h \
-  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/RenderManager.hpp \
-  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/ModelObject.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Plane.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Transform.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Camera.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/ModelObject.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/SpotLightObject.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/LightObject.hpp \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/RenderManager.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Shader.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/sstream \
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Model.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Mesh.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Vertex.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Texture.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/TextureArray.hpp \
-  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Camera.hpp \
-  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Model.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/map \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__tree \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/DirLightObject.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/PointLightObject.hpp \
-  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/SpotLightObject.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/stb_image.h
