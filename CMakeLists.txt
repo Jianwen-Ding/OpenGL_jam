@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.13.4)
 
-set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/assimp/5.4.3")
-
 project(GLJam)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)

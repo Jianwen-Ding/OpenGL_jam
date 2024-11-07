@@ -16,7 +16,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/Mesh.cpp" "CMakeFiles/GLJam.dir/src/Mesh.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Mesh.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/Model.cpp" "CMakeFiles/GLJam.dir/src/Model.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Model.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/ModelObject.cpp" "CMakeFiles/GLJam.dir/src/ModelObject.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/ModelObject.cpp.o.d"
-  "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/Plane.cpp" "CMakeFiles/GLJam.dir/src/Plane.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Plane.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/PointLightObject.cpp" "CMakeFiles/GLJam.dir/src/PointLightObject.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/PointLightObject.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/RenderManager.cpp" "CMakeFiles/GLJam.dir/src/RenderManager.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/RenderManager.cpp.o.d"
   "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/Shader.cpp" "CMakeFiles/GLJam.dir/src/Shader.cpp.o" "gcc" "CMakeFiles/GLJam.dir/src/Shader.cpp.o.d"

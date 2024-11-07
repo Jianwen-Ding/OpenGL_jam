@@ -13,8 +13,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/GLJam.dir/src/Model.cpp.o.d"
   "CMakeFiles/GLJam.dir/src/ModelObject.cpp.o"
   "CMakeFiles/GLJam.dir/src/ModelObject.cpp.o.d"
-  "CMakeFiles/GLJam.dir/src/Plane.cpp.o"
-  "CMakeFiles/GLJam.dir/src/Plane.cpp.o.d"
   "CMakeFiles/GLJam.dir/src/PointLightObject.cpp.o"
   "CMakeFiles/GLJam.dir/src/PointLightObject.cpp.o.d"
   "CMakeFiles/GLJam.dir/src/RenderManager.cpp.o"

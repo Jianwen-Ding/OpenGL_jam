@@ -13,10 +13,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.30.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.30.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.30.4/CMakeSystem.cmake"
-  "/opt/homebrew/Cellar/assimp/5.4.3/lib/cmake/assimp-5.4/assimpConfig.cmake"
-  "/opt/homebrew/Cellar/assimp/5.4.3/lib/cmake/assimp-5.4/assimpConfigVersion.cmake"
-  "/opt/homebrew/Cellar/assimp/5.4.3/lib/cmake/assimp-5.4/assimpTargets-release.cmake"
-  "/opt/homebrew/Cellar/assimp/5.4.3/lib/cmake/assimp-5.4/assimpTargets.cmake"
   "/opt/homebrew/Cellar/cmake/3.30.4/share/cmake/Modules/CMakeCInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.30.4/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.30.4/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
@@ -39,6 +35,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/Cellar/cmake/3.30.4/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
   "/opt/homebrew/Cellar/cmake/3.30.4/share/cmake/Modules/Platform/Darwin.cmake"
   "/opt/homebrew/Cellar/cmake/3.30.4/share/cmake/Modules/Platform/UnixPaths.cmake"
+  "/opt/homebrew/lib/cmake/assimp-5.4/assimpConfig.cmake"
+  "/opt/homebrew/lib/cmake/assimp-5.4/assimpConfigVersion.cmake"
+  "/opt/homebrew/lib/cmake/assimp-5.4/assimpTargets-release.cmake"
+  "/opt/homebrew/lib/cmake/assimp-5.4/assimpTargets.cmake"
   )
 
 # The corresponding makefile is:
