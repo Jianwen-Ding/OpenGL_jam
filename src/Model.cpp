@@ -13,6 +13,39 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+#define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
+
+static void GLClearErrors(){
+    while(glGetError() != GL_NO_ERROR){
+    }
+}
+
+static bool GLCheckErrorStatus(const char* function, int line){
+    GLenum error;
+    while ((error = glGetError()) != GL_NO_ERROR) {
+        std::cout << "OpenGL error in " << function << " at line " << line << ": ";
+        switch (error) {
+            case GL_INVALID_ENUM:
+                std::cout << "GL_INVALID_ENUM\n";
+                break;
+            case GL_INVALID_VALUE:
+                std::cout << "GL_INVALID_VALUE\n";
+                break;
+            case GL_INVALID_OPERATION:
+                std::cout << "GL_INVALID_OPERATION\n";
+                break;
+            case GL_OUT_OF_MEMORY:
+                std::cout << "GL_OUT_OF_MEMORY\n";
+                break;
+            default:
+                std::cout << "Unknown error\n";
+                break;
+        }
+        return true;
+    }
+    return false;
+}
+
 void Model::Draw(Shader &shader, Transform &transform){
     shader.setMatrix("u_modelMat", transform.getTransformMat());
     for(unsigned int i = 0; i < meshes.size(); i++){
@@ -38,7 +71,7 @@ void Model::loadModel(std::string path){
     }
     dir = path.substr(0, path.find_last_of('/'));
 
-    processNode(scene->mRootNode, scene);
+    GLCheck(processNode(scene->mRootNode, scene);)
     for(unsigned int i = 0; i < textures_loaded.size(); i++){
         textures_loaded[i].free();
     }
@@ -50,10 +83,10 @@ void Model::loadModel(std::string path){
 void Model::processNode(aiNode *node, const aiScene *scene){
     for(unsigned int i = 0; i < node->mNumMeshes;i++){
         aiMesh *mesh = scene->mMeshes[node->mMeshes[i]];
-        meshes.push_back(processMesh(mesh,scene));
+        GLCheck(meshes.push_back(processMesh(mesh,scene));)
     }
     for(unsigned int i = 0; i < node->mNumChildren;i++){
-        processNode(node->mChildren[i], scene);
+        GLCheck(processNode(node->mChildren[i], scene);)    
     }
 }
 
@@ -90,7 +123,7 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
         //std::cout << "Norm Vec (" << normVec.x << "," << normVec.y << "," << normVec.z << ")" << std::endl;
         //std::cout << "UV Vec (" << uvVec.x << "," << uvVec.y << ")" << std::endl;
         
-        Vertex vert = *(new Vertex(posVec, normVec, uvVec));
+        GLCheck(Vertex vert = Vertex(posVec, normVec, uvVec);)
         vertices.push_back(vert);
     }
 
@@ -106,20 +139,21 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
     // Gets Textures
     if(mesh->mMaterialIndex >= 0){
         aiMaterial *material = scene->mMaterials[mesh->mMaterialIndex];
-        std::vector<Texture> diffuseMaps = loadMaterial(material, aiTextureType_DIFFUSE, "texture_diffuse");
+        GLCheck(std::vector<Texture> diffuseMaps = loadMaterial(material, aiTextureType_DIFFUSE);)
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
         specBarr = diffuseMaps.size();
-        std::vector<Texture> specularMaps = loadMaterial(material, aiTextureType_SPECULAR, "texture_specular");
+        GLCheck(std::vector<Texture> specularMaps = loadMaterial(material, aiTextureType_SPECULAR);)
         textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
     }
     
 
-    TextureArray* givenArray = new TextureArray(textures, GL_RGBA);
+    GLCheck(TextureArray* givenArray = new TextureArray(textures, GL_RGBA);)
     givenArray->specBarrier = specBarr;
-    return Mesh(vertices, indices, givenArray);
+    GLCheck(Mesh newMesh = Mesh(vertices, indices, givenArray);)
+    GLCheck(return newMesh;)
 }
 
-std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type, std::string typeName){
+std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type){
     std::vector<Texture> textures;
     for(unsigned int i = 0; i < mat->GetTextureCount(type); i++){
         aiString str;

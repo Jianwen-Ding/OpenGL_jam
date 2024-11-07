@@ -53,13 +53,14 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, TextureArr
     std::cout << "vertices " << vertices.size() << std::endl;
     std::cout << "indices " << indices.size() << std::endl;
     std::cout << "textures " << textures->ID << std::endl;
-    setupMesh();
+    
+    GLCheck(setupMesh();)
 }
 
 Mesh::~Mesh(){
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &EBO);
+    // glDeleteVertexArrays(1, &VAO);
+    // glDeleteBuffers(1, &VBO);
+    // glDeleteBuffers(1, &EBO);
 }
 
 void Mesh::Draw(Shader &shader){
@@ -68,13 +69,14 @@ void Mesh::Draw(Shader &shader){
     shader.setInt("u_specBarrier", textures->specBarrier);
 
     // Assign texture
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D_ARRAY, textures->ID);
+    GLCheck(glActiveTexture(GL_TEXTURE0);)
+    GLCheck(glBindTexture(GL_TEXTURE_2D_ARRAY, textures->ID);)
 
     // Draw mesh
     glBindVertexArray(VAO);
-    glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
-    glBindVertexArray(0);
+    // std::cout << "indices " << indices.size() << std::endl;
+    glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
+    GLCheck(glBindVertexArray(0);)
 }
 
 void  Mesh::setupMesh(){
@@ -101,5 +103,10 @@ void  Mesh::setupMesh(){
     GLCheck(glEnableVertexAttribArray(2);)
     GLCheck(glVertexAttribPointer(2,2,GL_FLOAT,GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));)
 
-    glBindVertexArray(0);
+    GLCheck(glBindVertexArray(0);)
+
+    std::cout << "VAO Created " << VAO << std::endl;
+    std::cout << "VBO Created " << VBO << std::endl;
+    std::cout << "VBO Created " << EBO << std::endl;
+    
 }
