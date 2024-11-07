@@ -13,39 +13,6 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
-
-static void GLClearErrors(){
-    while(glGetError() != GL_NO_ERROR){
-    }
-}
-
-static bool GLCheckErrorStatus(const char* function, int line){
-    GLenum error;
-    while ((error = glGetError()) != GL_NO_ERROR) {
-        std::cout << "OpenGL error in " << function << " at line " << line << ": ";
-        switch (error) {
-            case GL_INVALID_ENUM:
-                std::cout << "GL_INVALID_ENUM\n";
-                break;
-            case GL_INVALID_VALUE:
-                std::cout << "GL_INVALID_VALUE\n";
-                break;
-            case GL_INVALID_OPERATION:
-                std::cout << "GL_INVALID_OPERATION\n";
-                break;
-            case GL_OUT_OF_MEMORY:
-                std::cout << "GL_OUT_OF_MEMORY\n";
-                break;
-            default:
-                std::cout << "Unknown error\n";
-                break;
-        }
-        return true;
-    }
-    return false;
-}
-
 void Model::Draw(Shader &shader, Transform &transform){
     shader.setMatrix("u_modelMat", transform.getTransformMat());
     for(unsigned int i = 0; i < meshes.size(); i++){
@@ -116,6 +83,9 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
         else{
             uvVec = glm::vec2(0.0f, 0.0f);
         }
+        std::cout << "Pos Vec (" << posVec.x << "," << posVec.y << "," << ")" << std::endl;
+        std::cout << "Pos Vec (" << posVec.x << ")" << std::endl;
+        
         Vertex vert = *(new Vertex(posVec, normVec, uvVec));
         vertices.push_back(vert);
     }
@@ -161,7 +131,7 @@ std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type, st
             }
         }
         if(!skip){
-            GLCheck(Texture texture = Texture(baseStr.C_Str());)
+            Texture texture = Texture(baseStr.C_Str());
             textures.push_back(texture);
             textures_loaded.push_back(texture);
         }

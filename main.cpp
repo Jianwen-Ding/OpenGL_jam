@@ -32,6 +32,38 @@
 #include "TextureArray.hpp"
 
 #define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
+
+static void GLClearErrors(){
+    while(glGetError() != GL_NO_ERROR){
+    }
+}
+
+static bool GLCheckErrorStatus(const char* function, int line){
+    GLenum error;
+    while ((error = glGetError()) != GL_NO_ERROR) {
+        std::cout << "OpenGL error in " << function << " at line " << line << ": ";
+        switch (error) {
+            case GL_INVALID_ENUM:
+                std::cout << "GL_INVALID_ENUM\n";
+                break;
+            case GL_INVALID_VALUE:
+                std::cout << "GL_INVALID_VALUE\n";
+                break;
+            case GL_INVALID_OPERATION:
+                std::cout << "GL_INVALID_OPERATION\n";
+                break;
+            case GL_OUT_OF_MEMORY:
+                std::cout << "GL_OUT_OF_MEMORY\n";
+                break;
+            default:
+                std::cout << "Unknown error\n";
+                break;
+        }
+        return true;
+    }
+    return false;
+}
+
 // Current compile command
 //g++ main.cpp ./src/* -I./include/ -I./include/glm-master -std=c++11 -o a.out -lSDL2 -ldl
 
@@ -64,11 +96,6 @@ ModelObject* modelOb;
 ModelObject* modelOb2;
 DirLightObject* singleLight;
 PointLightObject* littleLight;
-
-/// Vertice specifiers (VAOs, VBOs, IBOs)
-GLuint IBO = 0;
-GLuint lightVAO = 0;
-GLuint lightVBO = 0;
 
 // Shaders
 const char* vertexShaderFileName = "../../shaders/vertex.glsl";
@@ -115,37 +142,6 @@ GLfloat ambienceVal = 0.05f;
 glm::vec3 lightPos = glm::vec3(1.0f,1.0f,1.0f);
 
 Camera viewCam;
-
-static void GLClearErrors(){
-    while(glGetError() != GL_NO_ERROR){
-    }
-}
-
-static bool GLCheckErrorStatus(const char* function, int line){
-    GLenum error;
-    while ((error = glGetError()) != GL_NO_ERROR) {
-        std::cout << "OpenGL error in " << function << " at line " << line << ": ";
-        switch (error) {
-            case GL_INVALID_ENUM:
-                std::cout << "GL_INVALID_ENUM\n";
-                break;
-            case GL_INVALID_VALUE:
-                std::cout << "GL_INVALID_VALUE\n";
-                break;
-            case GL_INVALID_OPERATION:
-                std::cout << "GL_INVALID_OPERATION\n";
-                break;
-            case GL_OUT_OF_MEMORY:
-                std::cout << "GL_OUT_OF_MEMORY\n";
-                break;
-            default:
-                std::cout << "Unknown error\n";
-                break;
-        }
-        return true;
-    }
-    return false;
-}
 
 std::string getFileString(const std::string& fileName){
     try{
@@ -298,12 +294,7 @@ void preDrawFunc(){
 }
 
 void drawFunc(){
-    GraphicsPipeline->use();
     GLCheck(renderManage->draw())
-
-    //LightGraphicsPipeline->use();
-    //glBindVertexArray(lightVAO);
-    //glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
     
     glUseProgram(0);
 }
@@ -399,28 +390,7 @@ void CreateGraphicsPipeline(){
     LightGraphicsPipeline = new Shader(vertexShaderFileName, lightFragmentShaderFileName);
 }
 
-void VertexSpecification(){
-    std::vector<GLfloat> lightVerticeData{
-        // Vertex 0
-        -0.5f, -0.5f, -0.5f, // Vector
-        // Vertex 1
-        0.5f, -0.5f, -0.5f, // Vector
-        // Vertex 2
-        -0.5f, 0.5f, -0.5f, // Vector
-        // Vertex 3
-        0.5f, 0.5f, -0.5f, // Vector
-        // Vertex 4
-        -0.5f, -0.5f, 0.5f, // Vector
-        // Vertex 5
-        0.5f, -0.5f, 0.5f, // Vector
-        // Vertex 6
-        -0.5f, 0.5f, 0.5f, // Vector
-        // Vertex 7
-        0.5f, 0.5f, 0.5f, // Vector
-    };
-
-    std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
-    
+void VertexSpecification(){ 
     // Compiles into mesh
     GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 80.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
     renderManage->setLightMap(skyFrontPath,skyRightPath,skyLeftPath,skyBackPath,skyBottomPath,skyTopPath, SkyboxPipeline);
@@ -440,25 +410,6 @@ void VertexSpecification(){
     GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
     transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
     transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(-1.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
-    // Generates light VAO
-    // Generates VAO
-    glGenVertexArrays(1, &lightVAO);
-    glBindVertexArray(lightVAO);
-
-    // Generates VBO
-    glGenBuffers(1, &lightVBO);
-    glBindBuffer(GL_ARRAY_BUFFER, lightVBO);
-    glBufferData(GL_ARRAY_BUFFER, lightVerticeData.size() * sizeof(GLfloat), lightVerticeData.data(), GL_STATIC_DRAW);
-
-    //Binds IBO
-    glGenBuffers(1, &IBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBufferData.size()*sizeof(GLuint), indexBufferData.data(), GL_STATIC_DRAW);
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-    glBindVertexArray(0);
-    glDisableVertexAttribArray(0);
 }
 
 void MainLoop(){

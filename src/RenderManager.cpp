@@ -13,6 +13,38 @@
 #include <map>
 #include <vector>
 
+#define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
+
+static void GLClearErrors(){
+    while(glGetError() != GL_NO_ERROR){
+    }
+}
+
+static bool GLCheckErrorStatus(const char* function, int line){
+    GLenum error;
+    while ((error = glGetError()) != GL_NO_ERROR) {
+        std::cout << "OpenGL error in " << function << " at line " << line << ": ";
+        switch (error) {
+            case GL_INVALID_ENUM:
+                std::cout << "GL_INVALID_ENUM\n";
+                break;
+            case GL_INVALID_VALUE:
+                std::cout << "GL_INVALID_VALUE\n";
+                break;
+            case GL_INVALID_OPERATION:
+                std::cout << "GL_INVALID_OPERATION\n";
+                break;
+            case GL_OUT_OF_MEMORY:
+                std::cout << "GL_OUT_OF_MEMORY\n";
+                break;
+            default:
+                std::cout << "Unknown error\n";
+                break;
+        }
+        return true;
+    }
+    return false;
+}
 
 void RenderManager::insertModel(const char* path, const char* base){
     Model* gotModel = new Model(path, base);
@@ -22,6 +54,7 @@ void RenderManager::insertModel(const char* path, const char* base){
 }
 
 void RenderManager::draw(){
+    
     // Draws skybox
     if(hasSkybox){
         glDepthMask(GL_FALSE);
