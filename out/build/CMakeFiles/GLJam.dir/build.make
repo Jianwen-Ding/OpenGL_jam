@@ -349,7 +349,7 @@ GLJam: CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o
 GLJam: CMakeFiles/GLJam.dir/src/glad.c.o
 GLJam: CMakeFiles/GLJam.dir/build.make
 GLJam: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
-GLJam: /opt/homebrew/lib/libassimp.5.4.3.dylib
+GLJam: /opt/homebrew/Cellar/assimp/5.4.3/lib/libassimp.5.4.3.dylib
 GLJam: /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/lib/libz.tbd
 GLJam: CMakeFiles/GLJam.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/out/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable GLJam"
