@@ -49,7 +49,10 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, TextureArr
     this -> vertices = vertices;
     this -> indices = indices;
     this -> textures = textures;
-
+    std::cout << "LOAD MESH" << std::endl;
+    std::cout << "vertices " << vertices.size() << std::endl;
+    std::cout << "indices " << indices.size() << std::endl;
+    std::cout << "textures " << textures->ID << std::endl;
     setupMesh();
 }
 
@@ -76,27 +79,27 @@ void Mesh::Draw(Shader &shader){
 
 void  Mesh::setupMesh(){
     // Binds Mesh Objects
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
+    GLCheck(glGenVertexArrays(1, &VAO);)
+    GLCheck(glGenBuffers(1, &VBO);)
+    GLCheck(glGenBuffers(1, &EBO);)
 
-    glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    GLCheck(glBindVertexArray(VAO);)
+    GLCheck(glBindBuffer(GL_ARRAY_BUFFER, VBO);)
 
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
+    GLCheck(glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);)
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0], GL_STATIC_DRAW);
+    GLCheck(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);)
+    GLCheck(glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0], GL_STATIC_DRAW);)
 
     // Vertex position
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE,sizeof(Vertex), (void*)0);
+    GLCheck(glEnableVertexAttribArray(0);)
+    GLCheck(glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE,sizeof(Vertex), (void*)0);)
     // Vertex normals
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1,3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+    GLCheck(glEnableVertexAttribArray(1);)
+    GLCheck(glVertexAttribPointer(1,3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));)
     // Vetex texture coords
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2,2,GL_FLOAT,GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
+    GLCheck(glEnableVertexAttribArray(2);)
+    GLCheck(glVertexAttribPointer(2,2,GL_FLOAT,GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));)
 
     glBindVertexArray(0);
 }

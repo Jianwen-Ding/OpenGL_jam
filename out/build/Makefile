@@ -297,6 +297,30 @@ src/ModelObject.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/ModelObject.cpp.s
 .PHONY : src/ModelObject.cpp.s
 
+src/Plane.o: src/Plane.cpp.o
+.PHONY : src/Plane.o
+
+# target to build an object file
+src/Plane.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Plane.cpp.o
+.PHONY : src/Plane.cpp.o
+
+src/Plane.i: src/Plane.cpp.i
+.PHONY : src/Plane.i
+
+# target to preprocess a source file
+src/Plane.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Plane.cpp.i
+.PHONY : src/Plane.cpp.i
+
+src/Plane.s: src/Plane.cpp.s
+.PHONY : src/Plane.s
+
+# target to generate assembly for a file
+src/Plane.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLJam.dir/build.make CMakeFiles/GLJam.dir/src/Plane.cpp.s
+.PHONY : src/Plane.cpp.s
+
 src/PointLightObject.o: src/PointLightObject.cpp.o
 .PHONY : src/PointLightObject.o
 
@@ -567,6 +591,9 @@ help:
 	@echo "... src/ModelObject.o"
 	@echo "... src/ModelObject.i"
 	@echo "... src/ModelObject.s"
+	@echo "... src/Plane.o"
+	@echo "... src/Plane.i"
+	@echo "... src/Plane.s"
 	@echo "... src/PointLightObject.o"
 	@echo "... src/PointLightObject.i"
 	@echo "... src/PointLightObject.s"

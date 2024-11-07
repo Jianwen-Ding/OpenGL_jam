@@ -294,7 +294,7 @@ void preDrawFunc(){
 }
 
 void drawFunc(){
-    GLCheck(renderManage->draw())
+    renderManage->draw();
     
     glUseProgram(0);
 }
@@ -395,8 +395,8 @@ void VertexSpecification(){
     GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 80.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
     renderManage->setLightMap(skyFrontPath,skyRightPath,skyLeftPath,skyBackPath,skyBottomPath,skyTopPath, SkyboxPipeline);
     //GLCheck(renderManage->insertModel(base3,basePath);)
-    GLCheck(renderManage->insertModel(base,backpackPath);)
-    //GLCheck(renderManage->insertModel(base2,buildingPath);)
+    //GLCheck(renderManage->insertModel(base,backpackPath);)
+    GLCheck(renderManage->insertModel(base2,buildingPath);)
     //GLCheck(renderManage->insertModel(base3,basePath);)
     //GLCheck(renderManage->insertModel(base4,planePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
