@@ -116,7 +116,7 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
         else{
             uvVec = glm::vec2(0.0f, 0.0f);
         }
-        Vertex vert = Vertex(posVec, normVec, uvVec);
+        Vertex vert = *(new Vertex(posVec, normVec, uvVec));
         vertices.push_back(vert);
     }
 

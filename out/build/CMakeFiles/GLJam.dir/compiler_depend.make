@@ -830,57 +830,6 @@ CMakeFiles/GLJam.dir/main.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Cur
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdint.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_assert.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_atomic.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_audio.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_blendmode.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_clipboard.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_config.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_config_macosx.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_cpuinfo.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_endian.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_error.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_events.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_filesystem.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_gamecontroller.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_gesture.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_guid.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_haptic.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_hidapi.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_hints.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_joystick.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_keyboard.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_keycode.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_loadso.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_locale.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_log.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_messagebox.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_metal.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_misc.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_mouse.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_mutex.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_pixels.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_platform.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_power.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_quit.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_rect.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_render.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_rwops.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_scancode.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_sensor.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_shape.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_surface.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_system.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_thread.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_timer.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_touch.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_video.h \
-  /Library/Frameworks/SDL2.framework/Headers/begin_code.h \
-  /Library/Frameworks/SDL2.framework/Headers/close_code.h \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Camera.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/DirLightObject.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/KHR/khrplatform.h \
@@ -1153,7 +1102,57 @@ CMakeFiles/GLJam.dir/main.cpp.o: /Users/jianwending/Documents/ProjectsFolder/Cur
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/vec3.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/vec4.hpp \
   /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/vector_relational.hpp \
-  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/stb_image.h
+  /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/stb_image.h \
+  /opt/homebrew/include/SDL2/SDL.h \
+  /opt/homebrew/include/SDL2/SDL_assert.h \
+  /opt/homebrew/include/SDL2/SDL_atomic.h \
+  /opt/homebrew/include/SDL2/SDL_audio.h \
+  /opt/homebrew/include/SDL2/SDL_blendmode.h \
+  /opt/homebrew/include/SDL2/SDL_clipboard.h \
+  /opt/homebrew/include/SDL2/SDL_config.h \
+  /opt/homebrew/include/SDL2/SDL_cpuinfo.h \
+  /opt/homebrew/include/SDL2/SDL_endian.h \
+  /opt/homebrew/include/SDL2/SDL_error.h \
+  /opt/homebrew/include/SDL2/SDL_events.h \
+  /opt/homebrew/include/SDL2/SDL_filesystem.h \
+  /opt/homebrew/include/SDL2/SDL_gamecontroller.h \
+  /opt/homebrew/include/SDL2/SDL_gesture.h \
+  /opt/homebrew/include/SDL2/SDL_guid.h \
+  /opt/homebrew/include/SDL2/SDL_haptic.h \
+  /opt/homebrew/include/SDL2/SDL_hidapi.h \
+  /opt/homebrew/include/SDL2/SDL_hints.h \
+  /opt/homebrew/include/SDL2/SDL_joystick.h \
+  /opt/homebrew/include/SDL2/SDL_keyboard.h \
+  /opt/homebrew/include/SDL2/SDL_keycode.h \
+  /opt/homebrew/include/SDL2/SDL_loadso.h \
+  /opt/homebrew/include/SDL2/SDL_locale.h \
+  /opt/homebrew/include/SDL2/SDL_log.h \
+  /opt/homebrew/include/SDL2/SDL_main.h \
+  /opt/homebrew/include/SDL2/SDL_messagebox.h \
+  /opt/homebrew/include/SDL2/SDL_metal.h \
+  /opt/homebrew/include/SDL2/SDL_misc.h \
+  /opt/homebrew/include/SDL2/SDL_mouse.h \
+  /opt/homebrew/include/SDL2/SDL_mutex.h \
+  /opt/homebrew/include/SDL2/SDL_pixels.h \
+  /opt/homebrew/include/SDL2/SDL_platform.h \
+  /opt/homebrew/include/SDL2/SDL_power.h \
+  /opt/homebrew/include/SDL2/SDL_quit.h \
+  /opt/homebrew/include/SDL2/SDL_rect.h \
+  /opt/homebrew/include/SDL2/SDL_render.h \
+  /opt/homebrew/include/SDL2/SDL_rwops.h \
+  /opt/homebrew/include/SDL2/SDL_scancode.h \
+  /opt/homebrew/include/SDL2/SDL_sensor.h \
+  /opt/homebrew/include/SDL2/SDL_shape.h \
+  /opt/homebrew/include/SDL2/SDL_stdinc.h \
+  /opt/homebrew/include/SDL2/SDL_surface.h \
+  /opt/homebrew/include/SDL2/SDL_system.h \
+  /opt/homebrew/include/SDL2/SDL_thread.h \
+  /opt/homebrew/include/SDL2/SDL_timer.h \
+  /opt/homebrew/include/SDL2/SDL_touch.h \
+  /opt/homebrew/include/SDL2/SDL_version.h \
+  /opt/homebrew/include/SDL2/SDL_video.h \
+  /opt/homebrew/include/SDL2/begin_code.h \
+  /opt/homebrew/include/SDL2/close_code.h
 
 CMakeFiles/GLJam.dir/src/Camera.cpp.o: /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/Camera.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/Availability.h \
@@ -16132,7 +16131,49 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/DirLightObject.cpp:
 
+/opt/homebrew/include/SDL2/SDL_version.h:
+
+/opt/homebrew/include/SDL2/SDL_timer.h:
+
+/opt/homebrew/include/SDL2/SDL_system.h:
+
+/opt/homebrew/include/SDL2/SDL_shape.h:
+
+/opt/homebrew/include/SDL2/SDL_render.h:
+
+/opt/homebrew/include/SDL2/SDL_rect.h:
+
+/opt/homebrew/include/SDL2/SDL_mutex.h:
+
+/opt/homebrew/include/SDL2/SDL_misc.h:
+
+/opt/homebrew/include/SDL2/SDL_messagebox.h:
+
+/opt/homebrew/include/SDL2/SDL_main.h:
+
+/opt/homebrew/include/SDL2/SDL_keyboard.h:
+
+/opt/homebrew/include/SDL2/SDL_gesture.h:
+
+/opt/homebrew/include/SDL2/SDL_gamecontroller.h:
+
+/opt/homebrew/include/SDL2/SDL_filesystem.h:
+
+/opt/homebrew/include/SDL2/SDL_events.h:
+
+/opt/homebrew/include/SDL2/SDL_error.h:
+
+/opt/homebrew/include/SDL2/SDL_scancode.h:
+
+/opt/homebrew/include/SDL2/SDL_endian.h:
+
+/opt/homebrew/include/SDL2/SDL_cpuinfo.h:
+
+/opt/homebrew/include/SDL2/SDL_audio.h:
+
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/stb_image.h:
+
+/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/packing.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/mat4x2.hpp:
 
@@ -16165,6 +16206,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/quaternion_double_precision.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/quaternion_double.hpp:
+
+/opt/homebrew/include/SDL2/SDL_guid.h:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_clip_space.hpp:
 
@@ -16200,6 +16243,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/simd/platform.h:
 
+/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/quaternion_relational.hpp:
+
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/quaternion_common.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/vector_uint3_sized.hpp:
@@ -16223,6 +16268,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/vector_double2_precision.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/vector_bool4.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/vector_bool3_precision.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/vector_bool2_precision.hpp:
 
@@ -16262,6 +16309,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_double4x4.hpp:
 
+/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_double4x3_precision.hpp:
+
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_double4x2_precision.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_double4x2.hpp:
@@ -16283,6 +16332,10 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_double2x2_precision.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_double2x2.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/fwd.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_clip_space.inl:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/vector_relational.hpp:
 
@@ -16317,6 +16370,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/detail/type_mat2x2.hpp:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/detail/type_float.hpp:
+
+/opt/homebrew/include/SDL2/SDL_power.h:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/detail/type_mat3x4.inl:
 
@@ -16354,6 +16409,10 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/material.h:
 
+/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/matrix.hpp:
+
+/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/light.h:
+
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/color4.inl:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/color4.h:
@@ -16384,91 +16443,13 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/DirLightObject.hpp:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_version.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_timer.h:
-
-/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/quaternion_relational.hpp:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_surface.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_sensor.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_scancode.h:
-
-/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_double4x3_precision.hpp:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_quit.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_platform.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_pixels.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_mutex.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_metal.h:
-
-/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/fwd.hpp:
-
-/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_clip_space.inl:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_messagebox.h:
-
-/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/packing.hpp:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_log.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_main.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_locale.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_keycode.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_joystick.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_hints.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_haptic.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_gamecontroller.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_filesystem.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_events.h:
-
-/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/matrix.hpp:
-
-/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/light.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_error.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_endian.h:
-
-/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/vector_bool3_precision.hpp:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_cpuinfo.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_config.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_clipboard.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_blendmode.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_audio.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_assert.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_mouse.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL.h:
-
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdarg.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/limits.h:
+
+/opt/homebrew/include/SDL2/SDL_platform.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/float.h:
 
@@ -16495,6 +16476,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/structs/Vertex.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/wchar.h:
+
+/opt/homebrew/include/SDL2/SDL_quit.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/wait.h:
 
@@ -16566,8 +16549,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_int16_t.h:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_render.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_ino_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h:
@@ -16606,8 +16587,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_shape.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_replace_if.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__node_handle:
@@ -16641,8 +16620,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_null.h:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_float4x4.hpp:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_atomic.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/pthread/pthread_impl.h:
 
@@ -16679,8 +16656,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/vector_double4_precision.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/variant:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_misc.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/typeinfo:
 
@@ -16768,8 +16743,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/chrono:
 
-/Library/Frameworks/SDL2.framework/Headers/close_code.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/cfloat:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/limits.h:
@@ -16824,6 +16797,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/strip_signature.h:
 
+/opt/homebrew/include/SDL2/SDL_mouse.h:
+
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/detail/type_half.inl:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/config.h:
@@ -16833,6 +16808,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/remove_volatile.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/utility:
+
+/opt/homebrew/include/SDL2/SDL_config.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__concepts/same_as.h:
 
@@ -16984,6 +16961,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_empty.h:
 
+/opt/homebrew/include/SDL2/SDL_keycode.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_useconds_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_copy_assignable.h:
@@ -17026,6 +17005,10 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_aggregate.h:
 
+/opt/homebrew/include/SDL2/SDL_log.h:
+
+/opt/homebrew/include/SDL2/SDL_clipboard.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/integral_constant.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/in_found_result.h:
@@ -17055,6 +17038,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/common_reference.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/apply_cv.h:
+
+/opt/homebrew/include/SDL2/SDL_hints.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/stdio.h:
 
@@ -17089,6 +17074,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/access.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__tuple_dir/apply_cv.h:
+
+/opt/homebrew/include/SDL2/SDL_haptic.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__tree:
 
@@ -17158,8 +17145,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__memory/unique_ptr.h:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_guid.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_nothrow_default_constructible.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/iomanip:
@@ -17181,6 +17166,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_const.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__memory/pointer_traits.h:
+
+/opt/homebrew/include/SDL2/SDL_hidapi.h:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/detail/type_mat4x4.hpp:
 
@@ -17226,8 +17213,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__memory/align.h:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_gesture.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__concepts/semiregular.h:
@@ -17248,9 +17233,9 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/reverse_access.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/malloc/_malloc_type.h:
+/opt/homebrew/include/SDL2/close_code.h:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_power.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/malloc/_malloc_type.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_search_n.h:
 
@@ -17292,6 +17277,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/move_iterator.h:
 
+/opt/homebrew/include/SDL2/SDL_joystick.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/mergeable.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/insert_iterator.h:
@@ -17320,8 +17307,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/replace.h:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_touch.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/xlocale/_inttypes.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_find_if_not.h:
@@ -17329,8 +17314,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/_xlocale.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__hash_table:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_system.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/iterator.h:
 
@@ -17452,8 +17435,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/iterator_traits.h:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_thread.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__filesystem/perms.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_lexicographical_compare.h:
@@ -17472,6 +17453,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__filesystem/directory_iterator.h:
 
+/opt/homebrew/include/SDL2/SDL_pixels.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__utility/unreachable.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__memory/temp_value.h:
@@ -17488,13 +17471,9 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__functional/function.h:
 
-/Library/Frameworks/SDL2.framework/Headers/begin_code.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_max.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__functional/bind_front.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_rwops.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__errc:
 
@@ -17562,8 +17541,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__concepts/assignable.h:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_video.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_replace_copy_if.h:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/Camera.hpp:
@@ -17573,6 +17550,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/src/Transform.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/exception:
+
+/opt/homebrew/include/SDL2/begin_code.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__chrono/duration.h:
 
@@ -17632,6 +17611,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__chrono/literals.h:
 
+/opt/homebrew/include/SDL2/SDL_stdinc.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__compare/compare_strong_order_fallback.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_default_constructible.h:
@@ -17649,8 +17630,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__functional/is_transparent.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/arm/_types.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_config_macosx.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__chrono/year.h:
 
@@ -17692,6 +17671,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__bit/countl.h:
 
+/opt/homebrew/include/SDL2/SDL_surface.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__variant/monostate.h:
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp/matrix4x4.inl:
@@ -17714,6 +17695,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__availability:
 
+/opt/homebrew/include/SDL2/SDL_metal.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/unwrap_range.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/unique_copy.h:
@@ -17723,6 +17706,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/sort_heap.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__iterator/front_insert_iterator.h:
+
+/opt/homebrew/include/SDL2/SDL_touch.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_stable_partition.h:
 
@@ -17767,8 +17752,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/copy.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/sift_down.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_keyboard.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/shift_right.h:
 
@@ -17832,8 +17815,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_double4x3.hpp:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_hidapi.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_unsigned.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/reverse_copy.h:
@@ -17857,6 +17838,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_unique_copy.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/includes.h:
+
+/opt/homebrew/include/SDL2/SDL_thread.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_transform.h:
 
@@ -17885,6 +17868,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/vector_float2_precision.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__memory/auto_ptr.h:
+
+/opt/homebrew/include/SDL2/SDL_blendmode.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/fill.h:
 
@@ -17960,8 +17945,6 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/fstream:
 
-/Library/Frameworks/SDL2.framework/Headers/SDL_loadso.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_copy.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/optional:
@@ -17990,6 +17973,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__functional/default_searcher.h:
 
+/opt/homebrew/include/SDL2/SDL_atomic.h:
+
 /Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm/ext/matrix_float4x2.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_is_permutation.h:
@@ -18007,6 +17992,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__functional/reference_wrapper.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/partition_copy.h:
+
+/opt/homebrew/include/SDL2/SDL.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/equal.h:
 
@@ -18142,6 +18129,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/sort.h:
 
+/opt/homebrew/include/SDL2/SDL_rwops.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/_ctermid.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__functional/mem_fn.h:
@@ -18163,6 +18152,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_uid_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/iterator_operations.h:
+
+/opt/homebrew/include/SDL2/SDL_locale.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/copy_cv.h:
 
@@ -18266,6 +18257,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__random/uniform_int_distribution.h:
 
+/opt/homebrew/include/SDL2/SDL_video.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/find_end.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__type_traits/is_char_like_type.h:
@@ -18294,9 +18287,13 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/ranges_partition.h:
 
+/opt/homebrew/include/SDL2/SDL_assert.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/copy_backward.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__chrono/steady_clock.h:
+
+/opt/homebrew/include/SDL2/SDL_loadso.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/comp_ref_type.h:
 
@@ -18326,6 +18323,8 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/AvailabilityInternalLegacy.h:
 
+/opt/homebrew/include/SDL2/SDL_sensor.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/_types.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__memory/destruct_n.h:
@@ -18343,7 +18342,5 @@ CMakeFiles/GLJam.dir/src/structs/Vertex.cpp.o: /Users/jianwending/Documents/Proj
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/initializer_list:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/c++/v1/__algorithm/find_first_of.h:
-
-/Library/Frameworks/SDL2.framework/Headers/SDL_rect.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include/TargetConditionals.h:

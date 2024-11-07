@@ -407,16 +407,26 @@ void VertexSpecification(){
         0.5f, -0.5f, -0.5f, // Vector
         // Vertex 2
         -0.5f, 0.5f, -0.5f, // Vector
+        // Vertex 3
+        0.5f, 0.5f, -0.5f, // Vector
+        // Vertex 4
+        -0.5f, -0.5f, 0.5f, // Vector
+        // Vertex 5
+        0.5f, -0.5f, 0.5f, // Vector
+        // Vertex 6
+        -0.5f, 0.5f, 0.5f, // Vector
+        // Vertex 7
+        0.5f, 0.5f, 0.5f, // Vector
     };
 
-    std::vector<GLuint> indexBufferData{2,0,1};
+    std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
     
     // Compiles into mesh
     GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 80.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
     renderManage->setLightMap(skyFrontPath,skyRightPath,skyLeftPath,skyBackPath,skyBottomPath,skyTopPath, SkyboxPipeline);
     //GLCheck(renderManage->insertModel(base3,basePath);)
-    //GLCheck(renderManage->insertModel(base,backpackPath);)
-    GLCheck(renderManage->insertModel(base2,buildingPath);)
+    GLCheck(renderManage->insertModel(base,backpackPath);)
+    //GLCheck(renderManage->insertModel(base2,buildingPath);)
     //GLCheck(renderManage->insertModel(base3,basePath);)
     //GLCheck(renderManage->insertModel(base4,planePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
