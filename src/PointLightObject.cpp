@@ -18,7 +18,7 @@ constant(setConstant) {
 
 void PointLightObject::render(int index, Shader* givenShader) {
     std::string base = "u_pointLight[" + std::to_string(index) + "]";
-    givenShader->setVec3(base + ".position", givenTransform->position);
+    givenShader->setVec3(base + ".position", givenTransform->getWorldPosition());
     givenShader->setVec3(base + ".ambient", ambient);
     givenShader->setVec3(base + ".diffuse", diffuse);
     givenShader->setVec3(base + ".spectral", spectral);
@@ -27,6 +27,6 @@ void PointLightObject::render(int index, Shader* givenShader) {
     givenShader->setFloat(base + ".quadratic", quadratic);
 }
 
-void PointLightObject::Destroy() {
+PointLightObject::~PointLightObject() {
     givenManager->detatchPointLightOb(this);
 }

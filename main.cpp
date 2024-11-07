@@ -15,6 +15,7 @@
 #include <assimp/postprocess.h>
 #include <filesystem>
 
+#include "Plane.hpp"
 #include "RenderManager.hpp"
 #include "ModelObject.hpp"
 #include "DirLightObject.hpp"
@@ -32,88 +33,6 @@
 #include "TextureArray.hpp"
 
 #define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
-// Current compile command
-//g++ main.cpp ./src/* -I./include/ -I./include/glm-master -std=c++11 -o a.out -lSDL2 -ldl
-
-// finds time
-unsigned long lastTime;
-float deltaTime;
-
-// finds speed
-const float speed = 5;
-
-// Globals
-const int WINDOW_WIDTH = 640;
-const int WINDOW_HEIGHT = 480;
-
-SDL_Window* graphicsWindow = nullptr;
-SDL_GLContext openGLContext = nullptr;
-bool gQuit = false;
-
-// Storage
-Transform transformStore;
-Transform transformStore2;
-Transform transformStore3;
-Transform transformStore4;
-Transform transformStore5;
-Transform transformStore6;
-Transform transformStore7;
-Transform transformStore8;
-RenderManager* renderManage;
-ModelObject* modelOb;
-ModelObject* modelOb2;
-DirLightObject* singleLight;
-PointLightObject* littleLight;
-
-/// Vertice specifiers (VAOs, VBOs, IBOs)
-GLuint IBO = 0;
-GLuint lightVAO = 0;
-GLuint lightVBO = 0;
-
-// Shaders
-const char* vertexShaderFileName = "../../shaders/vertex.glsl";
-const char* fragmentShaderFileName = "../../shaders/frag.glsl";
-const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
-const char* skyboxVertexShaderFileName = "../../shaders/skyboxVertex.glsl";
-const char* skyboxFragmentShaderFileName = "../../shaders/skyboxFrag.glsl";
-
-// Model
-char* base = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/backpack/backpack.obj";
-char* base2 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/mb/mb.obj";
-char* backpackPath = "../../models/backpack/";
-char* buildingPath = "../../models/mb/";
-char* base3 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/2Fort/2fort.obj";
-char* basePath = "../../models/2Fort/";
-char* base4 = "/Users/jianwending/Documents/ProjectsFolder/Current Projects/OpenGL_jam/models/NewPLaneObj/plane.obj";
-char* planePath = "../../models/NewPLaneObj/";
-
-
-// Paths
-char* skyBackPath = "../../textures/Box_Back.bmp";
-char* skyBottomPath = "../../textures/Box_Bottom.bmp";
-char* skyLeftPath = "../../textures/Box_Left.bmp";
-char* skyRightPath = "../../textures/Box_Right.bmp";
-char* skyTopPath = "../../textures/Box_Top.bmp";
-
-Shader* SkyboxPipeline;
-Shader* GraphicsPipeline;
-Shader* LightGraphicsPipeline;
-
-// Transform variables
-GLfloat u_offSet = -5;
-GLfloat u_rotate = 0;
-GLfloat u_scale = 0.5;
-GLfloat u_offSet2 = -5;
-GLfloat u_scale2 = 0.5;
-GLfloat u_lightRot = 0;
-GLfloat u_lightFoward = 0;
-GLfloat u_lightOrbit = 0;
-
-// Lighting variables
-GLfloat ambienceVal = 0.05f;
-glm::vec3 lightPos = glm::vec3(1.0f,1.0f,1.0f);
-
-Camera viewCam;
 
 static void GLClearErrors(){
     while(glGetError() != GL_NO_ERROR){
@@ -145,6 +64,88 @@ static bool GLCheckErrorStatus(const char* function, int line){
     }
     return false;
 }
+
+// Current compile command
+//g++ main.cpp ./src/* -I./include/ -I./include/glm-master -std=c++11 -o a.out -lSDL2 -ldl
+
+// finds time
+unsigned long lastTime;
+float deltaTime;
+
+// finds speed
+const float speed = 5;
+
+// Globals
+const int WINDOW_WIDTH = 640;
+const int WINDOW_HEIGHT = 480;
+
+SDL_Window* graphicsWindow = nullptr;
+SDL_GLContext openGLContext = nullptr;
+bool gQuit = false;
+
+// Storage
+std::unique_ptr<Plane> givenPlane;
+
+Transform transformStore;
+Transform transformStore2;
+Transform transformStore3;
+Transform transformStore4;
+Transform transformStore5;
+Transform transformStore6;
+Transform transformStore7;
+Transform transformStore8;
+Transform transformStore9;
+RenderManager* renderManage;
+ModelObject* modelOb;
+ModelObject* modelOb2;
+DirLightObject* singleLight;
+PointLightObject* littleLight;
+
+// Shaders
+const char* vertexShaderFileName = "../../shaders/vertex.glsl";
+const char* fragmentShaderFileName = "../../shaders/frag.glsl";
+const char* lightFragmentShaderFileName = "../../shaders/lightFrag.glsl";
+const char* skyboxVertexShaderFileName = "../../shaders/skyboxVertex.glsl";
+const char* skyboxFragmentShaderFileName = "../../shaders/skyboxFrag.glsl";
+
+// Model
+const char* base = "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/models/backpack/backpack.obj";
+const char* base2 = "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/models/mb/mb.obj";
+const char* backpackPath = "../../models/backpack/";
+const char* buildingPath = "../../models/mb/";
+const char* base3 = "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/models/2Fort/2fort.obj";
+const char* basePath = "../../models/2Fort/";
+const char* base4 = "/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/models/NewPLaneObj/plane.obj";
+const char* planePath = "../../models/NewPLaneObj/";
+
+
+// Paths
+const char* skyBackPath = "../../textures/Box_Back.bmp";
+const char* skyBottomPath = "../../textures/Box_Bottom.bmp";
+const char* skyFrontPath = "../../textures/Box_Front.bmp";
+const char* skyLeftPath = "../../textures/Box_Left.bmp";
+const char* skyRightPath = "../../textures/Box_Right.bmp";
+const char* skyTopPath = "../../textures/Box_Top.bmp";
+
+Shader* SkyboxPipeline;
+Shader* GraphicsPipeline;
+Shader* LightGraphicsPipeline;
+
+// Transform variables
+GLfloat u_offSet = -5;
+GLfloat u_rotate = 0;
+GLfloat u_scale = 0.5;
+GLfloat u_offSet2 = -5;
+GLfloat u_scale2 = 0.5;
+GLfloat u_lightRot = 0;
+GLfloat u_lightFoward = 0;
+GLfloat u_lightOrbit = 0;
+
+// Lighting variables
+GLfloat ambienceVal = 0.05f;
+glm::vec3 lightPos = glm::vec3(1.0f,1.0f,1.0f);
+
+Camera viewCam;
 
 std::string getFileString(const std::string& fileName){
     try{
@@ -182,28 +183,34 @@ void getInput(){
             gQuit = true;
         }
         else if(e.type == SDL_MOUSEMOTION){
-            viewCam.mouseLook(e.motion.xrel,e.motion.yrel);
+            // givenPlane->veerMouse(deltaTime, e.motion.xrel,e.motion.yrel);
         }
     }
-    u_rotate -= 0.0001f;
+    u_rotate -= 0.1f * deltaTime;
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     if(state[SDL_SCANCODE_UP]||state[SDL_SCANCODE_W]){
-        viewCam.moveFoward(speed * deltaTime);
+        givenPlane->veerDown(deltaTime);
     }
     if(state[SDL_SCANCODE_DOWN]||state[SDL_SCANCODE_S]){
-        viewCam.moveBackwards(speed * deltaTime);
+        givenPlane->veerUp(deltaTime);
+    }
+    if(state[SDL_SCANCODE_Q]){
+        givenPlane->skewLeft(deltaTime);
+    }
+    if(state[SDL_SCANCODE_E]){
+        givenPlane->skewRight(deltaTime);
     }
     if(state[SDL_SCANCODE_LEFT]||state[SDL_SCANCODE_A]){
-        viewCam.moveLeft(speed * deltaTime);
+        givenPlane->veerLeft(deltaTime);
     }
     if(state[SDL_SCANCODE_RIGHT]||state[SDL_SCANCODE_D]){
-        viewCam.moveRight(speed * deltaTime);
+        givenPlane->veerRight(deltaTime);
     }
     if(state[SDL_SCANCODE_Z]){
-        u_offSet += 0.01;
+        u_offSet += deltaTime;
     }
     if(state[SDL_SCANCODE_Y]){
-        u_lightRot += 0.0005;
+        u_lightRot += 0.2 * deltaTime;
     }
     if(state[SDL_SCANCODE_T]){
         u_lightOrbit += 0.01;
@@ -214,11 +221,16 @@ void getInput(){
         u_lightFoward -= 0.01;
     }
     if(state[SDL_SCANCODE_LSHIFT]){
-        viewCam.moveDown(speed * deltaTime);
+        givenPlane->fireLights();
+    }
+    if(state[SDL_SCANCODE_RSHIFT]){
+        givenPlane->deactivateLights();
     }
     if(state[SDL_SCANCODE_SPACE]){
-        viewCam.moveUp(speed * deltaTime);
+        givenPlane->accel(deltaTime);
     }
+
+    givenPlane->update(deltaTime);
 }
 
 void insertUniform1f(GLfloat insert, const char* name, GLuint shaderProgram){
@@ -274,9 +286,9 @@ void preDrawFunc(){
     glm::mat4 lightModelMatrix = glm::translate(modelMatrix, glm::vec3(u_offSet/5,-u_offSet/5,u_offSet));
     transformStore = Transform(glm::vec3(u_scale,u_scale,u_scale), glm::vec3(0.0f,0.0f,u_offSet), test3Quat);
     transformStore2 = Transform(glm::vec3(u_scale2,u_scale2,u_scale2), glm::vec3(0.0f,0.0f,u_offSet2), test3Quat * glm::normalize(glm::quat(cos(u_rotate),0.0f,sin(u_rotate),0.0f)));
-    transformStore3 = Transform(glm::vec3(0.0f), glm::vec3(0.0f),  glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)) * glm::normalize(glm::quat(cos(u_lightRot),0.0f,sin(u_lightRot),0.0f)));
+    transformStore3 = Transform(glm::vec3(0.0f), glm::vec3(0.0f),  glm::normalize(glm::quat(cos(u_lightRot),0.0f,sin(u_lightRot),0.0f)));
     transformStore4 = Transform(glm::vec3(0.25f),  viewCam.getEyeLoc() + viewCam.getViewLocation() * u_lightFoward, glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
-    transformStore5 = Transform(glm::vec3(0.25f),  glm::vec3(0.0f,0.0f,u_offSet) + glm::vec3(0.0f,0.0f,-1.0f) * glm::normalize(glm::quat(cos(u_lightOrbit),0.0f,sin(u_lightOrbit),0.0f)), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
+    transformStore5 = Transform(glm::vec3(0.25f),  glm::vec3(0.0f,0.0f,u_offSet) + glm::vec3(0.0f,0.0f,-1.0f) * glm::normalize(glm::quat(cos(u_lightOrbit) * (glm::sqrt(3)/glm::sqrt(4)),0.0f,sin(u_lightOrbit) * (glm::sqrt(3)/glm::sqrt(4)),-0.5f)), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
     transformStore7 = Transform(glm::vec3(0.25f),  viewCam.getEyeLoc(), glm::normalize(glm::quat(cos(u_lightOrbit),0.0f,sin(u_lightOrbit),0.0f)));
     // Create transformation matrices
     glm::mat4 viewMatrix = viewCam.getViewMat();
@@ -297,12 +309,7 @@ void preDrawFunc(){
 }
 
 void drawFunc(){
-    GraphicsPipeline->use();
-    GLCheck(renderManage->draw())
-
-    //LightGraphicsPipeline->use();
-    //glBindVertexArray(lightVAO);
-    //glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+    renderManage->draw();
     
     glUseProgram(0);
 }
@@ -339,8 +346,6 @@ void InitializeProgram(){
         exit(1);
     }
     getOpenGLVersionInfo();
-    lastTime = SDL_GetTicks();
-    deltaTime = 0;
 }
 
 GLuint CompileShader(GLuint type, const std::string& source){
@@ -398,67 +403,26 @@ void CreateGraphicsPipeline(){
     LightGraphicsPipeline = new Shader(vertexShaderFileName, lightFragmentShaderFileName);
 }
 
-void VertexSpecification(){
-    std::vector<GLfloat> lightVerticeData{
-        // Vertex 0
-        -0.5f, -0.5f, -0.5f, // Vector
-        // Vertex 1
-        0.5f, -0.5f, -0.5f, // Vector
-        // Vertex 2
-        -0.5f, 0.5f, -0.5f, // Vector
-        // Vertex 3
-        0.5f, 0.5f, -0.5f, // Vector
-        // Vertex 4
-        -0.5f, -0.5f, 0.5f, // Vector
-        // Vertex 5
-        0.5f, -0.5f, 0.5f, // Vector
-        // Vertex 6
-        -0.5f, 0.5f, 0.5f, // Vector
-        // Vertex 7
-        0.5f, 0.5f, 0.5f, // Vector
-    };
-
-    std::vector<GLuint> indexBufferData{2,0,1, 3,2,1, 5,4,6, 5,6,7, 4,0,2, 6,4,2, 5,1,3, 7,5,3, 6,2,3, 7,6,3, 4,0,1, 5,4,1};
-    
+void VertexSpecification(){ 
     // Compiles into mesh
     GLCheck(renderManage = new RenderManager(&viewCam, glm::perspective(glm::radians(45.0f), (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 80.0f), GraphicsPipeline, WINDOW_WIDTH, WINDOW_HEIGHT);)
-    //renderManage->setLightMap(skyFront)
-    //GLCheck(renderManage->insertModel(base3,basePath);)
+    renderManage->setLightMap(skyFrontPath,skyRightPath,skyLeftPath,skyBackPath,skyBottomPath,skyTopPath, SkyboxPipeline);
     GLCheck(renderManage->insertModel(base,backpackPath);)
     GLCheck(renderManage->insertModel(base2,buildingPath);)
     GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(renderManage->insertModel(base4,planePath);)
-    //GLCheck(renderManage->insertModel(base3,basePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
-    GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore9, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
-    //GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
-    // GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.25f),glm::vec3(0.8f),glm::vec3(0.5f));)
-    // GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
-    GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
-    // GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
+    GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f));)
     transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
     transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(-1.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
-    // Generates light VAO
-    // Generates VAO
-    glGenVertexArrays(1, &lightVAO);
-    glBindVertexArray(lightVAO);
+    givenPlane.reset(new Plane(&viewCam, renderManage, 3, 0.25, 0.5, 2.5, 6, 2.5, 0.5, glm::vec3(0.0f)));
+    transformStore9 = Transform(glm::vec3(0.5f), glm::vec3(0.5f), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
+    transformStore9.setParent(&transformStore);
 
-    // Generates VBO
-    glGenBuffers(1, &lightVBO);
-    glBindBuffer(GL_ARRAY_BUFFER, lightVBO);
-    glBufferData(GL_ARRAY_BUFFER, lightVerticeData.size() * sizeof(GLfloat), lightVerticeData.data(), GL_STATIC_DRAW);
-
-    //Binds IBO
-    glGenBuffers(1, &IBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBufferData.size()*sizeof(GLuint), indexBufferData.data(), GL_STATIC_DRAW);
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-    glBindVertexArray(0);
-    glDisableVertexAttribArray(0);
 }
 
 void MainLoop(){
@@ -494,6 +458,9 @@ int main(){
 
     // Specifies VAO and VBO
     VertexSpecification();
+
+    lastTime = SDL_GetTicks();
+    deltaTime = 0;
 
     // Continually draws over file
     MainLoop();

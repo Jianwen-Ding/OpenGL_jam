@@ -43,7 +43,7 @@ struct SpotLight{
     vec3 specular;
 };
 
-# define DEFAULT_SPEC vec3(0.25)
+# define DEFAULT_SPEC vec3(0.15)
 # define MAX_LIGHTS 25
 
 uniform int u_specBarrier;
@@ -57,7 +57,7 @@ uniform SpotLight u_spotLight[MAX_LIGHTS];
 uniform vec3 u_viewPos;
 
 
-# define MAX_TEXTURES 50
+# define MAX_TEXTURES 32
 uniform sampler2DArray u_givenTextures;
 uniform vec2 u_uvCoords[MAX_TEXTURES];
 uniform int u_textureLength;

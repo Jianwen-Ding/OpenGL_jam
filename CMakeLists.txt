@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.13.4)
 
+set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/assimp/5.4.3")
+
 project(GLJam)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -12,9 +14,10 @@ file(GLOB_RECURSE C_SOURCES ./src/*.c)
 add_executable(${PROJECT_NAME} main.cpp ${CPP_SOURCES} ${C_SOURCES})
 
 # Include directories
-target_include_directories(${PROJECT_NAME} PRIVATE
+target_include_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/include/glm-master
+    ${CMAKE_SOURCE_DIR}/include/glm-master/glm
     ${CMAKE_SOURCE_DIR}/include/glad
     ${CMAKE_SOURCE_DIR}/include/assimp
 )

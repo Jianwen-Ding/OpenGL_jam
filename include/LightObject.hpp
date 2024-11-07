@@ -14,7 +14,7 @@
         public:  
 
             LightObject(Transform* setTransform, RenderManager* setManager, glm::vec3 setAmbient, glm::vec3 setDiffuse, glm::vec3 setSpectral);
-            ~LightObject();
+            
             // Plugs light parameters into uniforms
             virtual void render(int index, Shader* givenShader) = 0;
 
@@ -25,9 +25,6 @@
 
         protected:
             RenderManager* givenManager;
-
-            // Releases light object from the render manager
-            virtual void Destroy() = 0;
     };
 
 

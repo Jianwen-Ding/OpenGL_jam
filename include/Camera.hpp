@@ -14,6 +14,9 @@ class Camera{
         Camera();
 
         glm::vec3 getEyeLoc();
+        void setEyeLoc(glm::vec3 setLoc);
+        void setViewOrient(glm::quat viewOrient);
+
         glm::mat4 getViewMat() const;
         glm::vec3 getViewLocation() const;
         glm::vec3 getFowardVec();

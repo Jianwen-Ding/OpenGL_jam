@@ -53,8 +53,7 @@ void Model::Draw(Shader &shader, Transform &transform){
     }
 }
 
-Model::Model(char *path, char *setBase){
-    std::cout << *setBase << std::endl;
+Model::Model(const char *path, const char *setBase){
     std::string baseCopy = setBase;
     base = baseCopy;
 
@@ -71,7 +70,7 @@ void Model::loadModel(std::string path){
     }
     dir = path.substr(0, path.find_last_of('/'));
 
-    processNode(scene->mRootNode, scene);
+    GLCheck(processNode(scene->mRootNode, scene);)
     for(unsigned int i = 0; i < textures_loaded.size(); i++){
         textures_loaded[i].free();
     }
@@ -80,10 +79,10 @@ void Model::loadModel(std::string path){
 void Model::processNode(aiNode *node, const aiScene *scene){
     for(unsigned int i = 0; i < node->mNumMeshes;i++){
         aiMesh *mesh = scene->mMeshes[node->mMeshes[i]];
-        meshes.push_back(processMesh(mesh,scene));
+        GLCheck(meshes.push_back(processMesh(mesh,scene));)
     }
     for(unsigned int i = 0; i < node->mNumChildren;i++){
-        processNode(node->mChildren[i], scene);
+        GLCheck(processNode(node->mChildren[i], scene);)    
     }
 }
 
@@ -114,7 +113,8 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
         else{
             uvVec = glm::vec2(0.0f, 0.0f);
         }
-        Vertex vert = *(new Vertex(posVec, normVec, uvVec));
+        
+        GLCheck(Vertex vert = Vertex(posVec, normVec, uvVec);)
         vertices.push_back(vert);
     }
 
@@ -130,23 +130,23 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
     // Gets Textures
     if(mesh->mMaterialIndex >= 0){
         aiMaterial *material = scene->mMaterials[mesh->mMaterialIndex];
-        std::vector<Texture> diffuseMaps = loadMaterial(material, aiTextureType_DIFFUSE, "texture_diffuse");
+        GLCheck(std::vector<Texture> diffuseMaps = loadMaterial(material, aiTextureType_DIFFUSE);)
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
         specBarr = diffuseMaps.size();
-        std::vector<Texture> specularMaps = loadMaterial(material, aiTextureType_SPECULAR, "texture_specular");
+        GLCheck(std::vector<Texture> specularMaps = loadMaterial(material, aiTextureType_SPECULAR);)
         textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
     }
     
 
-    TextureArray* givenArray = new TextureArray(textures, GL_RGBA);
+    GLCheck(TextureArray* givenArray = new TextureArray(textures, GL_RGBA);)
     givenArray->specBarrier = specBarr;
-    return Mesh(vertices, indices, givenArray);
+    GLCheck(Mesh newMesh = Mesh(vertices, indices, givenArray);)
+    GLCheck(return newMesh;)
 }
 
-std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type, std::string typeName){
+std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type){
     std::vector<Texture> textures;
     for(unsigned int i = 0; i < mat->GetTextureCount(type); i++){
-        std::cout << base << std::endl;
         aiString str;
         aiString baseStr(base);
         mat->GetTexture(type,i,&str);
@@ -160,11 +160,11 @@ std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type, st
             }
         }
         if(!skip){
-            std::cout << baseStr.C_Str() << std::endl;
-            GLCheck(Texture texture = Texture(baseStr.C_Str());)
+            Texture texture = Texture(baseStr.C_Str());
             textures.push_back(texture);
             textures_loaded.push_back(texture);
         }
     }
     return textures;
 }
+// Test

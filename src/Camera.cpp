@@ -50,3 +50,11 @@ void Camera::moveUp(float speed){
 void Camera::moveDown(float speed){
     eye.y -= speed;
 }
+
+void Camera::setEyeLoc(glm::vec3 setEye){
+    eye = setEye;
+}
+
+void Camera::setViewOrient(glm::quat viewOrient){
+    viewOrientation = viewOrient;
+}

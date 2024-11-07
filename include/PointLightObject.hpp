@@ -18,7 +18,7 @@ class PointLightObject : public LightObject{
             float setConstant);
 
         void render(int index, Shader* givenShader) override;
-        void Destroy() override;
+        ~PointLightObject();
 
         // Attenuation (light falloff) vars
         float linear;

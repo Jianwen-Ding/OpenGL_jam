@@ -13,6 +13,6 @@ void DirLightObject::render(int index, Shader* givenShader) {
     givenShader->setVec3(base + ".spectral", spectral);
 }
 
-void DirLightObject::Destroy() {
+DirLightObject::~DirLightObject() {
     givenManager->detatchDirLightOb(this);
 }

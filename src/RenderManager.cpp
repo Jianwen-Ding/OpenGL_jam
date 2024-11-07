@@ -13,8 +13,40 @@
 #include <map>
 #include <vector>
 
+#define GLCheck(x) GLClearErrors(); x; GLCheckErrorStatus(#x, __LINE__ );
 
-void RenderManager::insertModel(char* path, char* base){
+static void GLClearErrors(){
+    while(glGetError() != GL_NO_ERROR){
+    }
+}
+
+static bool GLCheckErrorStatus(const char* function, int line){
+    GLenum error;
+    while ((error = glGetError()) != GL_NO_ERROR) {
+        std::cout << "OpenGL error in " << function << " at line " << line << ": ";
+        switch (error) {
+            case GL_INVALID_ENUM:
+                std::cout << "GL_INVALID_ENUM\n";
+                break;
+            case GL_INVALID_VALUE:
+                std::cout << "GL_INVALID_VALUE\n";
+                break;
+            case GL_INVALID_OPERATION:
+                std::cout << "GL_INVALID_OPERATION\n";
+                break;
+            case GL_OUT_OF_MEMORY:
+                std::cout << "GL_OUT_OF_MEMORY\n";
+                break;
+            default:
+                std::cout << "Unknown error\n";
+                break;
+        }
+        return true;
+    }
+    return false;
+}
+
+void RenderManager::insertModel(const char* path, const char* base){
     Model* gotModel = new Model(path, base);
     std::vector<ModelObject*> initObList;
     modelList.push_back(gotModel);
@@ -22,6 +54,7 @@ void RenderManager::insertModel(char* path, char* base){
 }
 
 void RenderManager::draw(){
+    
     // Draws skybox
     if(hasSkybox){
         glDepthMask(GL_FALSE);
@@ -194,7 +227,7 @@ void RenderManager::detatchSpotLightOb(SpotLightObject* lightOb){
     }
 }
 
-void RenderManager::setLightMap(char* frontPath, char* rightPath, char* leftPath, char* backPath, char* bottomPath, char* topPath, Shader* givenLightShader){
+void RenderManager::setLightMap(const char* frontPath, const char* rightPath, const char* leftPath, const char* backPath, const char* bottomPath, const char* topPath, Shader* givenLightShader){
     // Initializes changes needed in rendermanager 
     hasSkybox = true;
     glGenTextures(1, &SkyboxTextureID);
@@ -212,8 +245,8 @@ void RenderManager::setLightMap(char* frontPath, char* rightPath, char* leftPath
     // Inserts texture data into cubemap
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 0, 0, GL_RGB, rightTex.tWidth, rightTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, rightTex.tData);
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 1, 0, GL_RGB, leftTex.tWidth, leftTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, leftTex.tData);
-    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 2, 0, GL_RGB, topTex.tWidth, topTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, topTex.tData);
-    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 3, 0, GL_RGB, bottomTex.tWidth, bottomTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bottomTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 3, 0, GL_RGB, topTex.tWidth, topTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, topTex.tData);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 2, 0, GL_RGB, bottomTex.tWidth, bottomTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bottomTex.tData);
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 4, 0, GL_RGB, frontTex.tWidth, frontTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, frontTex.tData);
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 5, 0, GL_RGB, backTex.tWidth, backTex.tHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, backTex.tData);
 
@@ -284,5 +317,4 @@ void RenderManager::setLightMap(char* frontPath, char* rightPath, char* leftPath
     glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
 }
