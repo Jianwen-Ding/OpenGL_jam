@@ -167,3 +167,4 @@ std::vector<Texture> Model::loadMaterial(aiMaterial *mat, aiTextureType type){
     }
     return textures;
 }
+// Test
