@@ -49,10 +49,6 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, TextureArr
     this -> vertices = vertices;
     this -> indices = indices;
     this -> textures = textures;
-    std::cout << "LOAD MESH" << std::endl;
-    std::cout << "vertices " << vertices.size() << std::endl;
-    std::cout << "indices " << indices.size() << std::endl;
-    std::cout << "textures " << textures->ID << std::endl;
     
     GLCheck(setupMesh();)
 }
@@ -104,9 +100,4 @@ void  Mesh::setupMesh(){
     GLCheck(glVertexAttribPointer(2,2,GL_FLOAT,GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));)
 
     GLCheck(glBindVertexArray(0);)
-
-    std::cout << "VAO Created " << VAO << std::endl;
-    std::cout << "VBO Created " << VBO << std::endl;
-    std::cout << "VBO Created " << EBO << std::endl;
-    
 }

@@ -54,7 +54,6 @@ void Model::Draw(Shader &shader, Transform &transform){
 }
 
 Model::Model(const char *path, const char *setBase){
-    // std::cout << *setBase << std::endl;
     std::string baseCopy = setBase;
     base = baseCopy;
 
@@ -75,9 +74,6 @@ void Model::loadModel(std::string path){
     for(unsigned int i = 0; i < textures_loaded.size(); i++){
         textures_loaded[i].free();
     }
-
-    std::cout << "Loaded " << meshes.size() << " meshes" << std::endl;
-    std::cout << "Loaded " << textures_loaded.size() << " textures" << std::endl;
 }
 
 void Model::processNode(aiNode *node, const aiScene *scene){
@@ -117,11 +113,6 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene){
         else{
             uvVec = glm::vec2(0.0f, 0.0f);
         }
-
-        //std::cout << "VERTEX" << std::endl;
-        //std::cout << "Pos Vec (" << posVec.x << "," << posVec.y << "," << posVec.z << ")" << std::endl;
-        //std::cout << "Norm Vec (" << normVec.x << "," << normVec.y << "," << normVec.z << ")" << std::endl;
-        //std::cout << "UV Vec (" << uvVec.x << "," << uvVec.y << ")" << std::endl;
         
         GLCheck(Vertex vert = Vertex(posVec, normVec, uvVec);)
         vertices.push_back(vert);
