@@ -11,12 +11,11 @@ gravity(setGravity),
 acceleration(setAccel),
 lift(setLift),
 maxVel(setMaxVel),
-mainTransform(glm::vec3(0.5f), initPos, glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, 0.0f))),
-cameraTransform(glm::vec3(0.5f), glm::vec3(0.0f, 3.5f, -20.0f), glm::normalize(glm::quat(0.0f, 0.0f, -1.0f, 0.0f))),
-spotlightTransform(glm::vec3(0.5f), glm::vec3(0.0f, 0.0f, 5.0f), glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, 0.0f))),
+mainTransform(glm::vec3(0.05f), initPos, glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, 0.0f))),
+cameraTransform(glm::vec3(0.5f), glm::vec3(0.0f, 3.0f, -20.0f), glm::normalize(glm::quat(0.0f, 0.0f, -1.0f, 0.0f))),
+spotlightTransform(glm::vec3(0.5f), glm::vec3(0.0f, 0.0f, 15.0f), glm::normalize(glm::quat(0.0f, 0.0f, -1.0f, 0.0f))),
 velocity(glm::vec3(0.0f)){
     cameraTransform.setParent(&mainTransform);
-    spotlightTransform = Transform(glm::vec3(0.5f), glm::vec3(0.0f, 0.0f, 5.0f), glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, 0.0f)));
     spotlightTransform.setParent(&mainTransform);
     ModelObject* createdModel = new ModelObject(&mainTransform, planeModelIdx, manager);
     currentModel.reset(createdModel);
@@ -31,22 +30,44 @@ void Plane::veerMouse(float deltaTime, float mouseX, float mouseY){
 }
 // Changes direction to veer plane into
 void Plane::veerLeft(float deltaTime){
-    mainTransform.rotation = glm::normalize(glm::normalize(glm::quat(glm::cos(deltaTime * veerSpeed) * glm::cos(deltaTime * veerSpeed), 0.0f, 0.0f, glm::sin(deltaTime * veerSpeed) * glm::sin(deltaTime * veerSpeed))) * mainTransform.rotation);
+    float veerAmount = deltaTime * veerSpeed;
+    glm::quat veerQuat = glm::angleAxis(veerAmount, glm::vec3(0.0f, 1.0f, 0.0f));
+    mainTransform.rotation = glm::normalize(veerQuat * mainTransform.rotation);
 }
 
 // Changes direction to veer plane into
 void Plane::veerRight(float deltaTime){
-    mainTransform.rotation = glm::normalize(glm::normalize(glm::quat(glm::cos(deltaTime * veerSpeed) * glm::cos(deltaTime * veerSpeed), 0.0f, 0.0f, -glm::sin(deltaTime * veerSpeed) * glm::sin(deltaTime * veerSpeed))) * mainTransform.rotation);
+    float veerAmount = deltaTime * veerSpeed;
+    glm::quat veerQuat = glm::angleAxis(-veerAmount, glm::vec3(0.0f, 1.0f, 0.0f));
+    mainTransform.rotation = glm::normalize(veerQuat * mainTransform.rotation);
+}
+
+// Changes direction to veer plane into
+void Plane::skewLeft(float deltaTime){
+    float veerAmount = deltaTime * veerSpeed;
+    glm::quat veerQuat = glm::angleAxis(-veerAmount, glm::vec3(0.0f, 0.0f, 1.0f));
+    mainTransform.rotation = glm::normalize(veerQuat * mainTransform.rotation);
+}
+
+// Changes direction to veer plane into
+void Plane::skewRight(float deltaTime){
+    float veerAmount = deltaTime * veerSpeed;
+    glm::quat veerQuat = glm::angleAxis(veerAmount, glm::vec3(0.0f, 0.0f, 1.0f));
+    mainTransform.rotation = glm::normalize(veerQuat * mainTransform.rotation);
 }
 
 // Changes direction to veer plane into
 void Plane::veerUp(float deltaTime){
-    mainTransform.rotation = glm::normalize(glm::normalize(glm::quat(glm::cos(deltaTime * veerSpeed) * glm::cos(deltaTime * veerSpeed), glm::sin(deltaTime * veerSpeed) * glm::sin(deltaTime * veerSpeed), 0.0f, 0.0f)) * mainTransform.rotation);
+    float veerAmount = deltaTime * veerSpeed;
+    glm::quat veerQuat = glm::angleAxis(veerAmount, glm::vec3(1.0f, 0.0f, 0.0f));
+    mainTransform.rotation = glm::normalize(veerQuat * mainTransform.rotation);
 }
 
 // Changes direction to veer plane into
 void Plane::veerDown(float deltaTime){
-    mainTransform.rotation = glm::normalize(glm::normalize(glm::quat(glm::cos(deltaTime * veerSpeed) * glm::cos(deltaTime * veerSpeed), -glm::sin(deltaTime * veerSpeed) * glm::sin(deltaTime * veerSpeed), 0.0f, 0.0f)) * mainTransform.rotation);
+    float veerAmount = deltaTime * veerSpeed;
+    glm::quat veerQuat = glm::angleAxis(-veerAmount, glm::vec3(1.0f, 0.0f, 0.0f));
+    mainTransform.rotation = glm::normalize(veerQuat * mainTransform.rotation);
 }
 
 // Accelerates the plane forwards
@@ -58,7 +79,7 @@ void Plane::accel(float deltaTime){
 void Plane::fireLights(){
     if(currentLight == nullptr){
         currentLight.reset(
-            new SpotLightObject(&spotlightTransform , renderManager, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032));
+            new SpotLightObject(&spotlightTransform , renderManager, glm::vec3(0.3f),glm::vec3(0.8f),glm::vec3(0.4f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.05, 0.032));
     }
 }
 
@@ -73,6 +94,6 @@ void Plane::update(float deltaTime){
     givenCamera->setViewOrient(cameraTransform.getWorldRotation());
 
     velocity -= deltaTime * gravity * glm::vec3(0.0f,1.0f, 0.0f); 
-    velocity += deltaTime * lift * (glm::vec3(0.0f,-1.0f, 0.0f) * mainTransform.getWorldRotation());
+    velocity += deltaTime * lift * (glm::vec3(0.0f,1.0f, 0.0f) * mainTransform.getWorldRotation());
     velocity -= deltaTime * drag * velocity;
 }

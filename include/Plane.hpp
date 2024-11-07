@@ -42,6 +42,12 @@ class Plane{
         void veerRight(float deltaTime);
 
         // Changes direction to veer plane into
+        void skewLeft(float deltaTime);
+
+        // Changes direction to veer plane into
+        void skewRight(float deltaTime);
+
+        // Changes direction to veer plane into
         void veerUp(float deltaTime);
 
         // Changes direction to veer plane into

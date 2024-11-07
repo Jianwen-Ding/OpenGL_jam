@@ -194,6 +194,12 @@ void getInput(){
     if(state[SDL_SCANCODE_DOWN]||state[SDL_SCANCODE_S]){
         givenPlane->veerUp(deltaTime);
     }
+    if(state[SDL_SCANCODE_Q]){
+        givenPlane->skewLeft(deltaTime);
+    }
+    if(state[SDL_SCANCODE_E]){
+        givenPlane->skewRight(deltaTime);
+    }
     if(state[SDL_SCANCODE_LEFT]||state[SDL_SCANCODE_A]){
         givenPlane->veerLeft(deltaTime);
     }
@@ -407,17 +413,13 @@ void VertexSpecification(){
     GLCheck(renderManage->insertModel(base4,planePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
-    GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore9, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
     GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f));)
-    GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
-    GLCheck(littleLight = new PointLightObject(&transformStore4, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), 1.0f, 0.09, 0.032);)
-    GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
     transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
     transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(-1.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
-    givenPlane.reset(new Plane(&viewCam, renderManage, 3, 0.3, 0.5, 5, 12.5, 5, 0.5, glm::vec3(-1.0f)));
+    givenPlane.reset(new Plane(&viewCam, renderManage, 3, 0.25, 0.5, 2.5, 6, 2.5, 0.5, glm::vec3(0.0f)));
     transformStore9 = Transform(glm::vec3(0.5f), glm::vec3(0.5f), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
     transformStore9.setParent(&transformStore);
 
