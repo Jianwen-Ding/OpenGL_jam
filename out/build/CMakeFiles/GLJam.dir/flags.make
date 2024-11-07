@@ -5,7 +5,7 @@
 # compile CXX with /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glad -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp -isystem /Library/Frameworks/SDL2.framework/Headers -iframework /Library/Frameworks -isystem /opt/homebrew/include
+C_INCLUDES = -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glad -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp -isystem /Library/Frameworks/SDL2.framework/Headers -iframework /Library/Frameworks -isystem /opt/homebrew/Cellar/assimp/5.4.3/include
 
 C_FLAGSarm64 =  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
 
@@ -13,7 +13,7 @@ C_FLAGS =  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Plat
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glad -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp -isystem /Library/Frameworks/SDL2.framework/Headers -iframework /Library/Frameworks -isystem /opt/homebrew/include
+CXX_INCLUDES = -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glm-master/glm -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/glad -I/Users/jianwending/Documents/ProjectsFolder/CurrentProjects/OpenGL_jam/include/assimp -isystem /Library/Frameworks/SDL2.framework/Headers -iframework /Library/Frameworks -isystem /opt/homebrew/Cellar/assimp/5.4.3/include
 
 CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
 

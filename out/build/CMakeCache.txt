@@ -226,7 +226,7 @@ GLJam_SOURCE_DIR:STATIC=/Users/jianwending/Documents/ProjectsFolder/CurrentProje
 SDL2_DIR:PATH=/Library/Frameworks/SDL2.framework/Resources/CMake
 
 //The directory containing a CMake configuration file for assimp.
-assimp_DIR:PATH=/opt/homebrew/lib/cmake/assimp-5.4
+assimp_DIR:PATH=/opt/homebrew/Cellar/assimp/5.4.3/lib/cmake/assimp-5.4
 
 
 ########################
