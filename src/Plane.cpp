@@ -10,9 +10,11 @@ drag(setDrag),
 gravity(setGravity),
 acceleration(setAccel),
 lift(setLift),
-maxVel(setMaxVel){
-    mainTransform = Transform(glm::vec3(0.5f), initPos, glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, 0.0f)));
-    cameraTransform = Transform(glm::vec3(0.5f), glm::vec3(0.0f, 2.5f, -15.0f), glm::normalize(glm::quat(0.0f, 0.0f, -1.0f, 0.0f)));
+maxVel(setMaxVel),
+mainTransform(glm::vec3(0.5f), initPos, glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, 0.0f))),
+cameraTransform(glm::vec3(0.5f), glm::vec3(0.0f, 3.5f, -20.0f), glm::normalize(glm::quat(0.0f, 0.0f, -1.0f, 0.0f))),
+spotlightTransform(glm::vec3(0.5f), glm::vec3(0.0f, 0.0f, 5.0f), glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, 0.0f))),
+velocity(glm::vec3(0.0f)){
     cameraTransform.setParent(&mainTransform);
     spotlightTransform = Transform(glm::vec3(0.5f), glm::vec3(0.0f, 0.0f, 5.0f), glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, 0.0f)));
     spotlightTransform.setParent(&mainTransform);
@@ -21,29 +23,35 @@ maxVel(setMaxVel){
     currentLight.reset(nullptr);
 }
 
+void Plane::veerMouse(float deltaTime, float mouseX, float mouseY){
+    glm::vec2 currentMouse = glm::vec2(mouseX,mouseY);
+    glm::quat yRot = glm::normalize(glm::quat(cos(-currentMouse.y/200),sin(-currentMouse.y/200),0,0));
+    glm::quat xRot = glm::normalize(glm::quat(cos(-currentMouse.x/200),0,sin(-currentMouse.x/200),0));
+    mainTransform.rotation = mainTransform.rotation * xRot * yRot;
+}
 // Changes direction to veer plane into
 void Plane::veerLeft(float deltaTime){
-    mainTransform.rotation = glm::normalize(glm::quat(1.0f, deltaTime * veerSpeed, 0.0f, 0.0f)) * mainTransform.rotation;
+    mainTransform.rotation = glm::normalize(glm::normalize(glm::quat(glm::cos(deltaTime * veerSpeed) * glm::cos(deltaTime * veerSpeed), 0.0f, 0.0f, glm::sin(deltaTime * veerSpeed) * glm::sin(deltaTime * veerSpeed))) * mainTransform.rotation);
 }
 
 // Changes direction to veer plane into
 void Plane::veerRight(float deltaTime){
-    mainTransform.rotation = glm::normalize(glm::quat(1.0f, -deltaTime * veerSpeed, 0.0f, 0.0f)) * mainTransform.rotation;
+    mainTransform.rotation = glm::normalize(glm::normalize(glm::quat(glm::cos(deltaTime * veerSpeed) * glm::cos(deltaTime * veerSpeed), 0.0f, 0.0f, -glm::sin(deltaTime * veerSpeed) * glm::sin(deltaTime * veerSpeed))) * mainTransform.rotation);
 }
 
 // Changes direction to veer plane into
 void Plane::veerUp(float deltaTime){
-    mainTransform.rotation = glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, deltaTime * veerSpeed)) * mainTransform.rotation;
+    mainTransform.rotation = glm::normalize(glm::normalize(glm::quat(glm::cos(deltaTime * veerSpeed) * glm::cos(deltaTime * veerSpeed), glm::sin(deltaTime * veerSpeed) * glm::sin(deltaTime * veerSpeed), 0.0f, 0.0f)) * mainTransform.rotation);
 }
 
 // Changes direction to veer plane into
 void Plane::veerDown(float deltaTime){
-    mainTransform.rotation = glm::normalize(glm::quat(1.0f, 0.0f, 0.0f, -deltaTime * veerSpeed)) * mainTransform.rotation;
+    mainTransform.rotation = glm::normalize(glm::normalize(glm::quat(glm::cos(deltaTime * veerSpeed) * glm::cos(deltaTime * veerSpeed), -glm::sin(deltaTime * veerSpeed) * glm::sin(deltaTime * veerSpeed), 0.0f, 0.0f)) * mainTransform.rotation);
 }
 
 // Accelerates the plane forwards
 void Plane::accel(float deltaTime){
-    velocity += deltaTime * acceleration * mainTransform.getFoward();
+    velocity -= deltaTime * acceleration * mainTransform.getFoward();
 }
 
 // Causes light 
@@ -64,8 +72,7 @@ void Plane::update(float deltaTime){
     givenCamera->setEyeLoc(cameraTransform.getWorldPosition());
     givenCamera->setViewOrient(cameraTransform.getWorldRotation());
 
-    velocity -= deltaTime * gravity * glm::vec3(0.0f,-1.0f, 0.0f); 
-    velocity += deltaTime * lift * (glm::vec3(0.0f,1.0f, 0.0f) * mainTransform.rotation);
+    velocity -= deltaTime * gravity * glm::vec3(0.0f,1.0f, 0.0f); 
+    velocity += deltaTime * lift * (glm::vec3(0.0f,-1.0f, 0.0f) * mainTransform.getWorldRotation());
     velocity -= deltaTime * drag * velocity;
-    std::cout << "(" << mainTransform.position.x << "," << mainTransform.position.y << "," << mainTransform.position.z << ")" << std::endl;
 }

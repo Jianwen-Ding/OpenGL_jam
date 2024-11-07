@@ -34,6 +34,7 @@ class Plane{
     public:
         Plane(Camera* setCamera, RenderManager* manager, int planeModelIdx, float setVeer, float setDrag, float setGravity, float setAccel, float setLift, float setMaxVel, glm::vec3 initPos);
 
+        void veerMouse(float deltaTime, float MouseX, float MouseY);
         // Changes direction to veer plane into
         void veerLeft(float deltaTime);
 

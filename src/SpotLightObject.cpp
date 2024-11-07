@@ -22,7 +22,7 @@ constant(setConstant) {
 
 void SpotLightObject::render(int index, Shader* givenShader) {
     std::string base = "u_spotLight[" + std::to_string(index) + "]";
-    givenShader->setVec3(base + ".position", givenTransform->position);
+    givenShader->setVec3(base + ".position", givenTransform->getWorldPosition());
     givenShader->setVec3(base + ".direction", givenTransform->getFoward());
     givenShader->setVec3(base + ".ambient", ambient);
     givenShader->setVec3(base + ".diffuse", diffuse);

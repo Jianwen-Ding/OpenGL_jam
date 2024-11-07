@@ -94,6 +94,7 @@ Transform transformStore5;
 Transform transformStore6;
 Transform transformStore7;
 Transform transformStore8;
+Transform transformStore9;
 RenderManager* renderManage;
 ModelObject* modelOb;
 ModelObject* modelOb2;
@@ -182,10 +183,10 @@ void getInput(){
             gQuit = true;
         }
         else if(e.type == SDL_MOUSEMOTION){
-            viewCam.mouseLook(e.motion.xrel,e.motion.yrel);
+            // givenPlane->veerMouse(deltaTime, e.motion.xrel,e.motion.yrel);
         }
     }
-    u_rotate -= 0.0001f;
+    u_rotate -= 0.1f * deltaTime;
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     if(state[SDL_SCANCODE_UP]||state[SDL_SCANCODE_W]){
         givenPlane->veerDown(deltaTime);
@@ -224,8 +225,6 @@ void getInput(){
     }
 
     givenPlane->update(deltaTime);
-
-    std::cout << "(" << transformStore6.position.x << "," << transformStore6.position.y << "," << transformStore6.position.z << ")" << std::endl;
 }
 
 void insertUniform1f(GLfloat insert, const char* name, GLuint shaderProgram){
@@ -341,8 +340,6 @@ void InitializeProgram(){
         exit(1);
     }
     getOpenGLVersionInfo();
-    lastTime = SDL_GetTicks();
-    deltaTime = 0;
 }
 
 GLuint CompileShader(GLuint type, const std::string& source){
@@ -411,6 +408,7 @@ void VertexSpecification(){
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore4, 1, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore9, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
     GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f));)
@@ -419,8 +417,9 @@ void VertexSpecification(){
     GLCheck(new SpotLightObject(&transformStore7, renderManage, glm::vec3(0.1f),glm::vec3(0.5f),glm::vec3(0.2f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.09, 0.032);)
     transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
     transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(-1.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
-
-    givenPlane.reset(new Plane(&viewCam, renderManage, 3, 0.5, 0.5, 0.5, 50, 1, 0.5, glm::vec3(-1.0f)));
+    givenPlane.reset(new Plane(&viewCam, renderManage, 3, 0.3, 0.5, 5, 12.5, 5, 0.5, glm::vec3(-1.0f)));
+    transformStore9 = Transform(glm::vec3(0.5f), glm::vec3(0.5f), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
+    transformStore9.setParent(&transformStore);
 
 }
 
@@ -457,6 +456,9 @@ int main(){
 
     // Specifies VAO and VBO
     VertexSpecification();
+
+    lastTime = SDL_GetTicks();
+    deltaTime = 0;
 
     // Continually draws over file
     MainLoop();
