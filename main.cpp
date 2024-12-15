@@ -95,6 +95,10 @@ Transform transformStore6;
 Transform transformStore7;
 Transform transformStore8;
 Transform transformStore9;
+Transform transformStore10;
+Transform transformStore11;
+Transform transformStore12;
+Transform transformStore13;
 RenderManager* renderManage;
 ModelObject* modelOb;
 ModelObject* modelOb2;
@@ -134,7 +138,7 @@ Shader* LightGraphicsPipeline;
 // Transform variables
 GLfloat u_offSet = -5;
 GLfloat u_rotate = 0;
-GLfloat u_scale = 0.5;
+GLfloat u_scale = 2;
 GLfloat u_offSet2 = -5;
 GLfloat u_scale2 = 0.5;
 GLfloat u_lightRot = 0;
@@ -184,27 +188,32 @@ void getInput(){
         }
         else if(e.type == SDL_MOUSEMOTION){
             // givenPlane->veerMouse(deltaTime, e.motion.xrel,e.motion.yrel);
+            viewCam.mouseLook(e.motion.xrel,e.motion.yrel);
         }
     }
     u_rotate -= 0.1f * deltaTime;
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     if(state[SDL_SCANCODE_UP]||state[SDL_SCANCODE_W]){
-        givenPlane->veerDown(deltaTime);
+        //givenPlane->veerDown(deltaTime);
+        viewCam.moveFoward(0.5f * deltaTime);
     }
     if(state[SDL_SCANCODE_DOWN]||state[SDL_SCANCODE_S]){
-        givenPlane->veerUp(deltaTime);
+        //givenPlane->veerUp(deltaTime);
+        viewCam.moveBackwards(0.5f * deltaTime);
     }
     if(state[SDL_SCANCODE_Q]){
-        givenPlane->skewLeft(deltaTime);
+        //givenPlane->skewLeft(deltaTime);
     }
     if(state[SDL_SCANCODE_E]){
-        givenPlane->skewRight(deltaTime);
+        //givenPlane->skewRight(deltaTime);
     }
     if(state[SDL_SCANCODE_LEFT]||state[SDL_SCANCODE_A]){
-        givenPlane->veerLeft(deltaTime);
+        //givenPlane->veerLeft(deltaTime);
+        viewCam.moveLeft(1.0f * deltaTime);
     }
     if(state[SDL_SCANCODE_RIGHT]||state[SDL_SCANCODE_D]){
-        givenPlane->veerRight(deltaTime);
+        //givenPlane->veerRight(deltaTime);
+        viewCam.moveRight(1.0f * deltaTime);
     }
     if(state[SDL_SCANCODE_Z]){
         u_offSet += deltaTime;
@@ -221,16 +230,24 @@ void getInput(){
         u_lightFoward -= 0.01;
     }
     if(state[SDL_SCANCODE_LSHIFT]){
-        givenPlane->fireLights();
+        // givenPlane->fireLights();
     }
     if(state[SDL_SCANCODE_RSHIFT]){
-        givenPlane->deactivateLights();
+        // givenPlane->deactivateLights();
     }
     if(state[SDL_SCANCODE_SPACE]){
-        givenPlane->accel(deltaTime);
+        // givenPlane->accel(deltaTime);
+    }
+     if(state[SDL_SCANCODE_LSHIFT]){
+        // givenPlane->deactivateLights();
+        viewCam.moveDown(1.0f * deltaTime);
+    }
+    if(state[SDL_SCANCODE_SPACE]){
+        // givenPlane->accel(deltaTime);
+        viewCam.moveUp(1.0f * deltaTime);
     }
 
-    givenPlane->update(deltaTime);
+    // givenPlane->update(deltaTime);
 }
 
 void insertUniform1f(GLfloat insert, const char* name, GLuint shaderProgram){
@@ -284,7 +301,7 @@ void preDrawFunc(){
     glm::quat test3Quat = testQuat * test2Quat;
     glm::mat4 rotationMatrix = glm::mat4_cast(test3Quat);
     glm::mat4 lightModelMatrix = glm::translate(modelMatrix, glm::vec3(u_offSet/5,-u_offSet/5,u_offSet));
-    transformStore = Transform(glm::vec3(u_scale,u_scale,u_scale), glm::vec3(0.0f,0.0f,u_offSet), test3Quat);
+    transformStore = Transform(glm::vec3(u_scale,u_scale,u_scale), glm::vec3(0.0f,10.0f,u_offSet), test3Quat);
     transformStore2 = Transform(glm::vec3(u_scale2,u_scale2,u_scale2), glm::vec3(0.0f,0.0f,u_offSet2), test3Quat * glm::normalize(glm::quat(cos(u_rotate),0.0f,sin(u_rotate),0.0f)));
     transformStore3 = Transform(glm::vec3(0.0f), glm::vec3(0.0f),  glm::normalize(glm::quat(cos(u_lightRot),0.0f,sin(u_lightRot),0.0f)));
     transformStore4 = Transform(glm::vec3(0.25f),  viewCam.getEyeLoc() + viewCam.getViewLocation() * u_lightFoward, glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
@@ -413,15 +430,22 @@ void VertexSpecification(){
     GLCheck(renderManage->insertModel(base4,planePath);)
     GLCheck(modelOb = new ModelObject(&transformStore, 0, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore2, 1, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore12, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore9, 1, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore8, 3, renderManage);)
     GLCheck(modelOb2 = new ModelObject(&transformStore6, 2, renderManage);)
+    GLCheck(modelOb2 = new ModelObject(&transformStore11, 2, renderManage);)
     GLCheck(singleLight = new DirLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f));)
+    new SpotLightObject(&transformStore3, renderManage, glm::vec3(0.2f),glm::vec3(0.5f),glm::vec3(0.3f), glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f)), 1.0f, 0.05, 0.032);
+    new PointLightObject(&transformStore12, renderManage, glm::vec3(0.2f),glm::vec3(0.2f,0.8f,0.2f),glm::vec3(0.2f,0.8f,0.2f), 0.5f, 0.02, 0.032);
     transformStore6 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f), glm::quat(1.0f,0.0f,0.0f,0.0f));
-    transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(-1.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
-    givenPlane.reset(new Plane(&viewCam, renderManage, 3, 0.25, 0.5, 2.5, 6, 2.5, 0.5, glm::vec3(0.0f)));
-    transformStore9 = Transform(glm::vec3(0.5f), glm::vec3(0.5f), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
+    transformStore8 = Transform(glm::vec3(0.1f), glm::vec3(0.0f, 0.5f, 0.0f), glm::normalize(glm::quat(1.0f,0.0f,-1.0f,0.0f)));
+    //givenPlane.reset(new Plane(&viewCam, renderManage, 3, 0.25, 0.5, 2.5, 6, 2.5, 0.5, glm::vec3(0.0f)));
+    transformStore9 = Transform(glm::vec3(0.5f), glm::vec3(0.0f, 0.5f, 0.0f), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
     transformStore9.setParent(&transformStore);
+    transformStore10 = Transform(glm::vec3(0.5f), glm::vec3(1.0f, 0.5f, 0.0f), glm::normalize(glm::quat(1.0f,0.0f,0.0f,0.0f)));
+    transformStore11 = Transform(glm::vec3(0.2f), glm::vec3(-1.0f, 20.0f, -1.0f), glm::quat( 0.0f,0.0f,0.0f,-1.0f));
+    transformStore12 = Transform(glm::vec3(5.75f), glm::vec3(5.0f, 10.0f, -1.0f), glm::quat( 0.5f,-0.5f,0.5f,-0.5f));
 
 }
 
@@ -439,6 +463,7 @@ void MainLoop(){
 
 void CleanUp(){
     renderManage->Quit();
+    delete SkyboxPipeline;
     delete GraphicsPipeline;
     delete LightGraphicsPipeline;
 
